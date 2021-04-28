@@ -1,0 +1,24 @@
+/* HOME SECTION 
+-----------------------------*/
+.home {
+    height: 100%;
+    padding-top: 50%;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right rgba($primary-color, 0.9), rgba($secondary-color, 0.1)),
+                url(../img/fola.jpg) no-repeat -200px center/cover;
+
+    &__name {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid set-text-color($primary-color);
+
+        &--last {
+            color: $secondary-color;
+            font-weight: 700;
+        }
+    }
+}

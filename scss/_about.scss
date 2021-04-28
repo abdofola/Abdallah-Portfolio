@@ -1,0 +1,66 @@
+/* ABOUT SECTION 
+--------------------------------*/
+.about {
+    padding-bottom: 2rem;
+
+    &__bio-image {
+        width: 100%;
+        height: 50vh;
+        background: linear-gradient(to right rgba($primary-color, 0.9),
+                     rgba($secondary-color, 0.1)),
+                    url(../img/fola.jpg) center center/cover;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        p {
+            margin-bottom: 2rem;
+        }
+
+        .about__bio {
+            width: 80%;
+            text-align: center;
+
+            .text-secondary {
+                padding-bottom: 1rem;
+            }
+        }
+    }
+
+    .jobs {
+        width: 60vw;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+        margin: 2rem auto 0;
+
+        &__job {
+            background: lighten($color: $primary-color, $amount: 10%);
+            border-bottom: 5px solid $secondary-color;
+            padding: 0.5rem;
+
+            h2, h3 {
+                margin: 0.5rem 0;
+            }
+
+            h6 {
+                margin: 0.3rem 0;
+            }
+            p {
+                font-size: .9rem;
+            }
+        }
+    }
+    
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer {
+    
+        transform: rotate(90deg) translate(-3rem, -5rem);
+    }
+}
