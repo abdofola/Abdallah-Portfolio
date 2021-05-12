@@ -2,13 +2,18 @@
 -----------------------------*/
 .home {
     height: 100%;
-    padding-top: 50%;
+    padding-top: 40vh;
     overflow: hidden;
     text-align: center;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(to right rgba($primary-color, 0.9), rgba($secondary-color, 0.1)),
-                url(../img/fola.jpg) no-repeat -200px center/cover;
+        url(../img/fola.jpg) no-repeat center top/cover;
+
+    & > h2:first-child {
+        font-size: 1em;
+    }
+    & > h2:last-of-type {
+        font-size: 1.2em;
+    }
 
     &__name {
         font-size: 3.5rem;

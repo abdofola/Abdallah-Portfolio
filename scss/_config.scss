@@ -18,8 +18,14 @@ html {
 
 @function set-text-color($color) {
     @if(lightness($color) > 40%){
-        @return #000; 
+        @return hsl(0, 0%, 0%); 
     } @else {
-        @return #fff;
+        @return hsl(0, 0%, 100%);
+    }
+}
+
+@mixin break-point($min){
+    @media screen and (min-width: $min) {
+        @content;
     }
 }

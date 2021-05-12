@@ -40,7 +40,6 @@
         }
         &.open {
             background: transparent;// you can't use opacity or visibility here
-            
             transform: rotate(720deg);
 
             &::before {
@@ -107,7 +106,6 @@
             @include transition-ease;
             
             &:hover {
-                transform: scale(1.1);
                 color: $secondary-color;  
             }
         }

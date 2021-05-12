@@ -6,10 +6,9 @@
     &__bio-image {
         width: 100%;
         height: 30vh;
-        background: linear-gradient(to right rgba($primary-color, 0.9),
-                     rgba($secondary-color, 0.1)),
-                    url(../img/fola.jpg) center center/cover;
-    
+        background: linear-gradient(to right rgba($primary-color, 0.9), rgba($secondary-color, 0.1)),
+            url(../img/fola.jpg) center center/cover;
+
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -19,7 +18,6 @@
             font-size: 2rem;
             margin-bottom: 2rem;
         }
-
     }
 
     &__items {
@@ -28,7 +26,6 @@
         grid-template-columns: 1fr;
         grid-gap: 2rem;
         margin: 2rem auto 0;
-
     }
 
     &__item {
@@ -42,7 +39,7 @@
         }
 
         &::after {
-            content: '';
+            content: "";
             position: absolute;
             top: 100%;
             left: 0;
@@ -76,6 +73,7 @@
         justify-content: center;
         text-align: center;
     }
+
     &__btn {
         opacity: 0;
         color: set-text-color($secondary-color);
@@ -85,14 +83,15 @@
             color: set-text-color(set-text-color($secondary-color));
         }
     }
-    
+
     .social-icons {
         display: flex;
         flex-direction: column;
     }
 
     footer {
-    
         transform: rotate(90deg) translate(-3rem, -5rem);
     }
+
+    
 }

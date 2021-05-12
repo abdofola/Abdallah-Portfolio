@@ -3,6 +3,9 @@
 @import 'menu';
 @import 'about';
 @import 'projects';
+@import 'contact';
+@import 'responsive';
+
 
 body {
     background: $primary-color;
@@ -36,6 +39,7 @@ main {
 
     .social-icons {
         position: fixed;
+        left: 0;
         bottom: 1rem;
         
         >a {
