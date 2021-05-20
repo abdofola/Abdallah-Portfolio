@@ -1,120 +1,119 @@
 /* MENU BUTTON
 ----------------------------------- */
 .menu-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  height: 20px;
+  width: 28px;
+  color: set-text-color($primary-color);
+  cursor: pointer;
+  @include transition-ease;
+
+  &__burger {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1;
-    height: 20px;
+    right: 0;
+    top: 0.5rem;
     width: 28px;
-    color: set-text-color($primary-color);
-    cursor: pointer;
+    height: 3px;
+    background-color: set-text-color($primary-color);
     @include transition-ease;
 
-    &__burger {
-        position: absolute;
-        right: 0;
-        top: 0.5rem;
-        width: 28px;
-        height: 3px;
-        background-color: set-text-color($primary-color);
-        @include transition-ease;
-
-        &::before {
-            position: inherit;
-            content: '';
-            top: -8px;
-            width: inherit;
-            height: 3px;
-            background: set-text-color($primary-color);
-            @include transition-ease;
-        }
-        &::after {
-            position: inherit;
-            content: '';
-            top: 8px;
-            width: 20px;
-            height: 3px;
-            background: set-text-color($primary-color);
-            @include transition-ease;
-        }
-        &.open {
-            background: transparent;// you can't use opacity or visibility here
-            transform: rotate(720deg);
-
-            &::before {
-                transform: rotate(45deg) translate(5px, 8px);
-            }
-            &::after {
-                width: inherit;
-                transform: rotate(-45deg) translate(3px, -7px);
-            }
-        }
+    &::before {
+      position: inherit;
+      content: "";
+      top: -8px;
+      width: inherit;
+      height: 3px;
+      background: set-text-color($primary-color);
+      @include transition-ease;
     }
+    &::after {
+      position: inherit;
+      content: "";
+      top: 8px;
+      width: 20px;
+      height: 3px;
+      background: set-text-color($primary-color);
+      @include transition-ease;
+    }
+    &.open {
+      background: transparent; // you can't use opacity or visibility here
+      transform: rotate(720deg);
+
+      &::before {
+        transform: rotate(45deg) translate(5px, 8px);
+      }
+      &::after {
+        width: inherit;
+        transform: rotate(-45deg) translate(3px, -7px);
+      }
+    }
+  }
 }
 /* THE NAVIGATION MENU
 -----------------------------------------*/
 .nav {
-    visibility: hidden;
-    opacity: 0.9;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
+  visibility: hidden;
+  opacity: 0.9;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &.open {
+    visibility: visible;
+  }
+
+  .menu-nav {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-right: 1rem;
+    list-style-type: none;
+    background: $primary-color;
+    overflow: hidden;
+    text-transform: uppercase;
+    color: set-text-color($primary-color);
+    transform: translateY(-100%);
+    @include transition-ease;
 
     &.open {
-        visibility: visible;
+      transform: translateY(0);
     }
 
-    .menu-nav {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        padding-right: 1rem;
-        list-style-type: none;
-        background: $primary-color;
-        overflow: hidden;
-        text-transform: uppercase;
-        color: set-text-color($primary-color);
-        transform: translateY(-100%);
-        @include transition-ease;
+    &__item {
+      transform: translateX(100vw);
+      @include transition-ease;
 
-        &.open {
-            transform: translateY(0);
-        }
-
-        &__item {
-            transform: translateX(100vw);
-            @include transition-ease;
-
-            &.open {
-                transform: translateX(0);
-            }
-            &.active > a{
-                color: $secondary-color;
-            }
-        }
-
-        &__link {
-            display: inline-block;
-            padding: 2rem 0;
-            font-size: 2rem;
-            font-weight: 300;
-            @include transition-ease;
-            
-            &:hover {
-                color: $secondary-color;  
-            }
-        }
+      &.open {
+        transform: translateX(0);
+      }
+      &.active > a {
+        color: $secondary-color;
+      }
     }
+
+    &__link {
+      display: inline-block;
+      padding: 2rem 0;
+      font-size: 2rem;
+      font-weight: 300;
+      @include transition-ease;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
 }
 
 @for $i from 1 through 4 {
-    .menu-nav__item:nth-child(#{$i}) {
-        transition-delay: $i*.2s;
-
-    }
-}   
+  .menu-nav__item:nth-child(#{$i}) {
+    transition-delay: $i * 0.2s;
+  }
+}

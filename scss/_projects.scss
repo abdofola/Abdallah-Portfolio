@@ -24,6 +24,9 @@
         width: 60vw;
         display: grid;
         grid-template-columns: 1fr;
+        /* Recomended for future
+          grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
+        */
         grid-gap: 2rem;
         margin: 2rem auto 0;
     }
@@ -92,6 +95,4 @@
     footer {
         transform: rotate(90deg) translate(-3rem, -5rem);
     }
-
-    
 }

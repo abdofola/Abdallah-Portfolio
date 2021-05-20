@@ -1,7 +1,8 @@
 /* GENERAL STYLE
 ------------------------------ */
 $primary-color: #272727;
-$secondary-color: #ff652f;
+$secondary-color: #51c4d3;
+$light-color: hsl(0,0%, 100%);
 
 html {
     box-sizing: border-box;
@@ -24,8 +25,13 @@ html {
     }
 }
 
-@mixin break-point($min){
+@mixin break-point-min($min){
     @media screen and (min-width: $min) {
+        @content;
+    }
+}
+@mixin break-point-max($max){
+    @media screen and (max-width: $max) {
         @content;
     }
 }
