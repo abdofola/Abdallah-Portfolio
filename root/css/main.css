@@ -254,7 +254,7 @@ html {
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
-  grid-gap: 2rem;
+  gap: 2rem;
   margin: 2rem auto 0;
 }
 
@@ -273,7 +273,7 @@ html {
 }
 
 .about .jobs__job p {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .about .social-icons {
@@ -633,6 +633,32 @@ html {
   }
 }
 
+/* ABOUT
+----------------------------------------*/
+@media screen and (max-height: 40em) {
+  .about__bio-image, .projects__bio-image {
+    height: 100vh;
+  }
+  .contact h2 {
+    font-size: 1.7rem;
+  }
+  .contact__list {
+    font-size: initial;
+    width: initial;
+  }
+  .contact__list .contact__phone {
+    -ms-grid-column-align: end;
+        justify-self: end;
+  }
+  .contact__list > * {
+    -ms-grid-column-align: initial;
+        justify-self: initial;
+  }
+  .contact .social-icons {
+    position: fixed;
+  }
+}
+
 body {
   background: #272727;
   color: white;
@@ -693,4 +719,3 @@ footer {
   font-size: 1rem;
   color: white;
 }
-/*# sourceMappingURL=main.css.map */
