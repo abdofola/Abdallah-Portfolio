@@ -35,3 +35,8 @@ html {
         @content;
     }
 }
+@mixin max-height($max-height) {
+    @media screen and (max-height: $max-height) {
+        @content;
+    }
+}

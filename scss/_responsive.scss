@@ -156,3 +156,31 @@
         }
     }
 }
+
+/* ABOUT
+----------------------------------------*/
+@include max-height(40em){
+    .about, .projects {
+        &__bio-image {
+            height: 100vh;
+        }
+    }
+    .contact {
+        h2 {
+            font-size: 1.7rem;
+        }
+        &__list {
+            font-size: initial;
+            width: initial;
+            .contact__phone {
+                justify-self: end;
+            }
+        }
+        &__list > * {
+            justify-self: initial;
+        }
+        .social-icons {
+            position: fixed;
+        }
+    }
+}
