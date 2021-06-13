@@ -1,70 +1,98 @@
 /* ABOUT SECTION 
 --------------------------------*/
 .about {
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
+  transition: all 0.5s 0.3s ease-in-out;
 
-    &__bio-image {
-        width: 100%;
-        height: 50vh;
-        background: linear-gradient(to right rgba($primary-color, 0.9),
-                     rgba($secondary-color, 0.1)),
-                    url(../img/fola.jpg) center center/cover;
-    
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
+  &__bio-image {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+        to right rgba($primary-color, 0.9),
+        rgba($secondary-color, 0.1)
+      ),
+      url(../img/fola.webp) center center/cover;
 
-        p {
-            margin-bottom: 2rem;
-        }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 
-        .about__bio {
-            width: 80%;
-            text-align: center;
+    .about__bio {
+      inline-size: 80%;
+      text-align: center;
 
-            .text-secondary {
-                padding-bottom: 1rem;
-            }
-            p {
-                text-align: left;
-            }
-        }
+      .text-secondary {
+        padding-block-end: 1rem;
+        opacity: 0;
+        transform: translateX(-7rem);
+        animation: clear 1s forwards;
+      }
+      p {
+        margin-block-end: 2rem;
+        text-align: justify;
+        text-align-last: center;
+        opacity: 0;
+        transform: translateX(7rem);
+        animation: clear 1s 0.5s forwards;
+      }
     }
-
-    .jobs {
-        width: 60vw;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin: 2rem auto 0;
-
-        &__job {
-            background: lighten($color: $primary-color, $amount: 10%);
-            border-bottom: 5px solid $secondary-color;
-            padding: 0.5rem;
-
-            h2, h3 {
-                margin: 0.5rem 0;
-            }
-
-            h6 {
-                margin: 0.3rem 0;
-            }
-            
-            p {
-                font-size: 0.9rem;
-            }
-        }
+    .header-cue {
+      width: 100%;
+      padding-block: 0.3rem;
+      background: $primary-color;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      transform: translateY(5rem);
+      overflow: hidden;
+      animation: clear 0.5s 1.5s forwards;
+      &-icon {
+        opacity: 0;
+        transform: translateY(-2rem);
+        animation: clear 0.5s 1.8s forwards, pulse 1.5s 2.5s infinite;
+      }
     }
-    
-    .social-icons {
-        display: flex;
-        flex-direction: column;
-    }
+  }
 
-    footer {
-    
-        transform: rotate(90deg) translate(-3rem, -5rem);
+  .jobs {
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem auto 0;
+
+    &__job {
+      background: lighten($color: $primary-color, $amount: 10%);
+      border-bottom: 5px solid $secondary-color;
+      padding: 0.5rem;
+
+      h2,
+      h3 {
+        margin: 0.5rem 0;
+      }
+
+      h6 {
+        margin: 0.3rem 0;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
     }
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    transform: rotate(90deg) translate(-3rem, -5rem);
+  }
 }
+
+@include clear;
+@include pulse;

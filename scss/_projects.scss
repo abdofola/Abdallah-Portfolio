@@ -1,98 +1,119 @@
 /* PROJECT SECTION 
 --------------------------------*/
 .projects {
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
+  transition: all 0.5s 0.3s ease-in-out;
 
-    &__bio-image {
-        width: 100%;
-        height: 30vh;
-        background: linear-gradient(to right rgba($primary-color, 0.9), rgba($secondary-color, 0.1)),
-            url(../img/fola.jpg) center center/cover;
+  &__bio-image {
+    position: relative;
+    inline-size: 100%;
+    block-size: 30vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 0% 0% 90% 90%;
+    // animation: radiant 2s 1.5s infinite;
 
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: center;
-
-        .text-secondary {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 0 0;
+      background: url(../img/folaa.jpg) center center/cover;
+      transform: translateY(300px) scale(1.2);
+      opacity: 0;
+      animation: clear 1.5s forwards;
     }
 
-    &__items {
-        width: 60vw;
-        display: grid;
-        grid-template-columns: 1fr;
-        /* Recomended for future
-          grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
-        */
-        grid-gap: 2rem;
-        margin: 2rem auto 0;
+    .text-secondary {
+      position: relative;
+      font-size: 2rem;
+      color: #fff;
+    //   margin-block-end: 2rem;
+      opacity: 0;
+      transform: translateX(-7rem);
+      animation: clear 2s forwards;
+    }
+  }
+
+  &__items {
+    inline-size: 60vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Recomended for future
+              grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
+            */
+    grid-gap: 2rem;
+    margin: 2rem auto 0;
+  }
+
+  &__item {
+    position: relative;
+    border-bottom: 5px solid $secondary-color;
+    overflow: hidden;
+    cursor: pointer;
+
+    img {
+      inline-size: 100%;
     }
 
-    &__item {
-        position: relative;
-        border-bottom: 5px solid $secondary-color;
-        overflow: hidden;
-        cursor: pointer;
-
-        img {
-            width: 100%;
-        }
-
-        &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            background: $secondary-color;
-            @include transition-ease;
-        }
-
-        &:hover {
-            &::after {
-                top: 0;
-                opacity: 0.9;
-            }
-            .projects__btn {
-                opacity: 1;
-            }
-        }
+    &::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline-start: 0;
+      inline-size: 100%;
+      block-size: 100%;
+      opacity: 0;
+      background: $secondary-color;
+      @include transition-ease;
     }
 
-    &__btns {
-        position: absolute;
+    &:hover {
+      &::after {
         top: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+        opacity: 0.9;
+      }
+      .projects__btn {
+        opacity: 1;
+      }
     }
+  }
 
-    &__btn {
-        opacity: 0;
-        color: set-text-color($secondary-color);
-        @include transition-ease;
+  &__btns {
+    position: absolute;
+    inset-block-start: 0;
+    z-index: 1;
+    inline-size: 100%;
+    block-size: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 
-        &:hover {
-            color: set-text-color(set-text-color($secondary-color));
-        }
+  &__btn {
+    opacity: 0;
+    color: set-text-color($secondary-color);
+    @include transition-ease;
+
+    &:hover {
+      color: set-text-color(set-text-color($secondary-color));
     }
+  }
 
-    .social-icons {
-        display: flex;
-        flex-direction: column;
-    }
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+  }
 
-    footer {
-        transform: rotate(90deg) translate(-3rem, -5rem);
-    }
+  footer {
+    transform: rotate(90deg) translate(-3rem, -5rem);
+  }
 }
+
+@include clear;
+@include pulse;
+@include radiant;

@@ -1,6 +1,7 @@
 /* HOME SECTION 
 -----------------------------*/
 .contact {
+  transition: all 0.5s 0.3s ease-in-out;
   height: 100%;
   padding-top: 40vh;
   overflow: hidden;
@@ -9,21 +10,31 @@
   align-items: center;
   background: linear-gradient(
       150deg,
-      rgba(230, 100, 101, 0.4),
-      rgba(145, 152, 229, 0.4)
+      rgba(255, 201, 7, .3),
+      rgba(22, 141, 226, .4)
     ),
-    url(../img/fola.jpg) no-repeat center top/cover;
+    url(../img/fola.webp) no-repeat center top/cover;
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 5%;
   }
+
   &__list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+
+    .contact__phone {
+      justify-self: flex-start;
+    }
+
+    .contact__email > a {
+      display: block;
+    }
   }
+
   .social-icons {
     position: initial;
     margin-top: 10%;
