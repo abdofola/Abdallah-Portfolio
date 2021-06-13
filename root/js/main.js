@@ -5,44 +5,100 @@ const menuBtn = document.querySelector(".menu-btn");
 const menuBtnToggler = document.querySelector(".menu-btn__burger");
 const nav = document.querySelector(".nav");
 const menuNav = document.querySelector(".menu-nav");
+const main = document.querySelector("main");
+const sections = document.querySelectorAll("section");
+const links = document.querySelectorAll("li .menu-nav__link");
 const menuItem = document.querySelectorAll(".menu-nav__item");
-const bioImg =
-  document.querySelector(".projects__bio-image") ||
-  document.querySelector(".about__bio-image");
+const bioImg = document.querySelector(".about__bio-image");
 const jobsWrapper = document.querySelector(".jobs");
-const footer = document.querySelector("footer");
+const footers = document.querySelectorAll("footer");
+const cue = document.querySelector(".header-cue");
 const currentYear = new Date().getFullYear();
 let open = false;
 
-// Event for toggling the menu
+// Events for toggling the menu.
 menuBtn.addEventListener("click", menuToggle);
+
+// Event to close the menu when clicking in any area of the document.
+nav.addEventListener("click", closeMenu);
+
+// Event to toggle sections
+links.forEach((link) => {
+  link.addEventListener("click", sectionToggle);
+});
 
 function menuToggle() {
   if (!open) {
     menuBtnToggler.classList.add("open");
     nav.classList.add("open");
     menuNav.classList.add("open");
-    menuItem.forEach((element) => element.classList.add("open"));
+    main.classList.add("navigation");
+    menuItem.forEach((element) => {
+      element.classList.add("open");
+    });
     open = true;
   } else {
     menuBtnToggler.classList.remove("open");
     nav.classList.remove("open");
     menuNav.classList.remove("open");
+    main.classList.remove("navigation");
     menuItem.forEach((element) => element.classList.remove("open"));
     open = false;
   }
 }
+function closeMenu() {
+  if (open) {
+    menuBtnToggler.classList.remove("open");
+    nav.classList.remove("open");
+    menuNav.classList.remove("open");
+    main.classList.remove("navigation");
+    menuItem.forEach((element) => element.classList.remove("open"));
+    open = false;
+  }
+}
+function sectionToggle(event) {
+  const linkId = event.target.dataset.id;
+  sections.forEach((section, idx) => {
+    const sectionId = section.getAttribute("id");
+    const match = sectionId == linkId;
+    if (!match) {
+      section.classList.add("d-none");
+      menuItem[idx].classList.remove("active");
+    } else {
+      section.classList.remove("d-none");
+      menuItem[idx].classList.add("active");
+    }
+  });
+}
+
+// pause animation until all assets on a page have loaded.
+document.body.classList.add("js-loading");
+window.addEventListener("load", animate);
+function animate() {
+  sections.forEach((section) => {
+    if (section.getAttribute("id") != "home") {
+      section.classList.add("d-none");
+    }
+  });
+  document.body.classList.remove("js-loading");
+}
 
 // Footer
-footer.append(currentYear);
+footers.forEach((footer) => {
+  footer.append(currentYear);
+});
 
 // function to add shadow to the nav when scroll
 function callback() {
   const bioRec = bioImg.getBoundingClientRect();
+  const cueRec = bioImg.getBoundingClientRect();
+  console.log(cueRec.top);
 
   bioRec.bottom <= 100
     ? nav.classList.add("scroll")
     : nav.classList.remove("scroll");
+
+  cueRec.top < 0 ? (cue.style.display = "none") : (cue.style.display = "block");
 
   window.requestAnimationFrame(callback);
 }
@@ -64,5 +120,3 @@ jobs.assignJob().forEach((job) => {
   jobDiv.append(h2, h3, h6, p);
   jobsWrapper.append(jobDiv);
 });
-
-

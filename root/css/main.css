@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");
 /* GENERAL STYLE
 ------------------------------ */
 html {
@@ -12,18 +13,32 @@ html {
   padding: 0;
 }
 
+/* hack to make animation paused til the all contents of the page is loaded.
+** Inspired by Donovan Hutchinson. https://css-tricks.com/making-animations-wait/
+*/
+.js-loading *,
+.js-loading *::before,
+.js-loading *::after {
+  -webkit-animation-play-state: paused !important;
+          animation-play-state: paused !important;
+}
+
 /* HOME SECTION 
 -----------------------------*/
 .home {
+  -webkit-transition: all 0.5s 0.3s ease-in-out;
+  transition: all 0.5s 0.3s ease-in-out;
   height: 100%;
   padding-top: 40vh;
   overflow: hidden;
   text-align: center;
-  background: linear-gradient(150deg, rgba(230, 100, 101, 0.4), rgba(145, 152, 229, 0.4)), url(../img/fola.jpg) no-repeat center top/cover;
+  background: linear-gradient(150deg, rgba(255, 201, 7, 0.3), rgba(22, 141, 226, 0.4)), url(../img/fola.webp) no-repeat center top/cover;
 }
 
 .home > h2:first-child {
   font-size: 1em;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
 }
 
 .home > h2:last-of-type {
@@ -42,15 +57,19 @@ html {
   font-weight: 700;
 }
 
+.home .social-icons {
+  inset-block-end: 1rem;
+}
+
 /* MENU BUTTON
 ----------------------------------- */
 .menu-btn {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
   z-index: 1;
-  height: 20px;
-  width: 28px;
+  block-size: 20px;
+  inline-size: 28px;
   color: white;
   cursor: pointer;
   -webkit-transition: all 0.5s ease-in-out;
@@ -59,10 +78,10 @@ html {
 
 .menu-btn__burger {
   position: absolute;
-  right: 0;
-  top: 0.5rem;
-  width: 28px;
-  height: 3px;
+  inset-inline-start: 0;
+  inset-block-start: 0.5rem;
+  inline-size: 28px;
+  block-size: 3px;
   background-color: white;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -71,9 +90,9 @@ html {
 .menu-btn__burger::before {
   position: inherit;
   content: "";
-  top: -8px;
-  width: inherit;
-  height: 3px;
+  inset-block-start: -8px;
+  inline-size: inherit;
+  block-size: 3px;
   background: white;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -82,9 +101,9 @@ html {
 .menu-btn__burger::after {
   position: inherit;
   content: "";
-  top: 8px;
-  width: 20px;
-  height: 3px;
+  inset-block-start: 8px;
+  inline-size: 20px;
+  block-size: 3px;
   background: white;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -102,9 +121,21 @@ html {
 }
 
 .menu-btn__burger.open::after {
-  width: inherit;
+  inline-size: inherit;
   -webkit-transform: rotate(-45deg) translate(3px, -7px);
           transform: rotate(-45deg) translate(3px, -7px);
+}
+
+.logo {
+  position: absolute;
+  inset-block-start: 1rem;
+  inset-inline-end: 1rem;
+  block-size: 20px;
+  inline-size: 28px;
+}
+
+.logo img {
+  inline-size: 100%;
 }
 
 /* THE NAVIGATION MENU
@@ -112,10 +143,10 @@ html {
 .nav {
   visibility: hidden;
   opacity: 0.9;
-  width: 100vw;
+  inline-size: 100vw;
   position: fixed;
-  top: 0;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
 }
 
 .nav.open {
@@ -132,50 +163,56 @@ html {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: normal;
+      -ms-flex-align: normal;
+          align-items: normal;
+  block-size: 100vh;
   padding-right: 1rem;
   list-style-type: none;
   background: #272727;
-  overflow: hidden;
+  overflow: visible;
   text-transform: uppercase;
   color: white;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
 .nav .menu-nav.open {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .nav .menu-nav__item {
-  -webkit-transform: translateX(100vw);
-          transform: translateX(100vw);
+  display: inline-block;
+  -webkit-transform: translateX(-100vw);
+          transform: translateX(-100vw);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
 .nav .menu-nav__item.open {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -webkit-transform: translateX(70%);
+          transform: translateX(70%);
 }
 
 .nav .menu-nav__item.active > a {
   color: #51c4d3;
 }
 
+.nav .menu-nav__item:first-child {
+  -webkit-margin-before: 5rem;
+          margin-block-start: 5rem;
+}
+
 .nav .menu-nav__link {
   display: inline-block;
   padding: 2rem 0;
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 300;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -209,13 +246,15 @@ html {
 --------------------------------*/
 .about {
   padding-bottom: 2rem;
+  -webkit-transition: all 0.5s 0.3s ease-in-out;
+  transition: all 0.5s 0.3s ease-in-out;
 }
 
 .about__bio-image {
   width: 100%;
-  height: 50vh;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(81, 196, 211, 0.1))), url(../img/fola.jpg) center center/cover;
-  background: linear-gradient(to right rgba(39, 39, 39, 0.9), rgba(81, 196, 211, 0.1)), url(../img/fola.jpg) center center/cover;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(81, 196, 211, 0.1))), url(../img/fola.webp) center center/cover;
+  background: linear-gradient(to right rgba(39, 39, 39, 0.9), rgba(81, 196, 211, 0.1)), url(../img/fola.webp) center center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,29 +262,63 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.about__bio-image p {
-  margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 .about__bio-image .about__bio {
-  width: 80%;
+  inline-size: 80%;
   text-align: center;
 }
 
 .about__bio-image .about__bio .text-secondary {
-  padding-bottom: 1rem;
+  -webkit-padding-after: 1rem;
+          padding-block-end: 1rem;
+  opacity: 0;
+  -webkit-transform: translateX(-7rem);
+          transform: translateX(-7rem);
+  -webkit-animation: clear 1s forwards;
+          animation: clear 1s forwards;
 }
 
 .about__bio-image .about__bio p {
-  text-align: left;
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+  text-align: justify;
+  text-align-last: center;
+  opacity: 0;
+  -webkit-transform: translateX(7rem);
+          transform: translateX(7rem);
+  -webkit-animation: clear 1s 0.5s forwards;
+          animation: clear 1s 0.5s forwards;
+}
+
+.about__bio-image .header-cue {
+  width: 100%;
+  padding-block: 0.3rem;
+  background: #272727;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  -webkit-transform: translateY(5rem);
+          transform: translateY(5rem);
+  overflow: hidden;
+  -webkit-animation: clear 0.5s 1.5s forwards;
+          animation: clear 0.5s 1.5s forwards;
+}
+
+.about__bio-image .header-cue-icon {
+  opacity: 0;
+  -webkit-transform: translateY(-2rem);
+          transform: translateY(-2rem);
+  -webkit-animation: clear 0.5s 1.8s forwards, pulse 1.5s 2.5s infinite;
+          animation: clear 0.5s 1.8s forwards, pulse 1.5s 2.5s infinite;
 }
 
 .about .jobs {
@@ -264,7 +337,8 @@ html {
   padding: 0.5rem;
 }
 
-.about .jobs__job h2, .about .jobs__job h3 {
+.about .jobs__job h2,
+.about .jobs__job h3 {
   margin: 0.5rem 0;
 }
 
@@ -291,17 +365,75 @@ html {
           transform: rotate(90deg) translate(-3rem, -5rem);
 }
 
+@-webkit-keyframes clear {
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes clear {
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: .5;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: .5;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 /* PROJECT SECTION 
 --------------------------------*/
 .projects {
   padding-bottom: 2rem;
+  -webkit-transition: all 0.5s 0.3s ease-in-out;
+  transition: all 0.5s 0.3s ease-in-out;
 }
 
 .projects__bio-image {
-  width: 100%;
-  height: 30vh;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(81, 196, 211, 0.1))), url(../img/fola.jpg) center center/cover;
-  background: linear-gradient(to right rgba(39, 39, 39, 0.9), rgba(81, 196, 211, 0.1)), url(../img/fola.jpg) center center/cover;
+  position: relative;
+  inline-size: 100%;
+  block-size: 30vh;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -315,22 +447,41 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 0% 0% 90% 90%;
+}
+
+.projects__bio-image::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  background: url(../img/folaa.jpg) center center/cover;
+  -webkit-transform: translateY(300px) scale(1.2);
+          transform: translateY(300px) scale(1.2);
+  opacity: 0;
+  -webkit-animation: clear 1.5s forwards;
+          animation: clear 1.5s forwards;
 }
 
 .projects__bio-image .text-secondary {
+  position: relative;
   font-size: 2rem;
-  margin-bottom: 2rem;
+  color: #fff;
+  opacity: 0;
+  -webkit-transform: translateX(-7rem);
+          transform: translateX(-7rem);
+  -webkit-animation: clear 2s forwards;
+          animation: clear 2s forwards;
 }
 
 .projects__items {
-  width: 60vw;
+  inline-size: 60vw;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   /* Recomended for future
-          grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
-        */
+              grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
+            */
   grid-gap: 2rem;
   margin: 2rem auto 0;
 }
@@ -343,16 +494,16 @@ html {
 }
 
 .projects__item img {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .projects__item::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: 100%;
   opacity: 0;
   background: #51c4d3;
   -webkit-transition: all 0.5s ease-in-out;
@@ -370,10 +521,10 @@ html {
 
 .projects__btns {
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   z-index: 1;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -413,9 +564,69 @@ html {
           transform: rotate(90deg) translate(-3rem, -5rem);
 }
 
+@keyframes clear {
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    opacity: .5;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes radiant {
+  0% {
+    -webkit-box-shadow: 0 1px 1px #51c4d3;
+            box-shadow: 0 1px 1px #51c4d3;
+  }
+  50% {
+    -webkit-box-shadow: 0 3px 3px #51c4d3;
+            box-shadow: 0 3px 3px #51c4d3;
+  }
+  100% {
+    -webkit-box-shadow: 0 1px 1px #51c4d3;
+            box-shadow: 0 1px 1px #51c4d3;
+  }
+}
+
+@keyframes radiant {
+  0% {
+    -webkit-box-shadow: 0 1px 1px #51c4d3;
+            box-shadow: 0 1px 1px #51c4d3;
+  }
+  50% {
+    -webkit-box-shadow: 0 3px 3px #51c4d3;
+            box-shadow: 0 3px 3px #51c4d3;
+  }
+  100% {
+    -webkit-box-shadow: 0 1px 1px #51c4d3;
+            box-shadow: 0 1px 1px #51c4d3;
+  }
+}
+
 /* HOME SECTION 
 -----------------------------*/
 .contact {
+  -webkit-transition: all 0.5s 0.3s ease-in-out;
+  transition: all 0.5s 0.3s ease-in-out;
   height: 100%;
   padding-top: 40vh;
   overflow: hidden;
@@ -429,11 +640,11 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: linear-gradient(150deg, rgba(230, 100, 101, 0.4), rgba(145, 152, 229, 0.4)), url(../img/fola.jpg) no-repeat center top/cover;
+  background: linear-gradient(150deg, rgba(255, 201, 7, 0.3), rgba(22, 141, 226, 0.4)), url(../img/fola.webp) no-repeat center top/cover;
 }
 
 .contact h2 {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 5%;
 }
 
@@ -443,7 +654,15 @@ html {
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   gap: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.contact__list .contact__phone {
+  justify-self: flex-start;
+}
+
+.contact__list .contact__email > a {
+  display: block;
 }
 
 .contact .social-icons {
@@ -513,9 +732,6 @@ html {
 /* PROJECTS
 ----------------------------------------*/
 @media screen and (min-width: 35em) {
-  .projects__bio-image {
-    height: 40vh;
-  }
   .projects__items {
     width: 70vw;
     -ms-grid-columns: (minmax(auto, 25em))[2];
@@ -635,36 +851,12 @@ html {
 
 /* ABOUT
 ----------------------------------------*/
-@media screen and (max-height: 40em) {
-  .about__bio-image, .projects__bio-image {
-    height: 100vh;
-  }
-  .contact h2 {
-    font-size: 1.7rem;
-  }
-  .contact__list {
-    font-size: initial;
-    width: initial;
-  }
-  .contact__list .contact__phone {
-    -ms-grid-column-align: end;
-        justify-self: end;
-  }
-  .contact__list > * {
-    -ms-grid-column-align: initial;
-        justify-self: initial;
-  }
-  .contact .social-icons {
-    position: fixed;
-  }
-}
-
 body {
   background: #272727;
   color: white;
   height: 100vh;
   line-height: 1;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Baloo Tammudu 2', cursive, sans-serif;
 }
 
 h1,
@@ -694,19 +886,32 @@ main {
   width: 100%;
 }
 
-main .social-icons {
-  position: fixed;
-  left: 0;
-  bottom: 1rem;
+main.navigation {
+  overflow: hidden;
 }
 
-main .social-icons > a {
+main.navigation .home, main.navigation .contact, main.navigation .about, main.navigation .projects {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translateX(65%) scale(0.85);
+          transform: translateX(65%) scale(0.85);
+  opacity: 0.5;
+}
+
+.social-icons {
+  position: fixed;
+  left: 0;
+  bottom: 0.2rem;
+}
+
+.social-icons > a {
   padding: 0.4rem;
+  font-size: 1.5rem;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
-main .social-icons > a:hover {
+.social-icons > a:hover {
   color: #51c4d3;
 }
 
@@ -718,4 +923,8 @@ footer {
   padding: 1rem;
   font-size: 1rem;
   color: white;
+}
+
+.d-none {
+  display: none;
 }

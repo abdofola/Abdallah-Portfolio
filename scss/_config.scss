@@ -12,6 +12,14 @@ html {
     margin: 0;
     padding: 0;
 }
+/* hack to make animation paused til the all contents of the page is loaded.
+** Inspired by Donovan Hutchinson. https://css-tricks.com/making-animations-wait/
+*/
+.js-loading *,
+.js-loading *::before,
+.js-loading *::after {
+  animation-play-state: paused !important;
+}
 
 @mixin transition-ease {
     transition: all 0.5s ease-in-out;
@@ -40,3 +48,42 @@ html {
         @content;
     }
 }
+@mixin pulse {
+    @keyframes pulse {
+        0% {
+            transform: none;
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: .5;
+            transform: scale(.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+@mixin clear {
+    @keyframes clear {
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+@mixin radiant {
+    @keyframes radiant {
+        0% {
+            box-shadow: 0 1px 1px $secondary-color;
+        }
+        50% {
+            box-shadow: 0 3px 3px $secondary-color;
+        }
+        100% {
+            box-shadow: 0 1px 1px $secondary-color;
+        }
+    }
+}
+  

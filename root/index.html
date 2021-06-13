@@ -17,28 +17,33 @@
 
 <body>
     <header>
-        <div class="menu-btn">
-            <span class="menu-btn__burger"></span>
-        </div>
+        <!-- <div class="header-wrapper"> -->
+            <div class="menu-btn">
+                <span class="menu-btn__burger"></span>
+            </div>
+            <div class="logo">
+                <img src="img/fola.png" alt="logo of fola">
+            </div>
+        <!-- </div> -->
         <nav class="nav">
             <ul class="menu-nav">
-                <li class="menu-nav__item active">
-                    <a href="index.html" class="menu-nav__link">
+                <li class="menu-nav__item active" >
+                    <a href="#home" data-id="home" class="menu-nav__link">
                         Home
                     </a>
                 </li>
-                <li class="menu-nav__item">
-                    <a href="about.html" class="menu-nav__link">
+                <li class="menu-nav__item" >
+                    <a href="#about" data-id="about" class="menu-nav__link">
                         About Me
                     </a>
                 </li>
-                <li class="menu-nav__item">
-                    <a href="projects.html" class="menu-nav__link">
+                <li class="menu-nav__item" >
+                    <a href="#projects" data-id="projects" class="menu-nav__link">
                         My Projects
                     </a>
                 </li>
-                <li class="menu-nav__item">
-                    <a href="contact.html" class="menu-nav__link">
+                <li class="menu-nav__item" >
+                    <a href="#contact" data-id="contact" class="menu-nav__link">
                         Contact Me
                     </a>
                 </li>
@@ -48,7 +53,7 @@
 
     <main>
         <!-- ************* HOME ************** -->
-        <section class="home">
+        <section id="home" class="home ">
             <h2>Hi! my name is</h2>
             <h1 class="home__name">Abdallah
                 <span class="home__name--last">Fola</span>
@@ -56,23 +61,181 @@
             <h2>Web Developer, Designer & Programmer</h2>
             <div class="social-icons">
                 <a href="https://twitter.com/foola_sust">
-                    <i class="fab fa-twitter fa-2x"></i>
+                    <i class="fab fa-twitter"></i>
                 </a>
                 <a href="https://web.facebook.com/abdalla.abdalmunim">
-                    <i class="fab fa-facebook fa-2x"></i>
+                    <i class="fab fa-facebook"></i>
                 </a>
                 <a href="https://www.instagram.com/abdo_foola/">
-                    <i class="fab fa-instagram fa-2x"></i>
+                    <i class="fab fa-instagram"></i>
                 </a>
                 <a href="https://github.com/abdofola?tab=repositories">
-                    <i class="fab fa-github fa-2x"></i>
+                    <i class="fab fa-github"></i>
                 </a>
             </div><!--.social-icons -->
-
-            <footer>&copy; Copyright </footer>
+            <footer>&copy; Copyright </footer>  
         </section><!--.home-->
 
+        <!-- ************* ABOUT ************** -->
+        <section id="about" class="about">
+            <div class="about__bio-image">
+                <div class="about__bio">
+                    <h2 class="text-secondary">BIO</h2>
+                    <p>After earning my Bachlor degree in Software-Engineering from Sudan University, I entered the Programming world to explore my passion for Software, Programming languages, and Designing. Currently, I work as an Odoo developer for App-script, where I'm focused on software production, solving technical problems, and team play. Further more I work as a front-end developer freelancer to deliver incredible websites.
+                    </p>
+                </div>
+                <div class="header-cue">
+                    <i class="header-cue-icon fas fa-chevron-down"></i>
+                </div>
+            </div><!-- .about__bio-image -->
+
+            <div class="jobs"></div>
+            <div class="social-icons">
+                <a href="https://twitter.com/foola_sust">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://web.facebook.com/abdalla.abdalmunim">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/abdo_foola/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/abdofola?tab=repositories">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div><!--.social-icons -->
+            <footer>&copy; Copyright </footer>
+        </section><!--.about-->
+
+        <!-- ************* PROJECTS ************** -->
+        <section id="projects" class="projects">
+            <div class="projects__bio-image">
+                <h1 class="text-secondary">My Projects</h1>
+            </div>
+            <div class="projects__items">
+                <div class="projects__item">
+                    <img src="img/project-1.png" alt="My project">
+                    <div class="projects__btns">
+                        <a href="#!" class="projects__btn">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                        <a href="#!" class="projects__btn">
+                            <i class="fab fa-github"></i> Githb
+                        </a>
+                    </div>
+                </div>
+                <div class="projects__item">
+                    <img src="img/project-1.png" alt="My project">
+                    <div class="projects__btns">
+                        <a href="#!" class="projects__btn">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                        <a href="#!" class="projects__btn">
+                            <i class="fab fa-github"></i> Githb
+                        </a>
+                    </div>
+                </div>
+                <div class="projects__item">
+                    <img src="img/project-2.png" alt="My project">
+                    <div class="projects__btns">
+                        <a href="#!" class="projects__btn">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                        <a href="#!" class="projects__btn">
+                            <i class="fab fa-github"></i> Githb
+                        </a>
+                    </div>
+                </div>
+                <div class="projects__item">
+                    <img src="img/project-3.png" alt="My project">
+                    <div class="projects__btns">
+                        <a href="#!" class="projects__btn">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                        <a href="#!" class="projects__btn">
+                            <i class="fab fa-github"></i> Githb
+                        </a>
+                    </div>
+                </div>
+                <div class="projects__item">
+                    <img src="img/project-4.png" alt="My project">
+                    <div class="projects__btns">
+                        <a href="#!" class="projects__btn">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                        <a href="#!" class="projects__btn">
+                            <i class="fab fa-github"></i> Githb
+                        </a>
+                    </div>
+                </div>
+                <div class="projects__item">
+                    <img src="img/project-5.png" alt="My project">
+                    <div class="projects__btns">
+                        <a href="#!" class="projects__btn">
+                            <i class="fas fa-eye"></i> Preview
+                        </a>
+                        <a href="#!" class="projects__btn">
+                            <i class="fab fa-github"></i> Githb
+                        </a>
+                    </div>
+                </div>
+            </div><!-- .projects__items -->
+            <div class="social-icons">
+                <a href="https://twitter.com/foola_sust">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://web.facebook.com/abdalla.abdalmunim">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/abdo_foola/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/abdofola?tab=repositories">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div><!--.social-icons -->
+            <footer>&copy; Copyright </footer>
+        </section><!-- .projects -->
+
+         <!-- ************* CONTACT ************** -->
+         <section id="contact" class="contact">
+            <H2>Contact Me..</H2>
+            <div class="contact__list">
+                <address class="contact__email">
+                    <i class="fas fa-envelope"></i> Email
+                    <a href="mailto:abdofola67@gmail.com"  class="text-secondary">abdofola67@gmail.com</a>
+                </address>
+                <address class="contact__phone">
+                    <i class="fas fa-mobile-alt"></i> Phone
+                    <div class="text-secondary">+249908608183</div>
+                </address>
+                <address class="contact__address">
+                    <i class="far fa-address-card"></i> Address
+                    <div class="text-secondary">khartoum-Bahri-alkhatmyia</div>
+                </address>
+            </div><!--.contact__list -->
+            <div class="social-icons">
+                <a href="https://twitter.com/foola_sust">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://web.facebook.com/abdalla.abdalmunim">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/abdo_foola/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/abdofola?tab=repositories">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div><!--.social-icons -->
+            <footer>&copy; Copyright </footer>
+        </section><!-- .contact -->
+
     </main>
+    
+    
+
+    
 
     <!-- ************ FONTAWSOME ************** -->
     <script src="https://kit.fontawesome.com/9fa0bb35ad.js" crossorigin="anonymous"></script>

@@ -59,7 +59,7 @@
 .projects {
     @include break-point-min(35em) {
         &__bio-image {
-            height: 40vh;
+            // height: 40vh;
         }
         &__items {
             width: 70vw;
@@ -159,28 +159,28 @@
 
 /* ABOUT
 ----------------------------------------*/
-@include max-height(40em){
-    .about, .projects {
-        &__bio-image {
-            height: 100vh;
-        }
-    }
-    .contact {
-        h2 {
-            font-size: 1.7rem;
-        }
-        &__list {
-            font-size: initial;
-            width: initial;
-            .contact__phone {
-                justify-self: end;
-            }
-        }
-        &__list > * {
-            justify-self: initial;
-        }
-        .social-icons {
-            position: fixed;
-        }
-    }
-}
+// @include max-height(40em){
+//     .about, .projects {
+//         &__bio-image {
+//             height: 100vh;
+//         }
+//     }
+//     .contact {
+//         h2 {
+//             font-size: 1.7rem;
+//         }
+//         &__list {
+//             font-size: initial;
+//             width: initial;
+//             .contact__phone {
+//                 justify-self: end;
+//             }
+//         }
+//         &__list > * {
+//             justify-self: initial;
+//         }
+//         .social-icons {
+//             position: fixed;
+//         }
+//     }
+// }
