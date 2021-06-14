@@ -8,7 +8,7 @@ const menuNav = document.querySelector(".menu-nav");
 const main = document.querySelector("main");
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("li .menu-nav__link");
-const menuItem = document.querySelectorAll(".menu-nav__item");
+const menuItems = document.querySelectorAll(".menu-nav__item");
 const bioImg = document.querySelector(".about__bio-image");
 const jobsWrapper = document.querySelector(".jobs");
 const footers = document.querySelectorAll("footer");
@@ -67,8 +67,8 @@ menuBtn.addEventListener("click", menuToggle);
 nav.addEventListener("click", closeMenu);
 
 // Event to toggle sections
-links.forEach((link) => {
-  link.addEventListener("click", sectionToggle);
+menuItems.forEach((menuItem) => {
+  menuItem.addEventListener("click", sectionToggle);
 });
 
 function menuToggle() {
@@ -82,7 +82,7 @@ function closeMenu() {
   nav.classList.remove("open");
   menuNav.classList.remove("open");
   main.classList.remove("navigation");
-  menuItem.forEach((element) => element.classList.remove("open"));
+  menuItems.forEach((element) => element.classList.remove("open"));
   open = false;
   console.log("Open: ", open);
 }
@@ -91,7 +91,7 @@ function openMenu() {
   nav.classList.add("open");
   menuNav.classList.add("open");
   main.classList.add("navigation");
-  menuItem.forEach((element) => element.classList.add("open"));
+  menuItems.forEach((element) => element.classList.add("open"));
   open = true;
   console.log("Open: ", open);
 }
@@ -102,10 +102,10 @@ function sectionToggle(event) {
     const match = sectionId == linkId;
     if (!match) {
       section.classList.add("d-none");
-      menuItem[idx].classList.remove("active");
+      menuItems[idx].classList.remove("active");
     } else {
       section.classList.remove("d-none");
-      menuItem[idx].classList.add("active");
+      menuItems[idx].classList.add("active");
     }
   });
 }
