@@ -43,7 +43,6 @@ function handleMove(event) {
 }
 function handleEnd(event) {
   drag = false;
-  // open = false;
   cancelAnimationFrame(animationId);
   const movedBy = currentPosition - startPosition;
   console.log("moved By:", movedBy);
@@ -62,16 +61,12 @@ function translate() {
 // Events for toggling the menu.
 menuBtn.addEventListener("click", menuToggle);
 
-// Event to close the menu when clicking in any area of the document.
-// nav.addEventListener("click", closeMenu);
-
 // Event to toggle sections
 links.forEach((link) => {
   link.addEventListener("click", sectionToggle);
 });
 
 function menuToggle(event) {
-  // open = false;
   !open ? openMenu(event.type) : closeMenu(event.type);
 }
 function closeMenu(type) {
@@ -131,12 +126,11 @@ function callback() {
   const bioRec = bioImg.getBoundingClientRect();
   const cueRec = bioImg.getBoundingClientRect();
   console.log(cueRec.top);
-
+  
   bioRec.bottom <= 100
-    ? nav.classList.add("scroll")
-    : nav.classList.remove("scroll");
-
-  cueRec.top < 0 ? cue.classList.add("d-none") : cue.classList.remove("d-none");
+  ? nav.classList.add("scroll")
+  : nav.classList.remove("scroll");
+    cueRec.top < 0 ? cue.classList.add("d-none") : cue.classList.remove("d-none");
 
   window.requestAnimationFrame(callback);
 }
