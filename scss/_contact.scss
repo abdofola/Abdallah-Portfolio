@@ -26,12 +26,30 @@
     gap: 2rem;
     font-size: 1.2rem;
 
-    .contact__phone {
-      justify-self: flex-start;
+    address > div {
+      color: $yellow;
     }
 
-    .contact__email > a {
-      display: block;
+    a {
+      display: inline-block;
+      inline-size: 75%;
+      outline: none;
+      &:link {
+        color: $yellow;
+      }
+      &:visited{
+        color: $secondary-color;
+      }
+      &:focus{
+        border-bottom: 1px solid;
+      }
+      &:hover {
+        background: darken($color: $yellow, $amount: 30%);
+        border-bottom: 1px solid;
+      }
+      &:active{
+        color: $secondary-color;
+      }
     }
   }
 

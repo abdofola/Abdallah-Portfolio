@@ -16,6 +16,32 @@ const cue = document.querySelector(".header-cue");
 const currentYear = new Date().getFullYear();
 let open = false;
 
+// Fire up Touch Events when content loads
+document.addEventListener("DOMContentLoaded", startup);
+function startup() {
+  main.addEventListener("touchend", handleEnd, false);
+}
+
+function handleEnd(event) {
+  const touches = event.changedTouches;
+  for (let index = 0; index < touches.length; index++) {
+    console.log("client width:", this.clientWidth);
+    console.log("clientX:", touches[index].clientX);
+    const position = this.clientWidth - touches[index].clientX;
+    console.log("Position: ", position);
+    if (position <= 350 && touches[index].clientX <=200) {
+      menuBtnToggler.classList.add("open");
+      nav.classList.add("open");
+      menuNav.classList.add("open");
+      main.classList.add("navigation");
+      menuItem.forEach((element) => {
+        element.classList.add("open");
+      });
+      open = true;
+    }
+  }
+}
+
 // Events for toggling the menu.
 menuBtn.addEventListener("click", menuToggle);
 
