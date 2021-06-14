@@ -175,7 +175,6 @@ html {
   display: inline-block;
   inline-size: 100%;
   border-bottom: 1px solid;
-  text-align: center;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   -webkit-transition: all 0.5s ease-in-out;
@@ -198,7 +197,7 @@ html {
 
 .nav .menu-nav__link {
   display: inline-block;
-  padding: 2rem 0;
+  margin: 2rem 0 2rem 3rem;
   font-size: 1.3rem;
   font-weight: 300;
   -webkit-transition: all 0.5s ease-in-out;
@@ -636,12 +635,20 @@ html {
 }
 
 .contact__list {
+  -webkit-margin-start: 3rem;
+          margin-inline-start: 3rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   gap: 2rem;
   font-size: 1.2rem;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .contact__list address > div {

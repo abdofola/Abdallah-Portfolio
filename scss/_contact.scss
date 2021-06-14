@@ -21,10 +21,13 @@
   }
 
   &__list {
+    margin-inline-start: 3rem;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
     font-size: 1.2rem;
+    justify-content: flex-end;
+    align-items: flex-end;
 
     address > div {
       color: $yellow;
