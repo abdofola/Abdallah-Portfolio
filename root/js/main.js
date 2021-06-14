@@ -66,8 +66,8 @@ menuBtn.addEventListener("click", menuToggle);
 // nav.addEventListener("click", closeMenu);
 
 // Event to toggle sections
-menuItems.forEach((menuItem) => {
-  menuItem.addEventListener("click", sectionToggle);
+links.forEach((link) => {
+  link.addEventListener("click", sectionToggle);
 });
 
 function menuToggle(event) {
@@ -79,7 +79,7 @@ function closeMenu(type) {
   nav.classList.remove("open");
   menuNav.classList.remove("open");
   main.classList.remove("navigation");
-  menuItems.forEach((element) => element.classList.remove("open"));
+  menuItems.forEach((item) => item.classList.remove("open"));
   if (type == "click") open = false;
   console.log("Open: ", open);
   console.log("Event type: ", type);
@@ -89,7 +89,7 @@ function openMenu(type) {
   nav.classList.add("open");
   menuNav.classList.add("open");
   main.classList.add("navigation");
-  menuItems.forEach((element) => element.classList.add("open"));
+  menuItems.forEach((item) => item.classList.add("open"));
   if (type == "click") open = true;
   console.log("Open: ", open);
 }
@@ -106,6 +106,7 @@ function sectionToggle(event) {
       menuItems[idx].classList.add("active");
     }
   });
+  closeMenu();
 }
 
 // pause animation until all assets on a page have loaded.
