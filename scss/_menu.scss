@@ -99,7 +99,6 @@
       display: inline-block;
       inline-size: 100%;
       border-bottom: 1px solid;
-      text-align: center;
       transform: translateX(-100%);
       @include transition-ease;
       
@@ -116,7 +115,7 @@
 
     &__link {
       display: inline-block;
-      padding: 2rem 0;
+      margin: 2rem 0 2rem 3rem;
       font-size: 1.3rem;
       font-weight: 300;
       @include transition-ease;

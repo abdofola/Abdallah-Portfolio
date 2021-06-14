@@ -15,32 +15,50 @@ const footers = document.querySelectorAll("footer");
 const cue = document.querySelector(".header-cue");
 const currentYear = new Date().getFullYear();
 let open = false;
+let drag = false;
+let startPosition = 0;
+let currentPosition = 0;
+// let prevTranslate = 0;
+// let currentTranslate = 0;
+let animationId = 0;
 
-// Fire up Touch Events when content loads
+// Fire up Touch Events when content loads.
+// Inspired by Brad https://www.youtube.com/watch?v=5bxFSOA5JYo&t=642s
 document.addEventListener("DOMContentLoaded", startup);
 function startup() {
-  main.addEventListener("touchend", handleEnd, false);
+  document.addEventListener("touchstart", handleStart, false);
+  document.addEventListener("touchmove", handleMove, false);
+  document.addEventListener("touchend", handleEnd, false);
 }
 
-function handleEnd(event) {
-  const touches = event.changedTouches;
-  for (let index = 0; index < touches.length; index++) {
-    console.log("client width:", this.clientWidth);
-    console.log("clientX:", touches[index].clientX);
-    const position = this.clientWidth - touches[index].clientX;
-    console.log("Position: ", position);
-    if (position <= 350 && touches[index].clientX <=200) {
-      menuBtnToggler.classList.add("open");
-      nav.classList.add("open");
-      menuNav.classList.add("open");
-      main.classList.add("navigation");
-      menuItem.forEach((element) => {
-        element.classList.add("open");
-      });
-      open = true;
-    }
+function handleStart(event) {
+  drag = true;
+  startPosition = getPositionX(event);
+  console.log("Start:", startPosition);
+  animationId = requestAnimationFrame(translate);
+}
+function handleMove(event) {
+  if (drag) {
+    currentPosition = getPositionX(event);
+    console.log("----> start, current: ", startPosition, currentPosition);
   }
 }
+function handleEnd(event) {
+  drag = false;
+  cancelAnimationFrame(animationId);
+  const movedBy = currentPosition - startPosition;
+  console.log("moved By:", movedBy);
+  if (movedBy > 100) openMenu();
+  else if (movedBy < -100) closeMenu();
+}
+
+function getPositionX(e) {
+  return e.touches[0].clientX;
+}
+function translate() {
+  drag && window.requestAnimationFrame(translate);
+}
+/************* End of touch event ***************/
 
 // Events for toggling the menu.
 menuBtn.addEventListener("click", menuToggle);
@@ -54,33 +72,28 @@ links.forEach((link) => {
 });
 
 function menuToggle() {
-  if (!open) {
-    menuBtnToggler.classList.add("open");
-    nav.classList.add("open");
-    menuNav.classList.add("open");
-    main.classList.add("navigation");
-    menuItem.forEach((element) => {
-      element.classList.add("open");
-    });
-    open = true;
-  } else {
-    menuBtnToggler.classList.remove("open");
-    nav.classList.remove("open");
-    menuNav.classList.remove("open");
-    main.classList.remove("navigation");
-    menuItem.forEach((element) => element.classList.remove("open"));
-    open = false;
-  }
+  open = false;
+  !open ? openMenu() : closeMenu();
+
+  // open ? closeMenu() : openMenu();
 }
 function closeMenu() {
-  if (open) {
-    menuBtnToggler.classList.remove("open");
-    nav.classList.remove("open");
-    menuNav.classList.remove("open");
-    main.classList.remove("navigation");
-    menuItem.forEach((element) => element.classList.remove("open"));
-    open = false;
-  }
+  menuBtnToggler.classList.remove("open");
+  nav.classList.remove("open");
+  menuNav.classList.remove("open");
+  main.classList.remove("navigation");
+  menuItem.forEach((element) => element.classList.remove("open"));
+  open = false;
+  console.log("Open: ", open);
+}
+function openMenu() {
+  menuBtnToggler.classList.add("open");
+  nav.classList.add("open");
+  menuNav.classList.add("open");
+  main.classList.add("navigation");
+  menuItem.forEach((element) => element.classList.add("open"));
+  open = true;
+  console.log("Open: ", open);
 }
 function sectionToggle(event) {
   const linkId = event.target.dataset.id;
@@ -124,7 +137,7 @@ function callback() {
     ? nav.classList.add("scroll")
     : nav.classList.remove("scroll");
 
-  cueRec.top < 0 ? (cue.style.display = "none") : (cue.style.display = "block");
+  cueRec.top < 0 ? cue.classList.add("d-none") : cue.classList.remove("d-none");
 
   window.requestAnimationFrame(callback);
 }
