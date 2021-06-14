@@ -39,11 +39,12 @@
       }
     }
     .header-cue {
-      width: 100%;
-      padding-block: 0.3rem;
+      // width: 100%;
+      padding-inline: 0.5rem;
+      padding-block: 0.5rem 0;
       background: $primary-color;
       text-align: center;
-      position: absolute;
+      position: fixed;
       bottom: 0;
       z-index: 1;
       transform: translateY(5rem);
