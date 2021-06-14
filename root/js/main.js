@@ -18,17 +18,15 @@ let open = false;
 let drag = false;
 let startPosition = 0;
 let currentPosition = 0;
-// let prevTranslate = 0;
-// let currentTranslate = 0;
 let animationId = 0;
 
 // Fire up Touch Events when content loads.
 // Inspired by Brad https://www.youtube.com/watch?v=5bxFSOA5JYo&t=642s
 document.addEventListener("DOMContentLoaded", startup);
 function startup() {
-  document.addEventListener("touchstart", handleStart, false);
-  document.addEventListener("touchmove", handleMove, false);
-  document.addEventListener("touchend", handleEnd, false);
+  document.addEventListener("touchstart", handleStart);
+  document.addEventListener("touchmove", handleMove);
+  document.addEventListener("touchend", handleEnd);
 }
 
 function handleStart(event) {
@@ -45,11 +43,12 @@ function handleMove(event) {
 }
 function handleEnd(event) {
   drag = false;
+  // open = false;
   cancelAnimationFrame(animationId);
   const movedBy = currentPosition - startPosition;
   console.log("moved By:", movedBy);
-  if (movedBy > 100) openMenu();
-  else if (movedBy < -100) closeMenu();
+  if (movedBy > 100) openMenu(event.type);
+  else if (movedBy < -100) closeMenu(event.type);
 }
 
 function getPositionX(e) {
@@ -64,35 +63,34 @@ function translate() {
 menuBtn.addEventListener("click", menuToggle);
 
 // Event to close the menu when clicking in any area of the document.
-nav.addEventListener("click", closeMenu);
+// nav.addEventListener("click", closeMenu);
 
 // Event to toggle sections
 menuItems.forEach((menuItem) => {
   menuItem.addEventListener("click", sectionToggle);
 });
 
-function menuToggle() {
-  open = false;
-  !open ? openMenu() : closeMenu();
-
-  // open ? closeMenu() : openMenu();
+function menuToggle(event) {
+  // open = false;
+  !open ? openMenu(event.type) : closeMenu(event.type);
 }
-function closeMenu() {
+function closeMenu(type) {
   menuBtnToggler.classList.remove("open");
   nav.classList.remove("open");
   menuNav.classList.remove("open");
   main.classList.remove("navigation");
   menuItems.forEach((element) => element.classList.remove("open"));
-  open = false;
+  if (type == "click") open = false;
   console.log("Open: ", open);
+  console.log("Event type: ", type);
 }
-function openMenu() {
+function openMenu(type) {
   menuBtnToggler.classList.add("open");
   nav.classList.add("open");
   menuNav.classList.add("open");
   main.classList.add("navigation");
   menuItems.forEach((element) => element.classList.add("open"));
-  open = true;
+  if (type == "click") open = true;
   console.log("Open: ", open);
 }
 function sectionToggle(event) {
