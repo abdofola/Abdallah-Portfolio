@@ -69,6 +69,7 @@
       background: lighten($color: $primary-color, $amount: 10%);
       border-bottom: 5px solid $secondary-color;
       padding: 0.5rem;
+      text-align: justify;
 
       h2,
       h3 {
