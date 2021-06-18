@@ -82,10 +82,8 @@
   .menu-nav {
     block-size: 100vh;
     inline-size: 60vw;
-    // padding-inline-end: 1rem;
     list-style-type: none;
     background: $primary-color;
-    // overflow: visible;
     text-transform: uppercase;
     color: set-text-color($primary-color);
     transform: translateX(-100%);
