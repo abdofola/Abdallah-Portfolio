@@ -2,8 +2,8 @@
 ----------------------------------- */
 .menu-btn {
   position: absolute;
-  inset-block-start: 1rem;
-  inset-inline-start: 1rem;
+  top: 1rem;
+  left: 1rem;
   z-index: 1;
   block-size: 20px;
   inline-size: 28px;
@@ -13,8 +13,8 @@
 
   &__burger {
     position: absolute;
-    inset-inline-start: 0;
-    inset-block-start: 0.5rem;
+    left: 0;
+    top: 0.5rem;
     inline-size: 28px;
     block-size: 3px;
     background-color: set-text-color($primary-color);
@@ -23,7 +23,7 @@
     &::before {
       position: inherit;
       content: "";
-      inset-block-start: -8px;
+      top: -8px;
       inline-size: inherit;
       block-size: 3px;
       background: set-text-color($primary-color);
@@ -33,7 +33,7 @@
     &::after {
       position: inherit;
       content: "";
-      inset-block-start: 8px;
+      top: 8px;
       inline-size: 20px;
       block-size: 3px;
       background: set-text-color($primary-color);
@@ -74,8 +74,8 @@
   opacity: 0.9;
   inline-size: 100vw;
   position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: 0;
+  top: 0;
+  left: 0;
 
   &.open {
     visibility: visible;

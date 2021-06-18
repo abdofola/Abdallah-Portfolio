@@ -58,15 +58,15 @@ html {
 }
 
 .home .social-icons {
-  inset-block-end: 1rem;
+  bottom: 1rem;
 }
 
 /* MENU BUTTON
 ----------------------------------- */
 .menu-btn {
   position: absolute;
-  inset-block-start: 1rem;
-  inset-inline-start: 1rem;
+  top: 1rem;
+  left: 1rem;
   z-index: 1;
   block-size: 20px;
   inline-size: 28px;
@@ -78,8 +78,8 @@ html {
 
 .menu-btn__burger {
   position: absolute;
-  inset-inline-start: 0;
-  inset-block-start: 0.5rem;
+  left: 0;
+  top: 0.5rem;
   inline-size: 28px;
   block-size: 3px;
   background-color: white;
@@ -90,7 +90,7 @@ html {
 .menu-btn__burger::before {
   position: inherit;
   content: "";
-  inset-block-start: -8px;
+  top: -8px;
   inline-size: inherit;
   block-size: 3px;
   background: white;
@@ -101,7 +101,7 @@ html {
 .menu-btn__burger::after {
   position: inherit;
   content: "";
-  inset-block-start: 8px;
+  top: 8px;
   inline-size: 20px;
   block-size: 3px;
   background: white;
@@ -145,8 +145,8 @@ html {
   opacity: 0.9;
   inline-size: 100vw;
   position: fixed;
-  inset-block-start: 0;
-  inset-inline-start: 0;
+  top: 0;
+  left: 0;
 }
 
 .nav.open {
@@ -439,7 +439,10 @@ html {
 .projects__bio-image::before {
   content: "";
   position: absolute;
-  inset: 0 0 0 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: url(../img/folaa.jpg) center center/cover;
   -webkit-transform: translateY(300px) scale(1.2);
           transform: translateY(300px) scale(1.2);
@@ -486,8 +489,7 @@ html {
 .projects__item::after {
   content: "";
   position: absolute;
-  inset-block-start: 100%;
-  inset-inline-start: 0;
+  left: 0;
   inline-size: 100%;
   block-size: 100%;
   opacity: 0;
@@ -507,7 +509,7 @@ html {
 
 .projects__btns {
   position: absolute;
-  inset-block-start: 0;
+  top: 0;
   z-index: 1;
   inline-size: 100%;
   block-size: 100%;
