@@ -34,6 +34,7 @@
       position: relative;
       font-size: 2rem;
       color: #fff;
+    //   margin-block-end: 2rem;
       opacity: 0;
       transform: translateX(-7rem);
       animation: clear 2s forwards;
@@ -64,6 +65,7 @@
     &::after {
       content: "";
       position: absolute;
+      top: 100%;
       left: 0;
       inline-size: 100%;
       block-size: 100%;
