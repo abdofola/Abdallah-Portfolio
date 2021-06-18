@@ -128,8 +128,8 @@ html {
 
 .logo {
   position: absolute;
-  inset-block-start: 1rem;
-  inset-inline-end: 1rem;
+  bottom: 1rem;
+  right: 1rem;
   block-size: 20px;
   inline-size: 28px;
 }
