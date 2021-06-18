@@ -128,7 +128,7 @@ html {
 
 .logo {
   position: absolute;
-  bottom: 1rem;
+  top: 1rem;
   right: 1rem;
   block-size: 20px;
   inline-size: 28px;
