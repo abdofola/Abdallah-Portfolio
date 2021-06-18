@@ -321,6 +321,7 @@ html {
   background: #414141;
   border-bottom: 5px solid #168DE2;
   padding: 0.5rem;
+  text-align: justify;
 }
 
 .about .jobs__job h2,
