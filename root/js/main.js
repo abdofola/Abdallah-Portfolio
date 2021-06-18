@@ -56,7 +56,7 @@ function getPositionX(e) {
 function translate() {
   drag && window.requestAnimationFrame(translate);
 }
-/************* End of touch event ***************/
+/************* End of touch events ***************/
 
 // Events for toggling the menu.
 menuBtn.addEventListener("click", menuToggle);
