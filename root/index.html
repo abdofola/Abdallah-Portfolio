@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This my second version of portfolio build with pure css(using sass) & js">
+    <meta name="description" content="This my second version of portfolio built with pure css(using sass) & javascript">
      
     <!-- ************ MY CSS ************** -->
      <link rel="stylesheet" href="css/main.css">
@@ -52,11 +52,21 @@
     <main>
         <!-- ************* HOME ************** -->
         <section id="home" class="home ">
-            <h2>Hi! my name is</h2>
-            <h1 class="home__name">Abdallah
-                <span class="home__name--last">Fola</span>
-            </h1>
-            <h2>Web Developer, Designer & Programmer</h2>
+            <div class="home__wrapper">
+                <div class="left">
+                    <h2>Hi! my name is</h2>
+                    <h1 class="home__name">Abdallah
+                        <span class="home__name--last">Fola</span>
+                    </h1>
+                    <h2>Web Developer, Designer & Programmer</h2>
+                    <a href="#contact" data-id="contact" class="btn">let's connect</a>
+                </div>
+                <div class="right">
+                    <div class="border-back"></div>
+                    <div class="img"></div>
+                    <div class="border-front"></div>
+                </div>
+            </div><!-- .home__wrapper -->
             <div class="social-icons">
                 <a href="https://twitter.com/foola_sust">
                     <i class="fab fa-twitter"></i>

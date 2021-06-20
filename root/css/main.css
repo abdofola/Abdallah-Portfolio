@@ -29,19 +29,20 @@ html {
   -webkit-transition: all 0.5s 0.3s ease-in-out;
   transition: all 0.5s 0.3s ease-in-out;
   height: 100%;
-  padding-top: 40vh;
+  -webkit-padding-before: 35vh;
+          padding-block-start: 35vh;
   overflow: hidden;
   text-align: center;
   background: linear-gradient(150deg, rgba(255, 201, 7, 0.3), rgba(22, 141, 226, 0.4)), url(../img/fola.webp) no-repeat center top/cover;
 }
 
-.home > h2:first-child {
+.home h2:first-of-type {
   font-size: 1em;
   -webkit-margin-after: 1rem;
           margin-block-end: 1rem;
 }
 
-.home > h2:last-of-type {
+.home h2:last-of-type {
   font-size: 1.2em;
 }
 
@@ -55,6 +56,32 @@ html {
 .home__name--last {
   color: #168DE2;
   font-weight: 700;
+}
+
+.home .btn {
+  display: inline-block;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  -webkit-margin-before: 7rem;
+          margin-block-start: 7rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: #272727;
+  text-transform: uppercase;
+  opacity: 0;
+  -webkit-transform: translateY(-100%) scale(1.2);
+          transform: translateY(-100%) scale(1.2);
+  -webkit-animation: clear 0.5s 1s forwards;
+          animation: clear 0.5s 1s forwards;
+}
+
+.home .btn:link {
+  background: #d3a500;
+}
+
+.home .btn:hover {
+  background: #FFC907;
 }
 
 .home .social-icons {
@@ -693,14 +720,280 @@ html {
 
 /* NAV
 ----------------------------------------*/
+@media screen and (min-width: 45em) {
+  header {
+    position: absolute !important;
+    overflow-x: hidden;
+    padding: 0 !important;
+  }
+  .menu-btn {
+    display: none;
+  }
+  .logo {
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+    inline-size: 1.5rem;
+  }
+  .logo img {
+    inline-size: 100%;
+  }
+  .nav {
+    position: static;
+    visibility: visible;
+  }
+  .nav .menu-nav {
+    display: block;
+    height: auto;
+    inline-size: 100%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    padding: 1em;
+    padding-top: 3rem;
+    text-align: right;
+    background: transparent;
+  }
+  .nav .menu-nav__item {
+    display: inline;
+    border: none;
+    padding-right: 2rem;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  .nav .menu-nav__link {
+    position: relative;
+    font-size: 1rem;
+    font-weight: 300;
+    -webkit-padding-after: 0.8rem;
+            padding-block-end: 0.8rem;
+    margin: 0;
+  }
+  .nav .menu-nav__link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.1em;
+    border-top-right-radius: 50%;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transform-origin: 0% 50%;
+            transform-origin: 0% 50%;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+  .nav .menu-nav__link:hover {
+    color: white;
+  }
+  .nav .menu-nav__link:hover::before {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+    background: #168de2;
+  }
+  /* HOME
+----------------------------------------*/
+  .home {
+    position: relative;
+    -webkit-padding-before: 25vh;
+            padding-block-start: 25vh;
+    text-align: left;
+    background: #272727;
+    overflow: hidden;
+  }
+  .home__wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(calc(min(30rem, 100%)), 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(calc(min(30rem, 100%)), 1fr));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 3rem;
+  }
+  .home__wrapper .left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    height: 100%;
+  }
+  .home__wrapper .left .btn {
+    position: relative;
+    z-index: 4;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    -webkit-margin-before: 2rem;
+            margin-block-start: 2rem;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    border-radius: 20px;
+    color: #272727;
+    text-transform: uppercase;
+    opacity: 0;
+    -webkit-transform: translateY(-100%) scale(1.2);
+            transform: translateY(-100%) scale(1.2);
+    -webkit-animation: clear 0.5s 1s forwards;
+            animation: clear 0.5s 1s forwards;
+  }
+  .home__wrapper .left .btn:link {
+    background: #d3a500;
+  }
+  .home__wrapper .left .btn:hover {
+    background: #FFC907;
+  }
+  .home__wrapper .right {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .home__wrapper .right .img {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 300px;
+            flex: 0 0 300px;
+    position: relative;
+    block-size: 300px;
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    background: url(../img/fola.webp) no-repeat center top/cover;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 0 10px black;
+            box-shadow: 0 0 10px black;
+    z-index: 2;
+    -webkit-animation: clear 0.8s 0.5s forwards;
+            animation: clear 0.8s 0.5s forwards;
+  }
+  .home__wrapper .right .border-front {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    inline-size: 320px;
+    block-size: 320px;
+    border-top: 10px solid #168DE2;
+    border-bottom: 10px solid #168DE2;
+    border-radius: 30px;
+    -webkit-box-shadow: 0 0 10px black;
+            box-shadow: 0 0 10px black;
+    z-index: 3;
+    opacity: 0;
+    -webkit-animation: frame 0.8s 0.5s forwards;
+            animation: frame 0.8s 0.5s forwards;
+  }
+  .home__wrapper .right .border-back {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    inline-size: 320px;
+    block-size: 320px;
+    border-left: 10px solid #FFC907;
+    border-right: 10px solid #FFC907;
+    border-radius: 30px;
+    -webkit-box-shadow: 0 0 10px black;
+            box-shadow: 0 0 10px black;
+    z-index: 1;
+    opacity: 0;
+    -webkit-animation: frame 0.8s 0.5s forwards;
+            animation: frame 0.8s 0.5s forwards;
+  }
+  .home h2:first-of-type {
+    margin: 0;
+    opacity: 0;
+    font-style: italic;
+    color: #b3b3b3;
+    -webkit-transform: translateX(-7rem);
+            transform: translateX(-7rem);
+    -webkit-animation: clear 0.5s forwards;
+            animation: clear 0.5s forwards;
+  }
+  .home__name {
+    line-height: 1.5;
+    font-size: 4rem;
+    border: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -webkit-transform: translateX(-7rem);
+            transform: translateX(-7rem);
+    -webkit-animation: clear 0.5s forwards;
+            animation: clear 0.5s forwards;
+  }
+  .home__name::before {
+    font-family: sans-serif;
+    content: open-quote;
+  }
+  .home__name::after {
+    content: close-quote;
+    font-family: sans-serif;
+  }
+  .home h2:last-of-type {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    opacity: 0;
+    -webkit-transform: translateX(-7rem);
+            transform: translateX(-7rem);
+    -webkit-animation: clear 0.5s forwards;
+            animation: clear 0.5s forwards;
+    color: #b3b3b3;
+  }
+  .home h2:last-of-type::after {
+    content: " based in Sudan. I create fascinitaing websites to help people go online.";
+  }
+}
+
 /* PROJECTS
 ----------------------------------------*/
 /* CONTACT
 ----------------------------------------*/
-/* HOME
-----------------------------------------*/
 /* ABOUT
 ----------------------------------------*/
+@-webkit-keyframes slide {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+@keyframes slide {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@-webkit-keyframes frame {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+@keyframes frame {
+  to {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
 body {
   background: #272727;
   color: white;

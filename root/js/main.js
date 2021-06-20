@@ -8,6 +8,7 @@ const menuNav = document.querySelector(".menu-nav");
 const main = document.querySelector("main");
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("li .menu-nav__link");
+const homeLink = document.querySelector(".btn");
 const menuItems = document.querySelectorAll(".menu-nav__item");
 const bioImg = document.querySelector(".about__bio-image");
 const jobsWrapper = document.querySelector(".jobs");
@@ -62,6 +63,7 @@ function translate() {
 menuBtn.addEventListener("click", menuToggle);
 
 // Event to toggle sections
+homeLink.addEventListener("click", sectionToggle);
 links.forEach((link) => {
   link.addEventListener("click", sectionToggle);
 });
@@ -89,6 +91,7 @@ function openMenu(type) {
   console.log("Open: ", open);
 }
 function sectionToggle(event) {
+  console.log(".btn");
   const linkId = event.target.dataset.id;
   sections.forEach((section, idx) => {
     const sectionId = section.getAttribute("id");
@@ -126,11 +129,11 @@ function callback() {
   const bioRec = bioImg.getBoundingClientRect();
   const cueRec = bioImg.getBoundingClientRect();
   console.log(cueRec.top);
-  
+
   bioRec.bottom <= 100
-  ? nav.classList.add("scroll")
-  : nav.classList.remove("scroll");
-    cueRec.top < 0 ? cue.classList.add("d-none") : cue.classList.remove("d-none");
+    ? nav.classList.add("scroll")
+    : nav.classList.remove("scroll");
+  cueRec.top < 0 ? cue.classList.add("d-none") : cue.classList.remove("d-none");
 
   window.requestAnimationFrame(callback);
 }
