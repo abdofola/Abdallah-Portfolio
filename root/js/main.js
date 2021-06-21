@@ -10,6 +10,8 @@ const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("li .menu-nav__link");
 const homeLink = document.querySelector(".btn");
 const menuItems = document.querySelectorAll(".menu-nav__item");
+const menuIndecator = document.querySelector(".sc-nav-indicator");
+const currItem = document.querySelector(".sc-current");
 const bioImg = document.querySelector(".about__bio-image");
 const jobsWrapper = document.querySelector(".jobs");
 const footers = document.querySelectorAll("footer");
@@ -20,6 +22,36 @@ let drag = false;
 let startPosition = 0;
 let currentPosition = 0;
 let animationId = 0;
+let indecatorPosition = 0;
+
+/** Mobile bottom nav */
+indecatorPosition = currItem.offsetLeft + 22;
+menuIndecator.style.left = indecatorPosition + "px";
+nav.style.backgroundPosition = indecatorPosition - 22 + "px";
+console.log(
+  `clientLeft: ${currItem.clientLeft}, offsetLeft: ${currItem.offsetLeft}`
+);
+console.log("indectatorPos:", indecatorPosition);
+console.log("bgPos:", nav.style.backgroundPosition);
+menuItems.forEach((item) => {
+  item.addEventListener("click", moveIndecator);
+});
+function moveIndecator() {
+  indecatorPosition = this.offsetLeft + 22;
+  nav.style.backgroundPosition = indecatorPosition - 22 + "px";
+  menuIndecator.style.left = indecatorPosition + "px";
+  console.log(
+    `clientLeft: ${this.clientLeft}, offsetLeft: ${this.offsetLeft}`
+  );
+  console.log("indectatorPos:", indecatorPosition);
+  console.log("bgPos:", nav.style.backgroundPosition);
+
+  menuItems.forEach((item) => {
+    item.classList.remove("sc-current");
+  });
+  this.classList.add("sc-current");
+}
+/* ******************************************* */
 
 // Fire up Touch Events when content loads.
 // Inspired by Brad https://www.youtube.com/watch?v=5bxFSOA5JYo&t=642s
@@ -33,20 +65,20 @@ function startup() {
 function handleStart(event) {
   drag = true;
   startPosition = getPositionX(event);
-  console.log("Start:", startPosition);
+  // console.log("Start:", startPosition);
   animationId = requestAnimationFrame(translate);
 }
 function handleMove(event) {
   if (drag) {
     currentPosition = getPositionX(event);
-    console.log("----> start, current: ", startPosition, currentPosition);
+    // console.log("----> start, current: ", startPosition, currentPosition);
   }
 }
 function handleEnd(event) {
   drag = false;
   cancelAnimationFrame(animationId);
   const movedBy = currentPosition - startPosition;
-  console.log("moved By:", movedBy);
+  // console.log("moved By:", movedBy);
   if (movedBy > 100) openMenu(event.type);
   else if (movedBy < -100) closeMenu(event.type);
 }
@@ -78,8 +110,8 @@ function closeMenu(type) {
   main.classList.remove("navigation");
   menuItems.forEach((item) => item.classList.remove("open"));
   if (type == "click") open = false;
-  console.log("Open: ", open);
-  console.log("Event type: ", type);
+  // console.log("Open: ", open);
+  // console.log("Event type: ", type);
 }
 function openMenu(type) {
   menuBtnToggler.classList.add("open");
@@ -88,13 +120,15 @@ function openMenu(type) {
   main.classList.add("navigation");
   menuItems.forEach((item) => item.classList.add("open"));
   if (type == "click") open = true;
-  console.log("Open: ", open);
+  // console.log("Open: ", open);
 }
 function sectionToggle(event) {
-  console.log(".btn");
+  // console.log(".btn");
   const linkId = event.target.dataset.id;
   sections.forEach((section, idx) => {
     const sectionId = section.getAttribute("id");
+    // console.log(event.target);
+    // console.log("linkId: " + linkId, ",sectionId: " + sectionId);
     const match = sectionId == linkId;
     if (!match) {
       section.classList.add("d-none");
@@ -128,7 +162,7 @@ footers.forEach((footer) => {
 function callback() {
   const bioRec = bioImg.getBoundingClientRect();
   const cueRec = bioImg.getBoundingClientRect();
-  console.log(cueRec.top);
+  // console.log(cueRec.top);
 
   bioRec.bottom <= 100
     ? nav.classList.add("scroll")
