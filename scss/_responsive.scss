@@ -1,6 +1,6 @@
-/* NAV
-----------------------------------------*/
 @include break-point-min(45em) {
+  /* NAV
+  ----------------------------------------*/
   header {
     position: absolute !important;
     overflow-x: hidden;
@@ -190,7 +190,7 @@
       transform: translateX(-7rem);
       animation: clear 0.5s forwards;
       &::before {
-          font-family: sans-serif;
+        font-family: sans-serif;
         content: open-quote;
       }
       &::after {
