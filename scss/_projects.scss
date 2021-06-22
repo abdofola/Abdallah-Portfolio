@@ -1,7 +1,7 @@
 /* PROJECT SECTION 
 --------------------------------*/
 .projects {
-  padding-bottom: 2rem;
+  padding-bottom: 15vh;
   transition: all 0.5s 0.3s ease-in-out;
 
   &__bio-image {
@@ -109,11 +109,12 @@
   }
 
   .social-icons {
-    display: flex;
+    display: none;
     flex-direction: column;
   }
 
   footer {
+    display: none;
     transform: rotate(90deg) translate(-3rem, -5rem);
   }
 }

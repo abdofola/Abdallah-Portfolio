@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="This my second version of portfolio built with pure css(using sass) & javascript">
+    <meta name="description" content="This is Abdallah's portfolio, a Software-Engineer based in Sudan. this project built with pure html, css(using sass preproccessor) & vanilla javascript">
      
     <!-- ************ MY CSS ************** -->
      <link rel="stylesheet" href="css/main.css">
 
      <!-- ************ MY JS ************** -->
-     <script type="module" src="js/main.js"></script>
-    <title>Abdallah Portfolio</title>
+    <script type="module" src="js/main.js"></script>
+    
+    <title>Abdallah Portfolio</title>   
 </head>
 
 <body>
@@ -24,25 +25,29 @@
             <img src="img/fola1.png" alt="logo of fola">
         </div>
         <nav class="nav">
-            <a class="sc-nav-indicator"></a>    
             <ul class="menu-nav">
+                <a class="sc-nav-indicator"></a>    
                 <li  class="menu-nav__item active sc-current" >
                     <a href="#home"  class="menu-nav__link ">
+                        <span data-id="home">home</span>
                         <i data-id="home" class="fas fa-home"></i>
                     </a>
                 </li>
                 <li  class="menu-nav__item" >
                     <a href="#about" data-id="about" class="menu-nav__link">
+                        <span data-id="about">about</span>
                         <i data-id="about" class="fas fa-atlas"></i>
                     </a>
                 </li>
                 <li  class="menu-nav__item" >
                     <a href="#projects"  class="menu-nav__link">
+                        <span data-id="projects">projects</span>
                         <i data-id="projects" class="fas fa-tasks"></i>
                     </a>
                 </li>
                 <li  class="menu-nav__item" >
                     <a href="#contact"  class="menu-nav__link">
+                        <span data-id="contact">contact</span>
                         <i data-id="contact" class="fas fa-id-card-alt"></i>
                     </a>
                 </li>
@@ -60,13 +65,13 @@
                         <span class="home__name--last">Fola</span>
                     </h1>
                     <h2>Web Developer, Designer & Programmer</h2>
-                    <a href="#contact" data-id="contact" class="btn">let's connect</a>
-                </div>
+                    <a href="#contact" data-id="contact" class="btn test">let's connect</a>
+                </div><!-- .left -->
                 <div class="right">
                     <div class="border-back"></div>
                     <div class="img"></div>
                     <div class="border-front"></div>
-                </div>
+                </div><!-- .right -->
             </div><!-- .home__wrapper -->
             <div class="social-icons">
                 <a href="https://twitter.com/foola_sust">
@@ -94,7 +99,8 @@
                     </p>
                 </div>
                 <div class="header-cue">
-                    <i class="header-cue-icon fas fa-chevron-down"></i>
+                    <i class="header-cue__icon far fa-hand-point-down"></i>
+                    <p class="header-cue__cap">scroll down</p> 
                 </div>
             </div><!-- .about__bio-image -->
 
