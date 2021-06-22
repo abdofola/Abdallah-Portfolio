@@ -1,23 +1,25 @@
 /* GENERAL STYLE
 ------------------------------ */
 $primary-color: #272727;
-$secondary-color: #168DE2;
-$yellow: #FFC907;
-$light-color: hsl(0,0%, 100%);
+$secondary-color: #168de2;
+$yellow: #ffc907;
+$light-color: hsl(0, 0%, 100%);
 
 @mixin vendor-prefix($name, $value...) {
-    @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
-        #{$vendo}-#{$name}: #{$value};
-    }
+  @each $vendor in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
+    #{$vendo}-#{$name}: #{$value};
+  }
 }
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 /* hack to make animation paused til the all contents of the page is loaded.
 ** Inspired by Donovan Hutchinson. https://css-tricks.com/making-animations-wait/
@@ -29,84 +31,110 @@ html {
 }
 
 @mixin transition-ease {
-    transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 @function set-text-color($color) {
-    @if(lightness($color) > 40%){
-        @return hsl(0, 0%, 0%); 
-    } @else {
-        @return hsl(0, 0%, 100%);
-    }
+  @if (lightness($color) > 40%) {
+    @return hsl(0, 0%, 0%);
+  } @else {
+    @return hsl(0, 0%, 100%);
+  }
 }
 
-@mixin break-point-min($min){
-    @media screen and (min-width: $min) {
-        @content;
-    }
+@mixin break-point-min($min) {
+  @media screen and (min-width: $min) {
+    @content;
+  }
 }
-@mixin break-point-max($max){
-    @media screen and (max-width: $max) {
-        @content;
-    }
+@mixin break-point-max($max) {
+  @media screen and (max-width: $max) {
+    @content;
+  }
 }
 @mixin max-height($max-height) {
-    @media screen and (max-height: $max-height) {
-        @content;
-    }
+  @media screen and (max-height: $max-height) {
+    @content;
+  }
 }
 @mixin pulse {
-    @keyframes pulse {
-        0% {
-            transform: none;
-            opacity: 1;
-            transform: scale(1);
-        }
-        50% {
-            opacity: .5;
-            transform: scale(.8);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+      transform: scale(1);
     }
+    50% {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }
-@mixin clear {
-    @keyframes clear {
-        to {
-            opacity: 1;
-            transform: none;
-        }
+@mixin bounce {
+  @keyframes bounce {
+    0% {
+      opacity: 1;
+      transform: translateY(-1px);
     }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(-1px);
+    }
+  }
 }
 @mixin radiant {
-    @keyframes radiant {
-        0% {
-            box-shadow: 0 1px 1px $secondary-color;
-        }
-        50% {
-            box-shadow: 0 3px 3px $secondary-color;
-        }
-        100% {
-            box-shadow: 0 1px 1px $secondary-color;
-        }
+  @keyframes radiant {
+    0% {
+      box-shadow: 0 1px 1px $secondary-color;
     }
+    50% {
+      box-shadow: 0 3px 3px $secondary-color;
+    }
+    100% {
+      box-shadow: 0 1px 1px $secondary-color;
+    }
+  }
+}
+@mixin gradient-flow {
+  @keyframes gradient-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+@mixin clear {
+  @keyframes clear {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 @mixin slide {
-    @keyframes slide {
-        to{
-            opacity: 1;
-            transform: translate(-50%, -50%);
-        }
+  @keyframes slide {
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
+  }
 }
 @mixin frame {
-    @keyframes frame {
-        to{
-            opacity: 1;
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
+  @keyframes frame {
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
+  }
 }
-  

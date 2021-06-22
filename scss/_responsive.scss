@@ -1,6 +1,4 @@
 @include break-point-min(45em) {
-  /* NAV
-  ----------------------------------------*/
   header {
     position: absolute !important;
     overflow-x: hidden;
@@ -18,12 +16,20 @@
       inline-size: 100%;
     }
   }
-
+  
+  /* NAV
+  ----------------------------------------*/
   .nav {
+    overflow: hidden;
     position: static;
+    background: transparent;
+    .sc-nav-indicator {
+      display: none;
+    }
     visibility: visible;
     .menu-nav {
-      display: block;
+      // display: block;
+      justify-content: flex-end;
       height: auto;
       inline-size: 100%;
       transform: translateX(0);
@@ -39,11 +45,19 @@
       }
 
       &__link {
+        @include transition-ease;
         position: relative;
         font-size: 1rem;
         font-weight: 300;
-        padding-block-end: 0.8rem;
+        color: lighten($color: $primary-color, $amount: 40%);
+        text-transform: uppercase;
         margin: 0;
+        span {
+          display: initial;
+        }
+        i {
+          display: none;
+        }
         &::before {
           content: "";
           position: absolute;
@@ -64,11 +78,6 @@
         }
       }
     }
-
-    // &.scroll {
-    //     @include transition-ease;
-    //     background: $primary-color;
-    // }
   }
 
   /* HOME
@@ -135,7 +144,7 @@
           block-size: 300px;
           opacity: 0;
           transform: translateX(100%);
-          background: url(../img/fola.webp) no-repeat center top/cover;
+          background: url(../img/fola-home.jpeg) no-repeat center top/cover;
           border-radius: 20px;
           box-shadow: 0 0 10px darken($color: $primary-color, $amount: 100%);
           z-index: 2;

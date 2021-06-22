@@ -57,7 +57,7 @@
 .logo {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  left: 1rem;
   block-size: 20px;
   inline-size: 28px;
   img {
@@ -103,8 +103,6 @@
     list-style-type: none;
     filter: drop-shadow(0px -1px 6px rgba(0, 0, 0, 0.08))
       drop-shadow(0px -2px 12px rgba(0, 0, 0, 0.12));
-    // border-bottom-left-radius: 30px;
-    // border-bottom-right-radius: 30px;
     // block-size: 100vh;
     // inline-size: 60vw;
     // background: $primary-color;
@@ -128,8 +126,8 @@
       // &.open {
       //   transform: translateX(0);
       // }
-      &.active > a {
-        // color: $primary-color;
+      &.active.sc-current > a {
+        color: $light-color;
       }
       // &:first-child{
       //   margin-block-start: 5rem;
@@ -138,6 +136,9 @@
 
     &__link {
       color: $primary-color;
+      span {
+        display: none;
+      }
       i {
         display: block;
         height: 100%;
@@ -155,7 +156,7 @@
     }
   }
   .sc-current .menu-nav__link {
-    color: $light-color ;
+    // color: $light-color ;
   }
 
   .sc-nav-indicator {
@@ -163,7 +164,7 @@
     width: 56px;
     height: 56px;
     bottom: 1.4rem;
-    left: 1.4rem;
+    left: 0;
     background-color: darken($primary-color, 100%);
     box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.08),
       0px 3px 6px rgba(0, 0, 0, 0.12);
