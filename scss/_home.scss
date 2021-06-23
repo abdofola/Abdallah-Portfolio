@@ -12,7 +12,7 @@
     rgba(22, 141, 226, 0.8)
   );
   background-size: 200% 200%;
-  animation: gradient-flow 4s ease-in-out infinite;
+  animation: flow-diognal 4s ease-in-out infinite;
 
   h2:first-of-type {
     font-size: 1em;
@@ -65,4 +65,4 @@
     bottom: 1rem;
   }
 }
-@include gradient-flow;
+@include flow-diognal;

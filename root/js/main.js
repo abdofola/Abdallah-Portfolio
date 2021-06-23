@@ -1,7 +1,11 @@
 import Jobs from "./Jobs.js";
 
 const jobs = new Jobs();
+const menuBtn = document.querySelector(".menu-btn");
+const menuBtnToggler = document.querySelector(".menu-btn__burger");
 const nav = document.querySelector(".nav");
+const menuNav = document.querySelector(".menu-nav");
+const main = document.querySelector("main");
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("li .menu-nav__link");
 const homeLink = document.querySelector(".btn");
@@ -13,30 +17,46 @@ const jobsWrapper = document.querySelector(".jobs");
 const footers = document.querySelectorAll("footer");
 const cue = document.querySelector(".header-cue");
 const currentYear = new Date().getFullYear();
-const px = 14.5;
+const win = window,
+  doc = document,
+  docElem = doc.documentElement,
+  body = doc.getElementsByTagName("body")[0],
+  viewWidth = win.innerWidth || docElem.clientWidth || body.clientWidth,
+  viewHeight = win.innerHeight || docElem.clientHeight || body.clientHeight;
+
+let open = false;
+let drag = false;
+let startPosition = 0;
+let currentPosition = 0;
+let animationId = 0;
 let indecatorPosition = 0;
 
+const px = 14.5;
 
 indecatorPosition = currItem.offsetLeft;
 menuIndecator.style.left = indecatorPosition - px + "px";
 nav.style.backgroundPosition = indecatorPosition + "px";
 
+// console.log("Pexiles of offsetLeft", currItem.offsetLeft);
 
 menuItems.forEach((item) => {
   item.addEventListener("click", offsetX);
 });
-
-// function to move the indecator and bgPos along the x coordinate.
 function offsetX(event) {
   const elem = event.target;
-  
+  console.log("Elem that triggers the event:", elem);
+  console.log("has class?", hasClass(elem, "btn"));
   hasClass(elem, "btn")
     ? (indecatorPosition = menuItems[3].offsetLeft)
     : (indecatorPosition = this.offsetLeft);
 
+  // indecatorPosition = this.offsetLeft || menuItems[3].offsetLeft;
   menuIndecator.style.left = indecatorPosition - px + "px";
   nav.style.backgroundPosition = indecatorPosition + "px";
 
+// This console log its job to make the code fuckin work, I shit you not if you dare to delete it the code will trigger a bug !!!!
+  console.log("item  offsetLeft", this.offsetLeft);
+  console.log('fooooooooooooooooola')
 
   menuItems.forEach((item) => {
     item.classList.remove("sc-current");

@@ -37,8 +37,8 @@ html {
   text-align: center;
   background: linear-gradient(-45deg, rgba(255, 201, 7, 0.8), rgba(22, 141, 226, 0.8));
   background-size: 200% 200%;
-  -webkit-animation: gradient-flow 4s ease-in-out infinite;
-          animation: gradient-flow 4s ease-in-out infinite;
+  -webkit-animation: flow-diognal 4s ease-in-out infinite;
+          animation: flow-diognal 4s ease-in-out infinite;
 }
 
 .home h2:first-of-type {
@@ -94,7 +94,7 @@ html {
   bottom: 1rem;
 }
 
-@-webkit-keyframes gradient-flow {
+@-webkit-keyframes flow-diognal {
   0% {
     background-position: 0% 50%;
   }
@@ -106,7 +106,7 @@ html {
   }
 }
 
-@keyframes gradient-flow {
+@keyframes flow-diognal {
   0% {
     background-position: 0% 50%;
   }
@@ -237,13 +237,14 @@ html {
 }
 
 .about__bio-image .about__bio {
+  max-inline-size: 100vmin;
   inline-size: 80%;
   text-align: center;
 }
 
 .about__bio-image .about__bio .text-secondary {
   color: #ffc907;
-  font-size: 6vmin;
+  font-size: 5vmin;
   -webkit-padding-after: 1rem;
           padding-block-end: 1rem;
   opacity: 0;
@@ -254,7 +255,8 @@ html {
 }
 
 .about__bio-image .about__bio p {
-  font-size: 4vmin;
+  font-size: 100%;
+  line-height: 1.5;
   -webkit-margin-after: 2rem;
           margin-block-end: 2rem;
   text-align: justify;
@@ -274,15 +276,12 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   gap: 1rem;
   padding-inline: 0.5rem;
   padding-block: 0.5rem 0;
   text-align: center;
   position: absolute;
-  bottom: 25vmin;
+  bottom: 24vmin;
   z-index: 1;
   -webkit-transform: translateY(5rem);
           transform: translateY(5rem);
@@ -666,8 +665,11 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 201, 7, 0.4))), url(../img/fola.webp) no-repeat center top/cover;
-  background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(255, 201, 7, 0.4)), url(../img/fola.webp) no-repeat center top/cover;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 141, 226, 0.8)), to(rgba(255, 201, 7, 0.8)));
+  background: linear-gradient(180deg, rgba(22, 141, 226, 0.8), rgba(255, 201, 7, 0.8));
+  background-size: 200% 200%;
+  -webkit-animation: flow-vertical 5s ease-in-out infinite;
+          animation: flow-vertical 5s ease-in-out infinite;
 }
 
 .contact h2 {
@@ -736,6 +738,30 @@ html {
           transform: translateX(50%);
   bottom: 10%;
   color: silver;
+}
+
+@-webkit-keyframes flow-vertical {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+@keyframes flow-vertical {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 
 @media screen and (min-width: 45em) {
