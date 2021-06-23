@@ -9,10 +9,12 @@
   flex-direction: column;
   align-items: center;
   background: linear-gradient(
-    to right rgba($primary-color, 0),
-    rgba($yellow, 0.4)
-    ),
-    url(../img/fola.webp) no-repeat center top/cover;
+    180deg, rgba($secondary-color, 0.8),
+    rgba($yellow, 0.8)
+    );
+    background-size: 200% 200%;
+    animation: flow-vertical 5s ease-in-out infinite;
+  
 
   h2 {
     font-size: 2rem;
@@ -68,3 +70,4 @@
     color: lighten($primary-color, 60%);
   }
 }
+@include flow-vertical;
