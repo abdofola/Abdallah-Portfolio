@@ -65,8 +65,8 @@ function sectionToggle(event) {
     const sectionId = section.getAttribute("id");
     const match = sectionId == linkId;
     
-    hasClass(this.parentElement, "flip-horizonal")
-      ? (this.style.transform = "rotateY(180deg)")
+    hasClass(section.parentElement, "flip-horizonal")
+      ? (section.style.transform = "rotateY(180deg)")
       : (section.style.transform = "none");
 
     if (!match) {
