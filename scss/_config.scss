@@ -1,10 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap");
+
 /* GENERAL STYLE
 ------------------------------ */
 $primary-color: #272727;
 $secondary-color: #168de2;
 $yellow: #ffc907;
+$red: #ff0000;
+$green: #00ff00;
 $light-color: hsl(0, 0%, 100%);
-
+// $body-font: ;
+$project-font: "Kirang Haerang", cursive;
 @mixin vendor-prefix($name, $value...) {
   @each $vendor in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
     #{$vendo}-#{$name}: #{$value};
@@ -90,13 +96,13 @@ html {
 @mixin radiant {
   @keyframes radiant {
     0% {
-      box-shadow: 0 1px 1px $secondary-color;
+      box-shadow: 0px 0px 1px $light-color, -0px -0px 1px $light-color;
     }
     50% {
-      box-shadow: 0 3px 3px $secondary-color;
+      box-shadow: 1px 1px 3px 1px $light-color, -1px -1px 3px 1px $light-color;
     }
     100% {
-      box-shadow: 0 1px 1px $secondary-color;
+      box-shadow: 0px 0px 1px $light-color, -0px -0px 1px $light-color;
     }
   }
 }
