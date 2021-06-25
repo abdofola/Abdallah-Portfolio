@@ -7,84 +7,87 @@
 @import "responsive";
 
 body {
-    background: $primary-color;
-    color: set-text-color($primary-color);
-    height: 100vh;
-    line-height: 1;
-    font-family: 'Baloo Tammudu 2', cursive, sans-serif;
+  background: $primary-color;
+  color: set-text-color($primary-color);
+  height: 100vh;
+  line-height: 1;
+  font-family: "Baloo Tammudu 2", cursive, sans-serif;
 }
 h1,
 h2,
 h3 {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 a {
-    color: set-text-color($primary-color);
-    text-decoration: none;
+  color: set-text-color($primary-color);
+  text-decoration: none;
 }
 .text-secondary {
-    color: $secondary-color;
+  color: $secondary-color;
 }
 
 header {
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  padding: 1rem;
 }
 
 .flip-box { // <main />
-    overflow-x: hidden;
-    height: 100%;
-    width: 100%;   
-    perspective: 1000px; // 3D effect
-    &__inner {
-        position: relative;
-        inline-size: 100%;
-        block-size: 100%;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-    }
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  perspective: 1000px; // 3D effect
+  &__inner {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
 }
 .flip-horizonal {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 main.navigation {
-    overflow: hidden;
-    .home, .contact, .about, .projects{
-        @include transition-ease;
-        transform:translateX(65%) scale(0.85);
-        opacity: 0.5;
-    }
+  overflow: hidden;
+  .home,
+  .contact,
+  .about,
+  .projects {
+    @include transition-ease;
+    transform: translateX(65%) scale(0.85);
+    opacity: 0.5;
+  }
 }
 
 .social-icons {
-    position: fixed;
-    left: 0;
-    bottom: 0.2rem;
-    
-    > a {
-        padding: 0.4rem;
-        font-size: 1.5rem;
-        @include transition-ease;
-       
-        &:hover {
-            color: $secondary-color;
-        }
+  position: fixed;
+  left: 0;
+  bottom: 0.2rem;
+
+  > a {
+    padding: 0.4rem;
+    font-size: 1.5rem;
+    @include transition-ease;
+
+    &:hover {
+      color: $secondary-color;
     }
+  }
 }
 
 footer {
-    position: fixed;
-    bottom: 0rem;
-    right: 1rem;
-    text-align: right;
-    padding: 1rem;
-    font-size: 1rem;
-    color: set-text-color($primary-color);
+  position: fixed;
+  bottom: 0rem;
+  right: 1rem;
+  text-align: right;
+  padding: 1rem;
+  font-size: 1rem;
+  color: set-text-color($primary-color);
 }
 .d-none {
-    display: none;
+  display: none;
 }

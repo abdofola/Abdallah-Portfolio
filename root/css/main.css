@@ -29,6 +29,8 @@ html {
 /* HOME SECTION 
 -----------------------------*/
 .home {
+  -webkit-transition: all 0.5s 0.3s ease-in-out;
+  transition: all 0.5s 0.3s ease-in-out;
   height: 100%;
   -webkit-padding-before: 35vh;
           padding-block-start: 35vh;
@@ -214,9 +216,9 @@ html {
 /* ABOUT SECTION 
 --------------------------------*/
 .about {
+  -webkit-transition: all 0.5s 0.3s ease-in-out;
+  transition: all 0.5s 0.3s ease-in-out;
   padding-bottom: 15vh;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
 }
 
 .about__bio-image {
@@ -316,7 +318,7 @@ html {
 }
 
 .about .jobs {
-  width: 60vw;
+  inline-size: 60vw;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -453,10 +455,10 @@ html {
 /* PROJECT SECTION 
 --------------------------------*/
 .projects {
-  -webkit-padding-after: 15vh;
-          padding-block-end: 15vh;
   -webkit-transition: all 0.5s 0.3s ease-in-out;
   transition: all 0.5s 0.3s ease-in-out;
+  -webkit-padding-after: 15vh;
+          padding-block-end: 15vh;
   display: -ms-grid;
   display: grid;
 }
@@ -576,6 +578,7 @@ html {
 
 .projects__item img {
   inline-size: 100%;
+  block-size: 100%;
   position: relative;
   z-index: -1;
 }
@@ -700,8 +703,11 @@ html {
 /* HOME SECTION 
 -----------------------------*/
 .contact {
-  height: 100%;
-  padding-top: 35vh;
+  -webkit-transition: all 0.5s 0.3s ease-in-out;
+  transition: all 0.5s 0.3s ease-in-out;
+  block-size: 100%;
+  -webkit-padding-before: 35vh;
+          padding-block-start: 35vh;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1111,7 +1117,7 @@ body {
   color: white;
   height: 100vh;
   line-height: 1;
-  font-family: 'Baloo Tammudu 2', cursive, sans-serif;
+  font-family: "Baloo Tammudu 2", cursive, sans-serif;
 }
 
 h1,
@@ -1165,7 +1171,10 @@ main.navigation {
   overflow: hidden;
 }
 
-main.navigation .home, main.navigation .contact, main.navigation .about, main.navigation .projects {
+main.navigation .home,
+main.navigation .contact,
+main.navigation .about,
+main.navigation .projects {
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   -webkit-transform: translateX(65%) scale(0.85);

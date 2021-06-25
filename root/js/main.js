@@ -1,6 +1,8 @@
 import Jobs from "./Jobs.js";
+import Project from "./Project.js";
 
 const jobs = new Jobs();
+const project = new Project();
 const currentYear = new Date().getFullYear();
 const nav = document.querySelector(".nav");
 const sections = document.querySelectorAll("section");
@@ -14,6 +16,7 @@ const jobsWrapper = document.querySelector(".jobs");
 const footers = document.querySelectorAll("footer");
 const cue = document.querySelector(".header-cue");
 const flipBox = document.querySelector(".flip-box__inner");
+const projectItems = document.querySelector(".projects__items");
 const px = 14.5;
 let indecatorPosition = 0;
 
@@ -62,18 +65,16 @@ function sectionToggle(event) {
     const sectionId = section.getAttribute("id");
     const match = sectionId == linkId;
     
-    hasClass(section.parentElement, "flip-horizonal")
-      ? (section.style.transform = "rotateY(180deg)")
-      : (section.style.transform = "rotateY(0deg)");
-      
+    hasClass(this.parentElement, "flip-horizonal")
+      ? (this.style.transform = "rotateY(180deg)")
+      : (section.style.transform = "none");
+
     if (!match) {
       section.classList.add("d-none");
-      // section.style.transform = "rotateY(0)";
       menuItems[idx].classList.remove("active");
       menuItems[idx].classList.remove("sc-current");
     } else {
       section.classList.remove("d-none");
-      // section.style.transform = "rotateY(180deg)";
       menuItems[idx].classList.add("active");
       menuItems[idx].classList.add("sc-current");
     }
@@ -103,7 +104,7 @@ footers.forEach((footer) => {
 function callback() {
   const cueRec = bioImg.getBoundingClientRect();
 
-  cueRec.top < 0 ? (cue.style.display = "none") : (cue.style.display = "flex");
+  cueRec.top < -5 ? (cue.style.display = "none") : (cue.style.display = "flex");
 
   window.requestAnimationFrame(callback);
 }
@@ -129,4 +130,46 @@ jobs.assignJob().forEach((job) => {
   jobDiv.classList.add("jobs__job");
   jobDiv.append(h2, h3, h6, p);
   jobsWrapper.append(jobDiv);
+});
+
+// Add projects
+project.addProject().forEach((project) => {
+  const spanArr = [];
+  const spanClasses = [
+    "projects__item__header--red",
+    "projects__item__header--yellow",
+    "projects__item__header--green",
+    "projects__item__header--green",
+  ];
+
+  // Create elems
+  const projectItem = document.createElement("div");
+  const itemHeader = document.createElement("div");
+  for (let i = 0; i < 4; i++) {
+    spanArr[i] = document.createElement("span");
+  }
+  const img = document.createElement("img");
+  const proBtn = document.createElement("div");
+  const anchor = document.createElement("a");
+
+  // Add classes
+  projectItem.classList.add("projects__item");
+  itemHeader.classList.add("projects__item__header");
+  spanArr.forEach((span, idx) => {
+    span.classList.add(spanClasses[idx]);
+  });
+  proBtn.classList.add("projects__btn");
+
+  // Inner texts attributes
+  spanArr[spanArr.length - 1].textContent = project.getTitle();
+  img.src = project.getScreen();
+  img.alt = "My project";
+  anchor.href = project.getLink();
+  anchor.textContent = "more ..";
+
+  // Append elems
+  spanArr.forEach((span) => itemHeader.append(span));
+  proBtn.append(anchor);
+  projectItem.append(itemHeader, img, proBtn);
+  projectItems.append(projectItem);
 });

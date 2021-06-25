@@ -13,4 +13,37 @@ const jobsArr = [
   },
 ];
 
-export { jobsArr };
+const projectArr = [
+  {
+    title: "app-script",
+    screenShot: "img/project-appscript.jpeg",
+    linkDetails: ""
+  },
+  {
+    title: "boom-media",
+    screenShot: "img/project-boom.jpeg",
+    linkDetails: ""
+  },
+  {
+    title: "facebook-clone",
+    screenShot: "img/project-1.png",
+    linkDetails: ""
+  },
+  {
+    title: "secret-blogs",
+    screenShot: "img/project-2.png",
+    linkDetails: ""
+  },
+  {
+    title: "node-upload-fils",
+    screenShot: "img/project-3.png",
+    linkDetails: ""
+  },
+  {
+    title: "drum-kit",
+    screenShot: "img/project-4.png",
+    linkDetails: ""
+  },
+]
+
+export { jobsArr, projectArr };
