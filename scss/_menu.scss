@@ -52,6 +52,10 @@
         display: block;
         inline-size: 100%;
         block-size: 100%;
+        &:active {
+          transform: rotate(270deg);
+          transition: all 0.5s ease;
+        }
       }
     }
   }
