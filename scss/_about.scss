@@ -2,7 +2,7 @@
 --------------------------------*/
 .about {
   padding-bottom: 15vh;
-  transition: all 0.5s 0.3s ease-in-out;
+  @include transition-ease;
 
   &__bio-image {
     width: 100%;

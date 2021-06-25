@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap");
 /* GENERAL STYLE
 ------------------------------ */
 html {
@@ -118,8 +119,6 @@ html {
   }
 }
 
-/* MENU BUTTON
------------------------------------ */
 .logo {
   position: absolute;
   top: 1rem;
@@ -182,8 +181,8 @@ html {
 
 .nav .menu-nav__link i {
   display: block;
-  height: 100%;
-  width: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .nav .sc-nav-indicator {
@@ -211,8 +210,8 @@ html {
 --------------------------------*/
 .about {
   padding-bottom: 15vh;
-  -webkit-transition: all 0.5s 0.3s ease-in-out;
-  transition: all 0.5s 0.3s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .about__bio-image {
@@ -449,15 +448,20 @@ html {
 /* PROJECT SECTION 
 --------------------------------*/
 .projects {
-  padding-bottom: 15vh;
+  -webkit-padding-after: 15vh;
+          padding-block-end: 15vh;
   -webkit-transition: all 0.5s 0.3s ease-in-out;
   transition: all 0.5s 0.3s ease-in-out;
+  display: -ms-grid;
+  display: grid;
 }
 
-.projects__bio-image {
+.projects__header {
   position: relative;
-  inline-size: 100%;
-  block-size: 30vh;
+  max-inline-size: 100%;
+  inline-size: 80%;
+  margin: 15vw auto 0;
+  block-size: 20vh;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -466,34 +470,18 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 0% 0% 90% 90%;
+  row-gap: 2rem;
 }
 
-.projects__bio-image::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(../img/folaa.jpg) center center/cover;
-  -webkit-transform: translateY(300px) scale(1.2);
-          transform: translateY(300px) scale(1.2);
-  opacity: 0;
-  -webkit-animation: clear 1.5s forwards;
-          animation: clear 1.5s forwards;
-}
-
-.projects__bio-image .text-secondary {
-  position: relative;
+.projects__header .text-secondary {
   font-size: 2rem;
-  color: #fff;
+  color: white;
   opacity: 0;
   -webkit-transform: translateX(-7rem);
           transform: translateX(-7rem);
@@ -501,94 +489,151 @@ html {
           animation: clear 2s forwards;
 }
 
+.projects__header p {
+  text-align: justify;
+  line-height: 1.5;
+  opacity: 0;
+  -webkit-transform: translateY(-1rem) scale(1.2);
+          transform: translateY(-1rem) scale(1.2);
+  color: #8d8d8d;
+  -webkit-animation: clear 0.5s 1s forwards;
+          animation: clear 0.5s 1s forwards;
+}
+
 .projects__items {
   inline-size: 60vw;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  /* Recomended for future
-              grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
-            */
-  grid-gap: 2rem;
+  -ms-grid-columns: (minmax(calc(min(12rem, 100%)), 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(calc(min(12rem, 100%)), 1fr));
+  gap: 2rem;
   margin: 2rem auto 0;
 }
 
 .projects__item {
   position: relative;
-  border-bottom: 5px solid #168de2;
+  background: -webkit-gradient(linear, left top, right top, color-stop(5%, rgba(39, 39, 39, 0.5)), color-stop(25%, rgba(39, 39, 39, 0))), -webkit-gradient(linear, right top, left top, color-stop(5%, rgba(39, 39, 39, 0.5)), color-stop(20%, rgba(39, 39, 39, 0)));
+  background: linear-gradient(90deg, rgba(39, 39, 39, 0.5) 5%, rgba(39, 39, 39, 0) 25%), linear-gradient(270deg, rgba(39, 39, 39, 0.5) 5%, rgba(39, 39, 39, 0) 20%);
+  -webkit-box-shadow: 10px 5px #2f2f2f;
+          box-shadow: 10px 5px #2f2f2f;
   overflow: hidden;
   cursor: pointer;
 }
 
-.projects__item img {
-  inline-size: 100%;
-}
-
-.projects__item::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  inline-size: 100%;
-  block-size: 100%;
-  opacity: 0;
-  background: #168de2;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.projects__item:hover::after {
-  top: 0;
-  opacity: 0.9;
-}
-
-.projects__item:hover .projects__btn {
-  opacity: 1;
-}
-
-.projects__btns {
-  position: absolute;
-  top: 0;
+.projects__item__header {
+  position: relative;
   z-index: 1;
   inline-size: 100%;
-  block-size: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
+  block-size: 20px;
+  -webkit-padding-start: 0.8rem;
+          padding-inline-start: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
+  gap: 0.3rem;
+  background: #e6e6e6;
+}
+
+.projects__item__header span {
+  inline-size: 12px;
+  block-size: 12px;
+  border-radius: 50%;
+}
+
+.projects__item__header span:last-child {
+  inline-size: auto;
+  font-family: "Kirang Haerang", cursive;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 1rem;
+  margin-left: calc(20% - 20px);
+  color: #747474;
+}
+
+.projects__item__header--red {
+  background: rgba(255, 0, 0, 0.7);
+}
+
+.projects__item__header--yellow {
+  background: rgba(255, 201, 7, 0.8);
+}
+
+.projects__item__header--green {
+  background: rgba(0, 255, 0, 0.8);
+}
+
+.projects__item img {
+  inline-size: 100%;
+  position: relative;
+  z-index: -1;
+}
+
+.projects__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(39, 39, 39, 0.9)));
+  background: linear-gradient(to bottom rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.9));
+  background-size: cover;
+  background-position: 100% 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.projects__item:hover::before {
+  bottom: 0;
+}
+
+.projects__item:hover .projects__btn {
+  -webkit-transform: translate(-50%, 50%) scaleY(1);
+          transform: translate(-50%, 50%) scaleY(1);
 }
 
 .projects__btn {
-  opacity: 0;
-  color: black;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  display: inline-block;
+  font-family: "Kirang Haerang", cursive;
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  text-transform: uppercase;
+  background: #747474;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px #5a5a5a;
+          box-shadow: 2px 2px #5a5a5a;
+  -webkit-transform: translate(-50%, 50%) scaleY(0);
+          transform: translate(-50%, 50%) scaleY(0);
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  -webkit-transition: all 0.5s 0.3s ease-in;
+  transition: all 0.5s 0.3s ease-in;
 }
 
-.projects__btn:hover {
+.projects__btn > a {
+  color: #b3b3b3;
+}
+
+.projects__btn > a:hover {
   color: white;
+  text-decoration: underline;
 }
 
 .projects .social-icons {
   display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .projects footer {
   display: none;
-  -webkit-transform: rotate(90deg) translate(-3rem, -5rem);
-          transform: rotate(90deg) translate(-3rem, -5rem);
 }
 
 @keyframes clear {
@@ -619,31 +664,31 @@ html {
 
 @-webkit-keyframes radiant {
   0% {
-    -webkit-box-shadow: 0 1px 1px #168de2;
-            box-shadow: 0 1px 1px #168de2;
+    -webkit-box-shadow: 0px 0px 1px white, 0px 0px 1px white;
+            box-shadow: 0px 0px 1px white, 0px 0px 1px white;
   }
   50% {
-    -webkit-box-shadow: 0 3px 3px #168de2;
-            box-shadow: 0 3px 3px #168de2;
+    -webkit-box-shadow: 1px 1px 3px 1px white, -1px -1px 3px 1px white;
+            box-shadow: 1px 1px 3px 1px white, -1px -1px 3px 1px white;
   }
   100% {
-    -webkit-box-shadow: 0 1px 1px #168de2;
-            box-shadow: 0 1px 1px #168de2;
+    -webkit-box-shadow: 0px 0px 1px white, 0px 0px 1px white;
+            box-shadow: 0px 0px 1px white, 0px 0px 1px white;
   }
 }
 
 @keyframes radiant {
   0% {
-    -webkit-box-shadow: 0 1px 1px #168de2;
-            box-shadow: 0 1px 1px #168de2;
+    -webkit-box-shadow: 0px 0px 1px white, 0px 0px 1px white;
+            box-shadow: 0px 0px 1px white, 0px 0px 1px white;
   }
   50% {
-    -webkit-box-shadow: 0 3px 3px #168de2;
-            box-shadow: 0 3px 3px #168de2;
+    -webkit-box-shadow: 1px 1px 3px 1px white, -1px -1px 3px 1px white;
+            box-shadow: 1px 1px 3px 1px white, -1px -1px 3px 1px white;
   }
   100% {
-    -webkit-box-shadow: 0 1px 1px #168de2;
-            box-shadow: 0 1px 1px #168de2;
+    -webkit-box-shadow: 0px 0px 1px white, 0px 0px 1px white;
+            box-shadow: 0px 0px 1px white, 0px 0px 1px white;
   }
 }
 
@@ -813,13 +858,16 @@ html {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+  .nav .menu-nav__item.active.sc-current > a {
+    color: #8d8d8d;
+  }
   .nav .menu-nav__link {
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     position: relative;
     font-size: 1rem;
     font-weight: 300;
-    color: #8d8d8d;
+    color: white;
     text-transform: uppercase;
     margin: 0;
   }
@@ -838,8 +886,8 @@ html {
     border-top-right-radius: 50%;
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
-    -webkit-transform-origin: 0% 50%;
-            transform-origin: 0% 50%;
+    -webkit-transform-origin: 0;
+            transform-origin: 0;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
   }
@@ -1131,4 +1179,6 @@ footer {
 
 .d-none {
   display: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }

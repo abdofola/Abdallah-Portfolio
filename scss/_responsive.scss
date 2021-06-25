@@ -16,7 +16,7 @@
       inline-size: 100%;
     }
   }
-  
+
   /* NAV
   ----------------------------------------*/
   .nav {
@@ -42,6 +42,9 @@
         border: none;
         padding-right: 2rem;
         transform: translateX(0);
+        &.active.sc-current > a {
+          color: lighten($color: $primary-color, $amount: 40%);
+        }
       }
 
       &__link {
@@ -49,7 +52,7 @@
         position: relative;
         font-size: 1rem;
         font-weight: 300;
-        color: lighten($color: $primary-color, $amount: 40%);
+        color: $light-color;
         text-transform: uppercase;
         margin: 0;
         span {
@@ -66,7 +69,7 @@
           height: 0.1em;
           border-top-right-radius: 50%;
           transform: scaleX(0);
-          transform-origin: 0% 50%;
+          transform-origin: 0;
           @include transition-ease;
         }
         &:hover {
@@ -122,14 +125,8 @@
           &:link {
             background: darken($color: $yellow, $amount: 10%);
           }
-          &:visited {
-          }
-          &:focus {
-          }
           &:hover {
             background: $yellow;
-          }
-          &:active {
           }
         }
       }

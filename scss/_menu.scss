@@ -1,59 +1,4 @@
-/* MENU BUTTON
------------------------------------ */
-// .menu-btn {
-//   position: absolute;
-//   top: 1rem;
-//   left: 1rem;
-//   z-index: 1;
-//   block-size: 20px;
-//   inline-size: 28px;
-//   color: set-text-color($primary-color);
-//   cursor: pointer;
-//   @include transition-ease;
 
-//   &__burger {
-//     position: absolute;
-//     left: 0;
-//     top: 0.5rem;
-//     inline-size: 28px;
-//     block-size: 3px;
-//     background-color: set-text-color($primary-color);
-//     @include transition-ease;
-
-//     &::before {
-//       position: inherit;
-//       content: "";
-//       top: -8px;
-//       inline-size: inherit;
-//       block-size: 3px;
-//       background: set-text-color($primary-color);
-//       @include transition-ease;
-//     }
-
-//     &::after {
-//       position: inherit;
-//       content: "";
-//       top: 8px;
-//       inline-size: 20px;
-//       block-size: 3px;
-//       background: set-text-color($primary-color);
-//       @include transition-ease;
-//     }
-
-//     &.open {
-//       background: transparent; // you can't use opacity or visibility here
-//       transform: rotate(720deg);
-
-//       &::before {
-//         transform: rotate(45deg) translate(5px, 8px);
-//       }
-//       &::after {
-//         inline-size: inherit;
-//         transform: rotate(-45deg) translate(3px, -7px);
-//       }
-//     }
-//   }
-// }
 .logo {
   position: absolute;
   top: 1rem;
@@ -79,19 +24,6 @@
   );
   transition: cubic-bezier(0.57, 0.23, 0.08, 0.96) 0.45s;
 
-  // left: 0;
-  // right: 0;
-  // visibility: hidden;
-  // opacity: 0.9;
-
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-
-  // &.open {
-  //   visibility: visible;
-  // }
-
   .menu-nav {
     display: flex;
     inline-size: 80%;
@@ -103,35 +35,12 @@
     list-style-type: none;
     filter: drop-shadow(0px -1px 6px rgba(0, 0, 0, 0.08))
       drop-shadow(0px -2px 12px rgba(0, 0, 0, 0.12));
-    // block-size: 100vh;
-    // inline-size: 60vw;
-    // background: $primary-color;
-    // text-transform: uppercase;
-    // color: set-text-color($primary-color);
-    // transform: translateX(-100%);
-    // @include transition-ease;
-
-    // &.open {
-    //   transform: translateX(0);
-    // }
 
     &__item {
-      // display: inline-block;
-      // color: $primary-color;
-      // inline-size: 100%;
-      // border-bottom: 1px solid $primary-color;
-      // transform: translateX(-100%);
       @include transition-ease;
-
-      // &.open {
-      //   transform: translateX(0);
-      // }
       &.active.sc-current > a {
         color: $light-color;
       }
-      // &:first-child{
-      //   margin-block-start: 5rem;
-      // }
     }
 
     &__link {
@@ -141,18 +50,9 @@
       }
       i {
         display: block;
-        height: 100%;
-        width: 100%;
+        inline-size: 100%;
+        block-size: 100%;
       }
-      // display: inline-block;
-      // margin: 2rem 0 2rem 3rem;
-      // font-size: 1.3rem;
-      // font-weight: 300;
-      // @include transition-ease;
-
-      // &:hover {
-      //   color: $secondary-color;
-      // }
     }
   }
 
