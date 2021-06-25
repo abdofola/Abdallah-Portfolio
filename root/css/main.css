@@ -286,14 +286,6 @@ html {
   padding-inline: 0.5rem;
   padding-block: 0.5rem 0;
   text-align: center;
-  position: absolute;
-  bottom: 24vmin;
-  z-index: 1;
-  -webkit-transform: translateY(5rem);
-          transform: translateY(5rem);
-  overflow: hidden;
-  -webkit-animation: clear 0.5s 1.5s forwards;
-          animation: clear 0.5s 1.5s forwards;
 }
 
 .about__bio-image .header-cue__icon {
@@ -364,8 +356,6 @@ html {
 
 .about footer {
   display: none;
-  -webkit-transform: rotate(90deg) translate(-3rem, -5rem);
-          transform: rotate(90deg) translate(-3rem, -5rem);
 }
 
 @-webkit-keyframes clear {

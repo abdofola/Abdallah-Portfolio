@@ -50,12 +50,6 @@
       padding-inline: 0.5rem;
       padding-block: 0.5rem 0;
       text-align: center;
-      position: absolute;
-      bottom: 24vmin;
-      z-index: 1;
-      transform: translateY(5rem);
-      overflow: hidden;
-      animation: clear 0.5s 1.5s forwards;
       &__icon {
         font-size: 5vmin;
         color: darken($yellow, 20%);
@@ -115,7 +109,7 @@
 
   footer {
     display: none;
-    transform: rotate(90deg) translate(-3rem, -5rem);
+    // transform: rotate(90deg) translate(-3rem, -5rem);
   }
 }
 
