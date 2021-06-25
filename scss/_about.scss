@@ -1,8 +1,8 @@
 /* ABOUT SECTION 
 --------------------------------*/
 .about {
+  transition: all 0.5s 0.3s ease-in-out;
   padding-bottom: 15vh;
-  @include transition-ease;
 
   &__bio-image {
     width: 100%;
@@ -75,7 +75,7 @@
   }
 
   .jobs {
-    width: 60vw;
+    inline-size: 60vw;
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
