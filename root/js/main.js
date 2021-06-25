@@ -1,6 +1,7 @@
 import Jobs from "./Jobs.js";
 
 const jobs = new Jobs();
+const currentYear = new Date().getFullYear();
 const nav = document.querySelector(".nav");
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("li .menu-nav__link");
@@ -12,7 +13,7 @@ const bioImg = document.querySelector(".about__bio-image");
 const jobsWrapper = document.querySelector(".jobs");
 const footers = document.querySelectorAll("footer");
 const cue = document.querySelector(".header-cue");
-const currentYear = new Date().getFullYear();
+const flipBox = document.querySelector(".flip-box__inner");
 const px = 14.5;
 let indecatorPosition = 0;
 
@@ -25,13 +26,11 @@ menuItems.forEach((item) => {
 });
 function offsetX(event) {
   const elem = event.target;
-  console.log("Elem that triggers the event:", elem);
-  console.log("has class?", hasClass(elem, "btn"));
+
   hasClass(elem, "btn")
     ? (indecatorPosition = menuItems[3].offsetLeft)
     : (indecatorPosition = this.offsetLeft);
 
-  // indecatorPosition = this.offsetLeft || menuItems[3].offsetLeft;
   menuIndecator.style.left = indecatorPosition - px + "px";
   nav.style.backgroundPosition = indecatorPosition + "px";
 
@@ -42,6 +41,7 @@ function offsetX(event) {
   menuItems.forEach((item) => {
     item.classList.remove("sc-current");
   });
+
   this.classList.add("sc-current");
 }
 
@@ -53,19 +53,32 @@ links.forEach((link) => {
 
 function sectionToggle(event) {
   const linkId = event.target.dataset.id;
+
+  !hasClass(flipBox, "flip-horizonal")
+    ? flipBox.classList.add("flip-horizonal")
+    : flipBox.classList.remove("flip-horizonal");
+
   sections.forEach((section, idx) => {
     const sectionId = section.getAttribute("id");
     const match = sectionId == linkId;
+    
+    hasClass(section.parentElement, "flip-horizonal")
+      ? (section.style.transform = "rotateY(180deg)")
+      : (section.style.transform = "rotateY(0deg)");
+      
     if (!match) {
       section.classList.add("d-none");
+      // section.style.transform = "rotateY(0)";
       menuItems[idx].classList.remove("active");
       menuItems[idx].classList.remove("sc-current");
     } else {
       section.classList.remove("d-none");
+      // section.style.transform = "rotateY(180deg)";
       menuItems[idx].classList.add("active");
       menuItems[idx].classList.add("sc-current");
     }
   });
+
   offsetX(event);
 }
 
