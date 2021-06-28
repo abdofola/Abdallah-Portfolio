@@ -474,10 +474,13 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  row-gap: 2rem;
+  gap: 2rem;
 }
 
 .projects__header .text-secondary {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33% - 1rem);
+          flex: 0 0 calc(33% - 1rem);
   font-size: 2rem;
   color: white;
   opacity: 0;
@@ -488,6 +491,9 @@ html {
 }
 
 .projects__header p, .projects__header main .article__technical ul li, main .article__technical ul .projects__header li {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33% - 1rem);
+          flex: 0 0 calc(33% - 1rem);
   text-align: justify;
   line-height: 1.5;
   opacity: 0;
@@ -863,13 +869,19 @@ main .article__header {
 
 main .article__header h1 {
   font-size: 8vmin;
-  font-weight: 00;
+  font-weight: 900;
   color: #d9d9d9;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33% - 1rem);
+          flex: 0 0 calc(33% - 1rem);
 }
 
 main .article__header p, main .article__header .article__technical ul li, main .article__technical ul .article__header li {
   font-size: 3.5vmin;
   color: #8d8d8d;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33% - 1rem);
+          flex: 0 0 calc(33% - 1rem);
 }
 
 main .article__header a {
@@ -879,10 +891,20 @@ main .article__header a {
   inline-size: max-content;
   padding-block: 10px 14px;
   padding-inline: 5vmin;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33% - 1rem);
+          flex: 0 0 calc(33% - 1rem);
   background: linear-gradient(-45deg, rgba(0, 255, 0, 0.5), rgba(255, 201, 7, 0.8));
-  background-size: 200% 200%;
   -webkit-animation: flow-diognal 3s ease-in-out infinite;
           animation: flow-diognal 3s ease-in-out infinite;
+}
+
+main .article__header a:link {
+  background-size: 200% 200%;
+}
+
+main .article__header a:hover {
+  opacity: 0.8;
 }
 
 main .article__body .slideshow {
@@ -1013,8 +1035,8 @@ main .article__technical ul {
 
 main .article__footer {
   font-family: "Oswald", sans-serif;
-  -webkit-padding-after: 3rem;
-          padding-block-end: 3rem;
+  -webkit-padding-after: 1.5rem;
+          padding-block-end: 1.5rem;
   position: initial;
   text-align: center;
 }
