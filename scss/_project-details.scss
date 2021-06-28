@@ -1,0 +1,202 @@
+.center-utility {
+  max-inline-size: 700px;
+  inline-size: 85%;
+  margin: 0 auto;
+}
+.menu {
+  position: relative !important;
+  padding: 0;
+//   background: $yellow;
+  width: 100%;
+  height: 10%;
+  &__crumbs {
+    padding: 5px;
+    position: fixed;
+    right: 2%;
+    top: 5%;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    z-index: 1;
+    transition: all 0.5s;
+    &:hover {
+        gap: 5px;
+    }
+    span {
+      inline-size: 7px;
+      block-size: 7px;
+      background: $light-color;
+    }
+  }
+}
+main {
+  .article {
+    @extend .center-utility;
+    &__header {
+      font-family: $ff-detials-2;
+      margin-block: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      h1 {
+        font-size: 8vmin;
+        font-weight: 00;
+        color: darken($light-color, 15%);
+      }
+      p {
+        font-size: 3.5vmin;
+        color: lighten($primary-color, 40%);
+      }
+      a {
+        cursor: pointer;
+        inline-size: max-content;
+        padding-block: 10px 14px;
+        padding-inline: 5vmin;
+        background: linear-gradient(
+          -45deg,
+          rgba($green, 0.5),
+          rgba($yellow, 0.8)
+        );
+        background-size: 200% 200%;
+        animation: flow-diognal 3s ease-in-out infinite;
+      }
+    }
+
+    &__body {
+      .slideshow {
+        // @extend .center-utility;
+        block-size: 60vmin;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        &__slide {
+          height: 100%;
+          display: none;
+          img {
+            position: relative;
+            z-index: -1;
+            height: 100%;
+            inline-size: 100%;
+          }
+          &--fade {
+            animation: fade 1.5s ease-in-out;
+          }
+        }
+        .prev,
+        .next {
+          position: absolute;
+          top: 0;
+          cursor: pointer;
+          height: 100%;
+          padding-inline: 10%;
+          font-size: 5vmin;
+          border-radius: 0 90% 90% 0;
+          user-select: none;
+          span {
+            position: absolute;
+            top: 50%;
+          }
+          &:hover {
+            span {
+              color: $yellow;
+            }
+            background: linear-gradient(
+              rgba($primary-color, 0.5),
+              rgba($yellow, 0.2)
+            );
+          }
+        }
+        .next {
+          right: 0;
+          border-radius: 90% 0 0 90%;
+          span {
+            position: absolute;
+            top: 50%;
+          }
+        }
+      }
+      .indicators {
+        margin-block-start: 10px;
+        text-align: center;
+        .dot {
+          display: inline-block;
+          inline-size: 0.8rem;
+          block-size: 0.8rem;
+          margin: 0 2px;
+          cursor: pointer;
+          border-radius: 50%;
+          background: lighten($primary-color, 50%);
+          @include transition-ease;
+          &:hover,
+          &.active {
+            background: lighten($primary-color, 75%);
+          }
+        }
+      }
+    }
+    &__about {
+      //   @extend .center-utility;
+      margin-block-start: 3rem;
+      h2 {
+        font-size: 6.5vmin;
+        font-weight: 600;
+        color: darken($color: $light-color, $amount: 15%);
+        margin-block-end: 1rem;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          inline-size: 30%;
+          block-size: 1px;
+          background: darken($yellow, 10%);
+        }
+      }
+      p {
+        font-size: 3.5vmin;
+        line-height: 1.3;
+        color: lighten($primary-color, 40%);
+      }
+    }
+    &__technical {
+      @extend .article__about;
+
+      ul {
+        margin-inline-start: 1.5rem;
+        margin-block-start: 1rem;
+        list-style: circle;
+        li {
+          @extend p;
+        }
+      }
+    }
+    &__footer {
+      @extend .article__about;
+      font-family: $ff-detials-2;
+
+      padding-block-end: 3rem;
+      position: initial;
+      text-align: center;
+      h4 {
+        margin-block-end: 0.5rem;
+        font-size: 4vmin;
+      }
+      p {
+        font-size: 3vmin;
+      }
+      & a {
+        color: darken($color: $yellow, $amount: 20%);
+        &:link {
+          text-decoration: underline;
+        }
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@include fade;
