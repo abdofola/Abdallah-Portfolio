@@ -29,6 +29,7 @@ menuIndecator.style.left = indicatorPosition - px + "px";
 nav.style.backgroundPosition = indicatorPosition + "px";
 
 console.log(prevPage);
+
 // conditions to display sections by default
 switch (prevPage) {
   case indexPage:
