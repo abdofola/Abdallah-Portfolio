@@ -18,8 +18,9 @@ const cue = document.querySelector(".header-cue");
 const flipBox = document.querySelector(".flip-box__inner");
 const projectItems = document.querySelector(".projects__items");
 const prevPage = document.referrer;
-const indexPage = "https://abdofola.github.io/Abdallah-Portfolio/root/index.html";
-const projectPage = "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
+const indexPage = "https://abdofola.github.io/Abdallah-Portfolio/root/";
+const projectPage =
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
 const px = 14.5;
 let indicatorPosition = 0;
 
@@ -27,24 +28,30 @@ indicatorPosition = currItem.offsetLeft;
 menuIndecator.style.left = indicatorPosition - px + "px";
 nav.style.backgroundPosition = indicatorPosition + "px";
 
+console.log(prevPage);
 // conditions to display sections by default
-if (prevPage == indexPage) {
-  sections.forEach((section) => {
-    if (section.getAttribute("id") != "home") {
-      addClass(section, "d-none");
-    }
-  });
-} else if (prevPage == projectPage) {
-  sections.forEach((section) => {
-    if (section.getAttribute("id") != "projects") {
-      addClass(section, "d-none");
-    }
-  });
-  offsetX(menuItems[2].children[0]);
+switch (prevPage) {
+  case indexPage:
+    sections.forEach(
+      (section) =>
+        section.getAttribute("id") != "home" && addClass(section, "d-none")
+    );
+    break;
+  case projectPage:
+    offsetX(menuItems[2].children[0]);
+    sections.forEach(
+      (section) =>
+        section.getAttribute("id") != "projects" && addClass(section, "d-none")
+    );
+    break;
+  default:
+    console.log("I am default");
+    sections.forEach(
+      (section) =>
+        section.getAttribute("id") != "home" && addClass(section, "d-none")
+    );
 }
 
-
-// function to move the indecator and the radial-gradient
 function offsetX(elem) {
   menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
   console.log("object type:", elem.constructor.name);
