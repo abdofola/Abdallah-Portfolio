@@ -474,7 +474,6 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 2rem;
 }
 
 .projects__header .text-secondary {
@@ -486,6 +485,8 @@ html {
   opacity: 0;
   -webkit-transform: translateX(-7rem);
           transform: translateX(-7rem);
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
   -webkit-animation: clear 2s forwards;
           animation: clear 2s forwards;
 }
@@ -864,7 +865,6 @@ main .article__header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 2rem;
 }
 
 main .article__header h1 {
@@ -874,6 +874,8 @@ main .article__header h1 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33% - 1rem);
           flex: 0 0 calc(33% - 1rem);
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
 }
 
 main .article__header p, main .article__header .article__technical ul li, main .article__technical ul .article__header li {
@@ -882,6 +884,8 @@ main .article__header p, main .article__header .article__technical ul li, main .
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33% - 1rem);
           flex: 0 0 calc(33% - 1rem);
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
 }
 
 main .article__header a {
@@ -889,8 +893,9 @@ main .article__header a {
   inline-size: -webkit-max-content;
   inline-size: -moz-max-content;
   inline-size: max-content;
-  padding-block: 10px 14px;
-  padding-inline: 5vmin;
+  -webkit-margin-after: 2rem;
+          margin-block-end: 2rem;
+  padding: 10px 5vmin 14px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33% - 1rem);
           flex: 0 0 calc(33% - 1rem);
