@@ -22,7 +22,7 @@ const indexPage = "http://127.0.0.1:5501/root/index.html";
 const projectPage = "http://127.0.0.1:5501/root/project-appscript.html";
 const px = 14.5;
 let indicatorPosition = 0;
-
+console.log('prev pagy:', prevPage)
 indicatorPosition = currItem.offsetLeft;
 menuIndecator.style.left = indicatorPosition - px + "px";
 nav.style.backgroundPosition = indicatorPosition + "px";
