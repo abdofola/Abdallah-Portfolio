@@ -18,11 +18,11 @@ const cue = document.querySelector(".header-cue");
 const flipBox = document.querySelector(".flip-box__inner");
 const projectItems = document.querySelector(".projects__items");
 const prevPage = document.referrer;
-const indexPage = "http://127.0.0.1:5501/root/index.html";
-const projectPage = "http://127.0.0.1:5501/root/project-appscript.html";
+const indexPage = "https://abdofola.github.io/Abdallah-Portfolio/root/index.html";
+const projectPage = "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
 const px = 14.5;
 let indicatorPosition = 0;
-console.log('prev pagy:', prevPage)
+
 indicatorPosition = currItem.offsetLeft;
 menuIndecator.style.left = indicatorPosition - px + "px";
 nav.style.backgroundPosition = indicatorPosition + "px";
