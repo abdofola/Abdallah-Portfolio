@@ -6,7 +6,7 @@
 .menu {
   position: relative !important;
   padding: 0;
-//   background: $yellow;
+  //   background: $yellow;
   width: 100%;
   height: 10%;
   &__crumbs {
@@ -21,7 +21,7 @@
     z-index: 1;
     transition: all 0.5s;
     &:hover {
-        gap: 5px;
+      gap: 5px;
     }
     span {
       inline-size: 7px;
@@ -41,31 +41,38 @@ main {
       gap: 2rem;
       h1 {
         font-size: 8vmin;
-        font-weight: 00;
+        font-weight: 900;
         color: darken($light-color, 15%);
+        flex: 0 0 calc(33% - 1rem);
       }
       p {
         font-size: 3.5vmin;
         color: lighten($primary-color, 40%);
+        flex: 0 0 calc(33% - 1rem);
       }
       a {
         cursor: pointer;
         inline-size: max-content;
         padding-block: 10px 14px;
         padding-inline: 5vmin;
+        flex: 0 0 calc(33% - 1rem);
         background: linear-gradient(
           -45deg,
           rgba($green, 0.5),
           rgba($yellow, 0.8)
         );
-        background-size: 200% 200%;
         animation: flow-diognal 3s ease-in-out infinite;
+        &:link {
+          background-size: 200% 200%;
+        }
+        &:hover {
+          opacity: 0.8;
+        }
       }
     }
 
     &__body {
       .slideshow {
-        // @extend .center-utility;
         block-size: 60vmin;
         margin: 0 auto;
         position: relative;
@@ -176,7 +183,7 @@ main {
       @extend .article__about;
       font-family: $ff-detials-2;
 
-      padding-block-end: 3rem;
+      padding-block-end: 1.5rem;
       position: initial;
       text-align: center;
       h4 {
