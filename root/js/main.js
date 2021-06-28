@@ -17,38 +17,56 @@ const footers = document.querySelectorAll("footer");
 const cue = document.querySelector(".header-cue");
 const flipBox = document.querySelector(".flip-box__inner");
 const projectItems = document.querySelector(".projects__items");
+const prevPage = document.referrer;
+const indexPage = "http://127.0.0.1:5501/root/index.html";
+const projectPage = "http://127.0.0.1:5501/root/project-appscript.html";
 const px = 14.5;
-let indecatorPosition = 0;
+let indicatorPosition = 0;
 
-indecatorPosition = currItem.offsetLeft;
-menuIndecator.style.left = indecatorPosition - px + "px";
-nav.style.backgroundPosition = indecatorPosition + "px";
+indicatorPosition = currItem.offsetLeft;
+menuIndecator.style.left = indicatorPosition - px + "px";
+nav.style.backgroundPosition = indicatorPosition + "px";
 
-menuItems.forEach((item) => {
-  item.addEventListener("click", offsetX);
-});
-function offsetX(event) {
-  const elem = event.target;
-
-  hasClass(elem, "btn")
-    ? (indecatorPosition = menuItems[3].offsetLeft)
-    : (indecatorPosition = this.offsetLeft);
-
-  menuIndecator.style.left = indecatorPosition - px + "px";
-  nav.style.backgroundPosition = indecatorPosition + "px";
-
-  // This console log its job to make the code fuckin work, I shit you not if you dare to delete it the code will trigger an error !!!!
-  console.log("item  offsetLeft", this.offsetLeft);
-  console.log("fooooooooooooooooola");
-
-  menuItems.forEach((item) => {
-    item.classList.remove("sc-current");
+// conditions to display sections by default
+if (prevPage == indexPage) {
+  sections.forEach((section) => {
+    if (section.getAttribute("id") != "home") {
+      addClass(section, "d-none");
+    }
   });
-
-  this.classList.add("sc-current");
+} else if (prevPage == projectPage) {
+  sections.forEach((section) => {
+    if (section.getAttribute("id") != "projects") {
+      addClass(section, "d-none");
+    }
+  });
+  offsetX(menuItems[2].children[0]);
 }
 
-// Event to toggle sections
+
+// function to move the indecator and the radial-gradient
+function offsetX(elem) {
+  menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
+  console.log("object type:", elem.constructor.name);
+  console.log("classes", elem.classList);
+  console.log("hasClass btn?", hasClass(elem, "btn"));
+
+  if (hasClass(elem, "btn")) {
+    posIndicatorNavBg(menuItems[3]);
+    addClass(menuItems[3], "sc-current", "active");
+  } else {
+    posIndicatorNavBg(elem);
+    addClass(elem.parentElement, "sc-current", "active");
+  }
+}
+
+function posIndicatorNavBg(element) {
+  indicatorPosition = element.offsetLeft;
+  menuIndecator.style.left = indicatorPosition - px + "px";
+  nav.style.backgroundPosition = indicatorPosition + "px";
+}
+
+// Events to toggle sections
 homeLink.addEventListener("click", sectionToggle);
 links.forEach((link) => {
   link.addEventListener("click", sectionToggle);
@@ -58,41 +76,28 @@ function sectionToggle(event) {
   const linkId = event.target.dataset.id;
 
   !hasClass(flipBox, "flip-horizonal")
-    ? flipBox.classList.add("flip-horizonal")
-    : flipBox.classList.remove("flip-horizonal");
+    ? addClass(flipBox, "flip-horizonal")
+    : removeClass(flipBox, "flip-horizonal");
 
   sections.forEach((section, idx) => {
     const sectionId = section.getAttribute("id");
     const match = sectionId == linkId;
-    
+
     hasClass(section.parentElement, "flip-horizonal")
       ? (section.style.transform = "rotateY(180deg)")
       : (section.style.transform = "none");
 
-    if (!match) {
-      section.classList.add("d-none");
-      menuItems[idx].classList.remove("active");
-      menuItems[idx].classList.remove("sc-current");
-    } else {
-      section.classList.remove("d-none");
-      menuItems[idx].classList.add("active");
-      menuItems[idx].classList.add("sc-current");
-    }
+    !match ? addClass(section, "d-none") : removeClass(section, "d-none");
   });
 
-  offsetX(event);
+  offsetX(event.currentTarget);
 }
 
 // pause animation until all assets on a page have loaded.
-document.body.classList.add("js-loading");
+addClass(document.body, "js-loading");
 window.addEventListener("load", animate);
 function animate() {
-  sections.forEach((section) => {
-    if (section.getAttribute("id") != "home") {
-      section.classList.add("d-none");
-    }
-  });
-  document.body.classList.remove("js-loading");
+  removeClass(document.body, "js-loading");
 }
 
 // Footer date
@@ -110,12 +115,23 @@ function callback() {
 }
 window.requestAnimationFrame(callback);
 
-// function to check if element has a certian class(supports old browsers)
+/***************** Utility functions ********************/
+
 function hasClass(element, classN) {
   return element.className.indexOf(classN) > -1 ? true : false;
 }
 
-// Add jobs
+function addClass(element, ...classList) {
+  element.classList.add(...classList);
+}
+
+function removeClass(element, ...classList) {
+  element.classList.remove(...classList);
+}
+
+/* --------------------------------------------- */
+
+/* Add jobs */
 jobs.assignJob().forEach((job) => {
   const jobDiv = document.createElement("div");
   const h2 = document.createElement("h2");
@@ -124,15 +140,15 @@ jobs.assignJob().forEach((job) => {
   const p = document.createElement("p");
   h2.textContent = job.rangeOfYear;
   h3.textContent = job.company;
-  h6.textContent = job.domain;
+  h6.textContent = job.role;
   p.textContent = job.text;
-  h2.classList.add("text-secondary");
-  jobDiv.classList.add("jobs__job");
+  addClass(h2, "text-secondary");
+  addClass(jobDiv, "jobs__job");
   jobDiv.append(h2, h3, h6, p);
   jobsWrapper.append(jobDiv);
 });
 
-// Add projects
+/* Add projects */
 project.addProject().forEach((project) => {
   const spanArr = [];
   const spanClasses = [
@@ -153,14 +169,14 @@ project.addProject().forEach((project) => {
   const anchor = document.createElement("a");
 
   // Add classes
-  projectItem.classList.add("projects__item");
-  itemHeader.classList.add("projects__item__header");
+  addClass(projectItem, "projects__item");
+  addClass(itemHeader, "projects__item__header");
   spanArr.forEach((span, idx) => {
-    span.classList.add(spanClasses[idx]);
+    addClass(span, spanClasses[idx]);
   });
-  proBtn.classList.add("projects__btn");
+  addClass(proBtn, "projects__btn");
 
-  // Inner texts attributes
+  // Inner texts & attributes
   spanArr[spanArr.length - 1].textContent = project.getTitle();
   img.src = project.getScreen();
   img.alt = "My project";

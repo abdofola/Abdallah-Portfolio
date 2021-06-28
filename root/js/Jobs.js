@@ -2,17 +2,22 @@
  * @Jobs class
  */
 
-import Job from "./Job.js";
 import { jobsArr } from "./data.js";
 
 class Jobs {
-  constructor() {
-    this.jobs = jobsArr;
-  }
-
+  // Data
+  static jobs = jobsArr;
+  // Constructor
+    constructor(rangeOfYear, company, role, text) {
+      this.rangeOfYear = rangeOfYear;
+      this.company = company;
+      this.role = role;
+      this.text = text;
+    }
+// Methods
   assignJob() {
-    return this.jobs.map(
-      (job) => new Job(job.rangeOfYear, job.company, job.domain, job.text)
+    return Jobs.jobs.map(
+      (job) => new Jobs(job.rangeOfYear, job.company, job.role, job.text)
     );
   }
 }
