@@ -50,8 +50,8 @@ const projDetials = [
   {
     title: "Appscript website",
     screenShots: [
+      "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
       "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
-      "http://via.placeholder.com/500/000000?text=no+more+shots+😋️",
       "./img/project-appscript.jpeg",
     ],
     about:
@@ -63,7 +63,7 @@ const projDetials = [
     title: "Boom Media Consultancy",
     screenShots: [
       "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
-      "http://via.placeholder.com/500/000000?text=no+more+shots+😋️",
+      "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
       "./img/project-boom.jpeg",
     ],
     about:
@@ -72,6 +72,41 @@ const projDetials = [
          Content Creation and Digital Marketing.",
 
     techs: ["html", "css", "materialize", "javascript"],
+  },
+  {
+    title: "Facebook front-end Clone",
+    screenShots: [
+      "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
+      "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
+      "./img/project-1.png",
+    ],
+    about:
+      "This is my very first static website,\
+     I was quite amazed of facebook and I really wanted to do something that would look the same,\
+      so I built it for learning purposes.\
+       Even though it's not that so cool I keep this project for the record to remind myself where I was and where I am right now.\
+        Voilla it's decades apart! 😎️✌️",
+
+    techs: ["html", "css", "bootstrap"],
+  },
+  {
+    title: "Secret Blogs",
+    screenShots: [
+      "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
+      "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
+      "./img/project-2.png",
+    ],
+    about:
+      "After finishing my journey with learing the front-end technologies,\
+       I wanted to level up my skills and learn how to do data persisting and calculations,\
+        in other words, the back-end and databases. The idea of Secret Blogs in a nut shell is a blog 😂️\
+        but you need a registerd account on this web app in order to post your own blog,\
+         otherwise you'd only be able to dipslay blogs from different users.\
+         But here the big question appears,\
+         what the heck it has to do with secrets 🙄️? ok just bear with me,\
+          you can display all blogs in the web app but you won't be able to know who's written it",
+
+    techs: ["html", "css", "javascript", "nodejs", "mongoDB"],
   },
 ];
 
