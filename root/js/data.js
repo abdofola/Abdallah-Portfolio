@@ -32,7 +32,7 @@ const projectArr = [
   {
     title: "secret-blogs",
     screenShot: "img/project-2.png",
-    linkDetails: "project-secretBlogs.html",
+    linkDetails: "project-blog.html",
   },
   {
     title: "node-upload-files",

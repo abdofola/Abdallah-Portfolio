@@ -4,31 +4,31 @@ import {
   facebookDetials,
   blogDetials,
 } from "./detialsIntances.js";
+import {
+  SERVER_IP,
+  SERVER_LOCAL,
+  BLOG_PAGE,
+  BOOM_PAGE,
+  FACEBOOK_PAGE,
+  APPSCRIPT_PAGE,
+} from "./variable_enviroment.js";
 
-const appscript =
-  "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
-const boom =
-  "https://abdofola.github.io/Abdallah-Portfolio/root/project-boom.html";
-const facebook =
-  "https://abdofola.github.io/Abdallah-Portfolio/root/project-facebook.html";
-const blog =
-  "https://abdofola.github.io/Abdallah-Portfolio/root/project-blog.html";
 let detials;
 
-console.log(window.location.href);
+// console.log("CURRENT PAGE:", window.location.href);
 
 // Conditions to display project detials based on the current url
 switch (window.location.href) {
-  case appscript:
+  case APPSCRIPT_PAGE:
     detials = appDetials;
     break;
-  case boom:
+  case BOOM_PAGE:
     detials = boomDetials;
     break;
-  case facebook:
+  case FACEBOOK_PAGE:
     detials = facebookDetials;
     break;
-  case blog:
+  case BLOG_PAGE:
     detials = blogDetials;
     break;
   default:
@@ -58,7 +58,7 @@ let currentIdx = 0;
 projMenu.addEventListener("click", displayProjectsMenu);
 function displayProjectsMenu() {
   console.log("clicked from the other side");
-  window.location.href = "index.html#project";
+  window.location.href = "index.html";
 }
 
 showSlide(currentIdx);
