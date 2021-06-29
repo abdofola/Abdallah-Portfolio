@@ -28,7 +28,9 @@ const prevPage = document.referrer;
 const indexPage = "https://abdofola.github.io/Abdallah-Portfolio/root/";
 const projectPage =
   "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html" ||
-  "https://abdofola.github.io/Abdallah-Portfolio/root/project-boom.html";
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-boom.html" ||
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-facebook.html" ||
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-blog.html";
 const px = 14.5;
 let indicatorPosition = 0;
 
