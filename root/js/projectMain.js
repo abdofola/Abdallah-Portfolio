@@ -1,9 +1,23 @@
-import { appDetials, boomDetials } from "./detialsIntances.js";
-const appscript = "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
-const boom = "https://abdofola.github.io/Abdallah-Portfolio/root/project-boom.html";
-let detials;
-// console.log(window.location.href);
+import {
+  appDetials,
+  boomDetials,
+  facebookDetials,
+  blogDetials,
+} from "./detialsIntances.js";
 
+const appscript =
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
+const boom =
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-boom.html";
+const facebook =
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-facebook.html";
+const blog =
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-blog.html";
+let detials;
+
+console.log(window.location.href);
+
+// Conditions to display project detials based on the current url
 switch (window.location.href) {
   case appscript:
     detials = appDetials;
@@ -11,7 +25,14 @@ switch (window.location.href) {
   case boom:
     detials = boomDetials;
     break;
+  case facebook:
+    detials = facebookDetials;
+    break;
+  case blog:
+    detials = blogDetials;
+    break;
   default:
+    detials = boomDetials;
     break;
 }
 displayDetial(detials);

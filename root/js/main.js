@@ -27,7 +27,8 @@ const projectItems = document.querySelector(".projects__items");
 const prevPage = document.referrer;
 const indexPage = "https://abdofola.github.io/Abdallah-Portfolio/root/";
 const projectPage =
-  "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html" ||
+  "https://abdofola.github.io/Abdallah-Portfolio/root/project-boom.html";
 const px = 14.5;
 let indicatorPosition = 0;
 

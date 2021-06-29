@@ -13,5 +13,17 @@ const boomDetials = new DetialModel(
   projDetials[1].about,
   projDetials[1].techs
 );
+const facebookDetials = new DetialModel(
+  projDetials[2].title,
+  projDetials[2].screenShots,
+  projDetials[2].about,
+  projDetials[2].techs
+);
+const blogDetials = new DetialModel(
+  projDetials[3].title,
+  projDetials[3].screenShots,
+  projDetials[3].about,
+  projDetials[3].techs
+);
 
-export { appDetials, boomDetials };
+export { appDetials, boomDetials, facebookDetials, blogDetials };
