@@ -1,79 +1,144 @@
-// import * as main from "./main.js";
+import { appDetials, boomDetials } from "./detialsIntances.js";
+const appscript = "https://abdofola.github.io/Abdallah-Portfolio/root/project-appscript.html";
+const boom = "https://abdofola.github.io/Abdallah-Portfolio/root/project-boom.html";
+let detials;
+// console.log(window.location.href);
+
+switch (window.location.href) {
+  case appscript:
+    detials = appDetials;
+    break;
+  case boom:
+    detials = boomDetials;
+    break;
+  default:
+    break;
+}
+displayDetial(detials);
+
+import {
+  hasClass,
+  addClass,
+  removeClass,
+  displayBlock,
+  displayNone,
+} from "./utility.js";
+
 const arrows = document.querySelectorAll(".slideshow a");
 const sliders = document.querySelectorAll(".slideshow__slide");
 const dots = document.querySelectorAll(".dot");
-const proMenu = document.querySelector(".menu__crumbs");
+const projMenu = document.querySelector(".menu__crumbs");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+let count = 1;
+let currentIdx = 0;
 
-// function to redirect to main projects menu
-proMenu.addEventListener("click", displayProjectsMenu);
+// function to redirect to the main projects menu
+projMenu.addEventListener("click", displayProjectsMenu);
 function displayProjectsMenu() {
   console.log("clicked from the other side");
   window.location.href = "index.html#project";
 }
 
-let count = 1;
-let currentIdx = 0;
-
 showSlide(currentIdx);
-document.querySelector(".prev").style.display = "none";
-dots[currentIdx].classList.add("active");
+displayNone(prev);
+addClass(dots[currentIdx], "active");
 
 arrows.forEach((arrow) => {
-  if (hasClass(arrow, "next")) arrow.addEventListener("click", nexImg);
-  else arrow.addEventListener("click", prevImg);
+  hasClass(arrow, "next")
+    ? arrow.addEventListener("click", nexImg)
+    : arrow.addEventListener("click", prevImg);
 });
 
 dots.forEach((dot, idx) => {
   dot.addEventListener("click", function () {
     currentIdx = idx;
 
-    if (idx == 0) {
-      document.querySelector(".prev").style.display = "none";
-      document.querySelector(".next").style.display = "block";
-    } else if (idx == sliders.length - 1) {
-      document.querySelector(".next").style.display = "none";
-      document.querySelector(".prev").style.display = "block";
-    } else {
-      document.querySelector(".next").style.display = "block";
-      document.querySelector(".prev").style.display = "block";
+    switch (idx) {
+      case 0:
+        displayNone(prev);
+        displayBlock(next);
+        break;
+      case sliders.length - 1:
+        displayNone(next);
+        displayBlock(prev);
+        break;
+      default:
+        displayBlock(next);
+        displayBlock(prev);
+        break;
     }
 
-    dots.forEach((dot) => dot.classList.remove("active"));
-    this.classList.add("active");
+    dots.forEach((dot) => removeClass(dot, "active"));
+    addClass(this, "active");
     showSlide(idx);
   });
 });
 
 function nexImg() {
-  document.querySelector(".prev").style.display = "block";
+  displayBlock(prev);
   showSlide(currentIdx + count);
   dots.forEach((dot) => dot.classList.remove("active"));
-  dots[currentIdx + count].classList.add("active");
+  addClass(dots[currentIdx + count], "active");
   currentIdx += count;
   if (currentIdx == sliders.length - 1) {
-    this.style.display = "none";
+    displayNone(this);
   }
 }
 
 function prevImg() {
-  document.querySelector(".next").style.display = "block";
+  displayBlock(next);
   showSlide(currentIdx - count);
-  dots.forEach((dot) => dot.classList.remove("active"));
-  dots[currentIdx - count].classList.add("active");
+  dots.forEach((dot) => removeClass(dot, "active"));
+  addClass(dots[currentIdx - count], "active");
   currentIdx -= count;
   if (currentIdx == count - 1) {
-    this.style.display = "none";
+    displayNone(this);
   }
 }
 
 function showSlide(currentIdx) {
   sliders.forEach((slider, idx) => {
-    if (idx == currentIdx) slider.style.display = "block";
-    else slider.style.display = "none";
+    idx == currentIdx ? displayBlock(slider) : displayNone(slider);
   });
 }
 
-// function to check if element has a certian class(supports old browsers)
-function hasClass(element, classN) {
-  return element.className.indexOf(classN) > -1 ? true : false;
+/* Add Detail Model */
+function displayDetial(detialObj) {
+  const title = detialObj.getTitle();
+  const scArr = detialObj.getScreens();
+  const techArr = detialObj.getTech();
+  const about = detialObj.getAbout();
+  const p = document.createElement("p");
+  const h1 = document.createElement("h1");
+  const sliders = [],
+    imgs = [],
+    items = [];
+  h1.textContent = title;
+  document
+    .querySelector(".article__header")
+    .insertAdjacentElement("afterbegin", h1);
+
+  for (let i = 0; i < scArr.length; i++) {
+    sliders[i] = document.createElement("div");
+    imgs[i] = document.createElement("img");
+    addClass(sliders[i], "slideshow__slide", "slideshow__slide--fade");
+    imgs[i].src = scArr[i];
+    sliders[i].append(imgs[i]);
+    document
+      .querySelector(".slideshow")
+      .insertAdjacentElement("afterbegin", sliders[i]);
+  }
+  p.textContent = about;
+  document
+    .querySelector(".article__about h2")
+    .insertAdjacentElement("afterend", p);
+
+  for (let i = 0; i < techArr.length; i++) {
+    items[i] = document.createElement("li");
+    items[i].textContent = techArr[i];
+    document
+      .querySelector(".article__technical ul")
+      .insertAdjacentElement("afterbegin", items[i]);
+  }
 }
