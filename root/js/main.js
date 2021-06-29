@@ -11,6 +11,7 @@ import {
   BOOM_PAGE,
   APPSCRIPT_PAGE,
   INDEX_PAGE,
+  DRUM_PAGE
 } from "./variable_enviroment.js";
 import Jobs from "./Job.js";
 import Project from "./Project.js";
@@ -36,7 +37,8 @@ const PROJECT_PAGE =
   prevPage == BOOM_PAGE ||
   prevPage == APPSCRIPT_PAGE ||
   prevPage == FACEBOOK_PAGE ||
-  prevPage == BLOG_PAGE;
+  prevPage == BLOG_PAGE ||
+  prevPage == DRUM_PAGE;
 const px = 14.5;
 let indicatorPosition = 0;
 

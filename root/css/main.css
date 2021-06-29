@@ -224,8 +224,8 @@ html {
 .about__bio-image {
   width: 100%;
   height: 100vh;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(22, 141, 226, 0.4))), url(../img/fola.webp) center center/cover;
-  background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(22, 141, 226, 0.4)), url(../img/fola.webp) center center/cover;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(22, 141, 226, 0.4))), url(../img/fola-bio.jpeg) center center/cover;
+  background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(22, 141, 226, 0.4)), url(../img/fola-bio.jpeg) center center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
