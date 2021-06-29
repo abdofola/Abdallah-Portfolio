@@ -1,4 +1,11 @@
-import Jobs from "./Jobs.js";
+import {
+  addClass,
+  removeClass,
+  hasClass,
+  display,
+  transform,
+} from "./utility.js";
+import Jobs from "./Job.js";
 import Project from "./Project.js";
 
 const jobs = new Jobs();
@@ -92,8 +99,8 @@ function sectionToggle(event) {
     const match = sectionId == linkId;
 
     hasClass(section.parentElement, "flip-horizonal")
-      ? (section.style.transform = "rotateY(180deg)")
-      : (section.style.transform = "none");
+      ? transform(section, "rotateY(180deg)")
+      : transform(section, "none");
 
     !match ? addClass(section, "d-none") : removeClass(section, "d-none");
   });
@@ -117,27 +124,11 @@ footers.forEach((footer) => {
 function callback() {
   const cueRec = bioImg.getBoundingClientRect();
 
-  cueRec.top < -5 ? (cue.style.display = "none") : (cue.style.display = "flex");
+  cueRec.top < -5 ? display(cue, "none") : display(cue, "flex");
 
   window.requestAnimationFrame(callback);
 }
 window.requestAnimationFrame(callback);
-
-/***************** Utility functions ********************/
-
-function hasClass(element, classN) {
-  return element.className.indexOf(classN) > -1 ? true : false;
-}
-
-function addClass(element, ...classList) {
-  element.classList.add(...classList);
-}
-
-function removeClass(element, ...classList) {
-  element.classList.remove(...classList);
-}
-
-/* --------------------------------------------- */
 
 /* Add jobs */
 jobs.assignJob().forEach((job) => {

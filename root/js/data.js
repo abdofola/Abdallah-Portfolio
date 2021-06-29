@@ -17,33 +17,62 @@ const projectArr = [
   {
     title: "app-script",
     screenShot: "img/project-appscript.jpeg",
-    linkDetails: "project-appscript.html"
+    linkDetails: "project-appscript.html",
   },
   {
     title: "boom-media",
     screenShot: "img/project-boom.jpeg",
-    linkDetails: "project-boom.html"
+    linkDetails: "project-boom.html",
   },
   {
     title: "facebook-clone",
     screenShot: "img/project-1.png",
-    linkDetails: "project-facebook.html"
+    linkDetails: "project-facebook.html",
   },
   {
     title: "secret-blogs",
     screenShot: "img/project-2.png",
-    linkDetails: "project-secretBlogs.html"
+    linkDetails: "project-secretBlogs.html",
   },
   {
     title: "node-upload-files",
     screenShot: "img/project-3.png",
-    linkDetails: "project-nodeUploadFile.html"
+    linkDetails: "project-nodeUploadFile.html",
   },
   {
     title: "drum-kit",
     screenShot: "img/project-4.png",
-    linkDetails: "project-drumKit.html"
+    linkDetails: "project-drumKit.html",
   },
-]
+];
 
-export { jobsArr, projectArr };
+const projDetials = [
+  {
+    title: "Appscript website",
+    screenShots: [
+      "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
+      "http://via.placeholder.com/500/000000?text=no+more+shots+😋️",
+      "./img/project-appscript.jpeg",
+    ],
+    about:
+      "This web application is built for a company that specializes in software solutions and ERP systems,\
+       located in Sudan head-quartered in Khartoum. Hit the button above to see it up live and running.",
+    techs: ["html", "css", "bootstrap", "javascript"],
+  },
+  {
+    title: "Boom Media Consultancy",
+    screenShots: [
+      "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
+      "http://via.placeholder.com/500/000000?text=no+more+shots+😋️",
+      "./img/project-boom.jpeg",
+    ],
+    about:
+      "Boom Media Consultancy it's a company specialized in more than one major,\
+        works in quite variety of fields such as Media Analysis & Monitoring, Bussiness Intellegence,\
+         Content Creation and Digital Marketing.",
+
+    techs: ["html", "css", "materialize", "javascript"],
+  },
+];
+
+export { jobsArr, projectArr, projDetials };
