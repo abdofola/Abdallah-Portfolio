@@ -4,6 +4,7 @@ const APPSCRIPT_PAGE = `${SERVER_IP}/project-appscript.html`;
 const BOOM_PAGE = `${SERVER_IP}/project-boom.html`;
 const FACEBOOK_PAGE = `${SERVER_IP}/project-facebook.html`;
 const BLOG_PAGE = `${SERVER_IP}/project-blog.html`;
+const DRUM_PAGE = `${SERVER_IP}/project-drumkit.html`;
 const INDEX_PAGE = `${SERVER_IP}/`;
 
 export {
@@ -13,5 +14,6 @@ export {
   FACEBOOK_PAGE,
   BLOG_PAGE,
   APPSCRIPT_PAGE,
-  INDEX_PAGE
+  INDEX_PAGE,
+  DRUM_PAGE
 };

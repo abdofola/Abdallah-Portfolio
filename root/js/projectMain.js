@@ -3,14 +3,14 @@ import {
   boomDetials,
   facebookDetials,
   blogDetials,
+  drumDetials,
 } from "./detialsIntances.js";
 import {
-  SERVER_IP,
-  SERVER_LOCAL,
   BLOG_PAGE,
   BOOM_PAGE,
   FACEBOOK_PAGE,
   APPSCRIPT_PAGE,
+  DRUM_PAGE,
 } from "./variable_enviroment.js";
 
 let detials;
@@ -30,6 +30,9 @@ switch (window.location.href) {
     break;
   case BLOG_PAGE:
     detials = blogDetials;
+    break;
+  case DRUM_PAGE:
+    detials = drumDetials;
     break;
   default:
     detials = boomDetials;
