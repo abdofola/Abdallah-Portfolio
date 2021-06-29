@@ -54,7 +54,7 @@ if (prevPage == INDEX_PAGE) {
       section.getAttribute("id") != "home" && addClass(section, "d-none")
   );
 } else if (PROJECT_PAGE) {
-  offsetX(menuItems[2].children[0]);
+  offsetX(links[2]);
   sections.forEach(
     (section) =>
       section.getAttribute("id") != "projects" && addClass(section, "d-none")
@@ -67,15 +67,14 @@ if (prevPage == INDEX_PAGE) {
 
 function offsetX(elem) {
   menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
-  console.log("object type:", elem.constructor.name);
-  console.log("classes", elem.classList);
-  console.log("hasClass btn?", hasClass(elem, "btn"));
-
+  // console.log("object type:", elem.constructor.name);
+  // console.log("classes", elem.classList);
+  // console.log("hasClass btn?", hasClass(elem, "btn"));
   if (hasClass(elem, "btn")) {
     posIndicatorNavBg(menuItems[3]);
     addClass(menuItems[3], "sc-current", "active");
   } else {
-    posIndicatorNavBg(elem);
+    posIndicatorNavBg(elem.parentElement);
     addClass(elem.parentElement, "sc-current", "active");
   }
 }

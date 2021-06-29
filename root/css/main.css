@@ -122,10 +122,9 @@ html {
 
 .logo {
   position: absolute;
-  top: 1rem;
+  top: 4vmin;
   left: 1rem;
-  block-size: 20px;
-  inline-size: 28px;
+  inline-size: 3.5vw;
 }
 
 .logo img {
@@ -485,8 +484,8 @@ html {
   opacity: 0;
   -webkit-transform: translateX(-7rem);
           transform: translateX(-7rem);
-  -webkit-margin-after: 2rem;
-          margin-block-end: 2rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
   -webkit-animation: clear 2s forwards;
           animation: clear 2s forwards;
 }
@@ -1096,13 +1095,8 @@ main .article__footer a:hover {
     display: none;
   }
   .logo {
-    position: absolute;
-    top: 2rem;
-    left: 1rem;
-    inline-size: 1.5rem;
-  }
-  .logo img {
-    inline-size: 100%;
+    inline-size: 1.2rem;
+    top: 5vmin;
   }
   /* NAV
   ----------------------------------------*/

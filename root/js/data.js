@@ -35,14 +35,14 @@ const projectArr = [
     linkDetails: "project-blog.html",
   },
   {
+    title: "drum-kit",
+    screenShot: "img/project-4.png",
+    linkDetails: "project-drumkit.html",
+  },
+  {
     title: "node-upload-files",
     screenShot: "img/project-3.png",
     linkDetails: "project-nodeUploadFile.html",
-  },
-  {
-    title: "drum-kit",
-    screenShot: "img/project-4.png",
-    linkDetails: "project-drumKit.html",
   },
 ];
 
@@ -107,6 +107,19 @@ const projDetials = [
           you can display all blogs in the web app but you won't be able to know who's written it",
 
     techs: ["html", "css", "javascript", "nodejs", "mongoDB"],
+  },
+  {
+    title: "Drum kit",
+    screenShots: [
+      "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
+      "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
+      "./img/project-4.png",
+    ],
+    about:
+      "This is a cool web app that let you play music on the fly.\
+       Evey button renders different kind of sound which belongs to certian sound instrument, give it ago and try it",
+
+    techs: ["html", "css", "javascript",],
   },
 ];
 

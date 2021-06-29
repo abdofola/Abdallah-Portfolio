@@ -25,5 +25,11 @@ const blogDetials = new DetialModel(
   projDetials[3].about,
   projDetials[3].techs
 );
+const drumDetials = new DetialModel(
+  projDetials[4].title,
+  projDetials[4].screenShots,
+  projDetials[4].about,
+  projDetials[4].techs
+);
 
-export { appDetials, boomDetials, facebookDetials, blogDetials };
+export { appDetials, boomDetials, facebookDetials, blogDetials, drumDetials };
