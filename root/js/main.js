@@ -82,7 +82,9 @@ function offsetX(elem) {
 }
 
 function posIndicatorNavBg(element) {
+  console.log('element:',element)
   indicatorPosition = element.offsetLeft;
+  console.log('offsetleft:',indicatorPosition)
   menuIndecator.style.left = indicatorPosition - px + "px";
   nav.style.backgroundPosition = indicatorPosition + "px";
 }
@@ -130,7 +132,7 @@ footers.forEach((footer) => {
 function callback() {
   const cueRec = bioImg.getBoundingClientRect();
 
-  cueRec.top < -5 ? display(cue, "none") : display(cue, "flex");
+  cueRec.top < -5 ? display(cue, "none") : display(cue, "grid");
 
   window.requestAnimationFrame(callback);
 }

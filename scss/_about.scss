@@ -11,8 +11,9 @@
         to right rgba($primary-color, 0),
         rgba($secondary-color, 0.4)
       ),
-      url(../img/fola-bio.jpeg) center center/cover;
+      url(../img/fola-bio.jpeg) no-repeat top 15% center/cover;
 
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,50 +21,54 @@
     overflow: hidden;
 
     .about__bio {
+      display: grid;
+      justify-items: center;
       max-inline-size: 100vmin;
       inline-size: 80%;
-      text-align: center;
-
+      height: 70%;
       .text-secondary {
+        align-self: flex-end;
         color: $yellow;
         font-size: 5vmin;
-        padding-block-end: 1rem;
+        font-weight: 900;
         opacity: 0;
         transform: translateX(-7rem);
         animation: clear 1s forwards;
       }
       p {
-        font-size: 100%;
-        line-height: 1.5;
-        margin-block-end: 2rem;
+        font-size: 2vh;
+        font-weight: 700;
+        line-height: 2;
         text-align: justify;
         text-align-last: center;
         opacity: 0;
         transform: translateX(7rem);
         animation: clear 1s 0.5s forwards;
       }
-    }
-    .header-cue {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding-inline: 0.5rem;
-      padding-block: 0.5rem 0;
-      text-align: center;
-      &__icon {
-        font-size: 5vmin;
-        color: darken($yellow, 20%);
-        opacity: 0;
-        transform: translateY(-2rem);
-        animation: clear 0.5s 1.8s forwards, bounce 1.5s 2.5s  infinite;
-      }
-      &__cap {
-        opacity: 0;
-        font-size: 100%;
-        font-style: oblique;
-        color: lighten($primary-color, 50%);
-        transform: translateY(10rem);
-        animation: clear 0.5s 2s forwards;
+      .header-cue {
+        align-self: flex-end;
+        display: grid;
+        grid-auto-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding-block-start: 1rem;
+        text-align: center;
+        &__icon {
+          font-size: 5vmin;
+          color: darken($yellow, 20%);
+          opacity: 0;
+          transform: translateY(-2rem);
+          animation: clear 0.5s 1.8s forwards, bounce 1.5s 2.5s infinite;
+        }
+        &__cap {
+          opacity: 0;
+          font-size: 100%;
+          font-style: oblique;
+          color: lighten($primary-color, 0%);
+          transform: translateY(10rem);
+          animation: clear 0.5s 2s forwards;
+        }
       }
     }
   }
@@ -87,7 +92,7 @@
         font-size: 4vmin;
       }
       h3 {
-        color: darken($color: ($light-color), $amount: 20%);
+        color: darken($light-color, 20%);
       }
 
       h6 {

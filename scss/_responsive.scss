@@ -15,6 +15,7 @@
   /* NAV
   ----------------------------------------*/
   .nav {
+    font-family: $ff-detials-2;
     overflow: hidden;
     position: static;
     background: transparent;
@@ -23,7 +24,6 @@
     }
     visibility: visible;
     .menu-nav {
-      // display: block;
       justify-content: flex-end;
       height: auto;
       inline-size: 100%;
@@ -44,12 +44,14 @@
 
       &__link {
         @include transition-ease;
+        display: inline-block;
         position: relative;
         font-size: 1rem;
         font-weight: 300;
         color: $light-color;
         text-transform: uppercase;
         margin: 0;
+        padding-block-end: 0.8rem;
         span {
           display: initial;
         }
@@ -80,10 +82,9 @@
 
   /* HOME
 ----------------------------------------*/
-
   .home {
-    position: relative;
-    padding-block-start: 25vh;
+    // position: relative;
+    // padding-block-start: 25vh;
     text-align: left;
     background: $primary-color;
     overflow: hidden;
@@ -93,30 +94,34 @@
       display: grid;
       grid-template-columns: repeat(
         auto-fit,
-        minmax(calc(min(30rem, 100%)), 1fr)
+        minmax(calc(min(10rem, 100%)), 1fr)
       );
       justify-content: center;
       align-items: center;
-      gap: 3rem;
+      gap: 1rem;
       .left {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        display: grid;
+        grid-auto-flow: row;
         height: 100%;
+        h2:first-of-type {
+          align-self: flex-end;
+          font-size: 0.8rem;
+        }
+        .home__name {
+          font-size: 2.5rem;
+          line-height: 1;
+        }
+        h2:last-of-type {
+          font-size: 1.3rem;
+        }
         .btn {
-          position: relative;
-          z-index: 4;
-          font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-            "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-          margin-block-start: 2rem;
-          cursor: pointer;
-          padding: 1rem 3rem;
-          border-radius: 20px;
-          color: $primary-color;
-          text-transform: uppercase;
-          opacity: 0;
-          transform: translateY(-100%) scale(1.2);
-          animation: clear 0.5s 1s forwards;
+          align-self: flex-end;
+          inline-size: 50%;
+          block-size: 0;
+          margin: 0px;
+          padding-top: 1rem;
+          padding-bottom: 1.7rem;
+          text-align: center;
           &:link {
             background: darken($color: $yellow, $amount: 10%);
           }
@@ -131,9 +136,9 @@
         order: 1;
         justify-content: center;
         .img {
-          flex: 0 0 300px;
-          position: relative;
-          block-size: 300px;
+          flex: 0 0 250px;
+          // position: relative;
+          block-size: 250px;
           opacity: 0;
           transform: translateX(100%);
           background: url(../img/fola-home.jpeg) no-repeat center top/cover;
@@ -146,8 +151,8 @@
           position: absolute;
           top: 50%;
           left: 50%;
-          inline-size: 320px;
-          block-size: 320px;
+          inline-size: 250px;
+          block-size: 250px;
           border-top: 10px solid $secondary-color;
           border-bottom: 10px solid $secondary-color;
           border-radius: 30px;
@@ -160,8 +165,8 @@
           position: absolute;
           top: 50%;
           left: 50%;
-          inline-size: 320px;
-          block-size: 320px;
+          inline-size: 250px;
+          block-size: 250px;
           border-left: 10px solid $yellow;
           border-right: 10px solid $yellow;
           border-radius: 30px;
@@ -212,126 +217,17 @@
       }
     }
   }
+
+  /* ABOUT
+----------------------------------------*/
+  .about {
+    .about__bio {
+      p {
+        font-size: 2.5vh;
+      }
+    }
+  }
 }
 
-/* PROJECTS
-----------------------------------------*/
-// .projects {
-//     @include break-point-min(35em) {
-//         &__bio-image {
-//             // height: 40vh;
-//         }
-//         &__items {
-//             width: 70vw;
-//             grid-template-columns: repeat(2, minmax(auto, 25em));
-//             grid-gap: 1rem;
-//         }
-//         &__item:first-of-type {
-//             grid-column: span 2;
-//         }
-
-//         &__item:nth-child(3) {
-//             order: 6;
-//             grid-column: span 2;
-//         }
-//     }
-
-//     @include break-point-min(60em) {
-//         &__items {
-//             width: 70vw;
-//             grid-template-columns: 1fr minmax(auto, 20em) 1fr;
-//             grid-gap: 1rem;
-//         }
-//         &__item:first-of-type {
-//             font-size: 1.5em;
-//             grid-column: 1/3;
-//             grid-row: 1/4;
-//             display: flex;
-//         }
-//         &__item:last-of-type {
-//             grid-row: 4;
-//             grid-column: 1;
-//             display: flex;
-//             .projects__btns {
-//                 display: flex;
-//                 flex-direction: column;
-//                 gap: 3rem;
-//             }
-//         }
-//         &__item:nth-child(3) {
-//             font-size: 1.5em;
-//             grid-row: 4;
-//             grid-column: 2/4;
-//         }
-//     }
-// }
-
-/* CONTACT
-----------------------------------------*/
-// .contact {
-//     @include break-point-min(47em) {
-//         &__list {
-//             width: 80%;
-//             margin: 0 auto;
-//             grid-template-columns: repeat(2, minmax(0, 1fr));
-//         }
-//         &__list > * {
-//             justify-self: flex-end;
-//         }
-//         &__email {
-//             padding-right: 2.5rem;
-//         }
-//     }
-//     @include break-point-min(70em) {
-//         &__list {
-//             grid-template-columns: repeat(3, minmax(0, 1fr));
-//         }
-//         &__list > * {
-//             justify-self: unset;
-//         }
-//         &__email {
-//             padding-right: 0;
-//         }
-//     }
-//     @include break-point-max(22.5em) {
-//         h2 {
-//             font-size: 2rem;
-//         }
-//         &__list {
-//             font-size: 1rem;
-//         }
-//         .social-icons {
-//             font-size: 0.6rem;
-//         }
-//     }
-// }
-
-/* ABOUT
-----------------------------------------*/
-// @include max-height(40em){
-//     .about, .projects {
-//         &__bio-image {
-//             height: 100vh;
-//         }
-//     }
-//     .contact {
-//         h2 {
-//             font-size: 1.7rem;
-//         }
-//         &__list {
-//             font-size: initial;
-//             width: initial;
-//             .contact__phone {
-//                 justify-self: end;
-//             }
-//         }
-//         &__list > * {
-//             justify-self: initial;
-//         }
-//         .social-icons {
-//             position: fixed;
-//         }
-//     }
-// }
 @include slide;
 @include frame;
