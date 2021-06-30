@@ -44,16 +44,15 @@
 
     &__link {
       color: $primary-color;
+      display: block;
       span {
         display: none;
       }
       i {
-        display: block;
-        inline-size: 100%;
-        block-size: 100%;
+        display: inherit;
         &:active {
-          transform: rotate(270deg);
-          transition: all 0.5s ease;
+          transform: rotate(-420deg);
+          @include transition-ease;
         }
       }
     }
