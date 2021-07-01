@@ -35,6 +35,20 @@
       font-style: normal;
       display: flex;
       justify-content: flex-start;
+      &:first-of-type {
+        a {
+          &:link {
+            mix-blend-mode: difference;
+            text-decoration: underline;
+          }
+          &:visited {
+            color: lighten($color: $primary-color, $amount: 30%);
+          }
+          &:hover {
+            color: $secondary-color;
+          }
+        }
+      }
       div {
         font-size: 3vmin;
         align-self: center;
@@ -64,33 +78,17 @@
         }
       }
     }
-    a {
-    //   display: inline-block;
-    //   inline-size: 75%;
-    //   outline: none;
-    //   &:link {
-    //     color: lighten($secondary-color, 15%);
-    //     border-bottom: 1px solid;
-    //   }
-    //   &:visited {
-    //     color: $yellow;
-    //   }
-    //   &:focus {
-    //     border-bottom: 1px solid;
-    //   }
-    //   &:hover {
-    //     color: darken($color: $yellow, $amount: 20%);
-    //     border-bottom: none;
-    //   }
-    //   &:active {
-    //     color: $yellow;
-    //   }
-    }
   }
 
   .social-icons {
     position: initial;
     margin-top: 3%;
+    i {
+      mix-blend-mode: difference;
+      &:hover {
+        color: $secondary-color;
+      }
+    }
   }
   footer {
     position: fixed;

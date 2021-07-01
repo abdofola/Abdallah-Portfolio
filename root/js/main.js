@@ -35,7 +35,7 @@ const cue = document.querySelector(".header-cue");
 const flipBox = document.querySelector(".flip-box__inner");
 const projectItems = document.querySelector(".projects__items");
 const prevPage = document.referrer;
-const href = document.location?.href;
+const href = document?.location?.href;
 const link = href.split("#")[1];
 const PROJECT_PAGE =
   prevPage == BOOM_PAGE ||

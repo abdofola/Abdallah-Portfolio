@@ -77,8 +77,8 @@ html {
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  color: #ffc907;
   text-transform: uppercase;
+  color: #ffc907;
   opacity: 0;
   -webkit-transform: translateY(-100%) scale(1.2);
           transform: translateY(-100%) scale(1.2);
@@ -86,31 +86,37 @@ html {
           animation: clear 0.5s 1s forwards;
 }
 
-.home .btn:link {
-  background: #168de2;
-}
-
-.home .btn:hover {
-  mix-blend-mode: multiply;
-}
-
-.home .btn:active {
-  color: #a07d00;
+.home .btn--contact:hover {
+  color: #168de2;
 }
 
 .home .btn--projects {
   -webkit-margin-before: 1rem;
           margin-block-start: 1rem;
-  background-color: transparent !important;
   border: 1px solid #ffc907;
-  color: #168de2;
   -webkit-animation: clear 0.5s 1.5s forwards;
           animation: clear 0.5s 1.5s forwards;
+  color: #1170b4;
+}
+
+.home .btn--projects:link {
+  background-color: transparent !important;
 }
 
 .home .btn--projects:hover {
-  color: #168de2;
-  mix-blend-mode: multiply;
+  color: #ffc907;
+}
+
+.home .btn:link {
+  background: #0d5385;
+}
+
+.home .btn:hover {
+  mix-blend-mode: overlay;
+}
+
+.home .btn:active {
+  color: #a07d00;
 }
 
 .home .social-icons {
@@ -782,6 +788,19 @@ html {
           justify-content: flex-start;
 }
 
+.contact__list address:first-of-type a:link {
+  mix-blend-mode: difference;
+  text-decoration: underline;
+}
+
+.contact__list address:first-of-type a:visited {
+  color: #747474;
+}
+
+.contact__list address:first-of-type a:hover {
+  color: #168de2;
+}
+
 .contact__list address div {
   font-size: 3vmin;
   -ms-grid-row-align: center;
@@ -824,6 +843,14 @@ html {
 .contact .social-icons {
   position: initial;
   margin-top: 3%;
+}
+
+.contact .social-icons i {
+  mix-blend-mode: difference;
+}
+
+.contact .social-icons i:hover {
+  color: #168de2;
 }
 
 .contact footer {
@@ -1271,17 +1298,6 @@ main .article__footer a:hover {
     padding-top: 1rem;
     padding-bottom: 1.7rem;
     text-align: center;
-    color: #168de2;
-  }
-  .home__wrapper .left .btn:link {
-    background: #d3a500;
-  }
-  .home__wrapper .left .btn:hover {
-    background: #ffc907;
-  }
-  .home__wrapper .left .btn--projects {
-    color: #ffc907;
-    border: 1px solid #168de2;
   }
   .home__wrapper .right {
     position: relative;

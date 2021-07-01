@@ -122,17 +122,6 @@
           padding-top: 1rem;
           padding-bottom: 1.7rem;
           text-align: center;
-          color: $secondary-color;
-          &:link {
-            background: darken($color: $yellow, $amount: 10%);
-          }
-          &:hover {
-            background: $yellow;
-          }
-          &--projects {
-            color: $yellow;
-            border: 1px solid $secondary-color;
-          }
         }
       }
       .right {

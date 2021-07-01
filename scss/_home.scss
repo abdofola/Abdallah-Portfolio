@@ -43,30 +43,36 @@
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: $yellow;
     text-transform: uppercase;
+    color: $yellow;
     opacity: 0;
     transform: translateY(-100%) scale(1.2);
     animation: clear 0.5s 1s forwards;
-    &:link {
-      background: $secondary-color;
-    }
-    &:hover {
-      mix-blend-mode: multiply;
-    }
-    &:active {
-      color: darken($yellow, 20%);
+    &--contact {
+      &:hover {
+        color: $secondary-color;
+      }
     }
     &--projects {
       margin-block-start: 1rem;
-      background-color: transparent !important;
       border: 1px solid $yellow;
-      color: $secondary-color;
       animation: clear 0.5s 1.5s forwards;
-      &:hover {
-        color: $secondary-color;
-        mix-blend-mode: multiply;
+      color: darken($secondary-color, 10%);
+      &:link {
+        background-color: transparent !important;
       }
+      &:hover {
+        color: $yellow;
+      }
+    }
+    &:link {
+      background: darken($secondary-color, 20%);
+    }
+    &:hover {
+      mix-blend-mode: overlay;
+    }
+    &:active {
+      color: darken($yellow, 20%);
     }
   }
   .social-icons {
