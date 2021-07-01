@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Castoro&family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 /* GENERAL STYLE
 ------------------------------ */
 html {
@@ -66,7 +67,9 @@ html {
 }
 
 .home .btn {
-  display: inline-block;
+  display: block;
+  margin: auto;
+  inline-size: 50%;
   font-family: "Oswald", sans-serif;
   -webkit-margin-before: 7rem;
           margin-block-start: 7rem;
@@ -74,7 +77,7 @@ html {
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  color: #272727;
+  color: #ffc907;
   text-transform: uppercase;
   opacity: 0;
   -webkit-transform: translateY(-100%) scale(1.2);
@@ -84,11 +87,30 @@ html {
 }
 
 .home .btn:link {
-  background: #d3a500;
+  background: #168de2;
 }
 
 .home .btn:hover {
-  background: #ffc907;
+  mix-blend-mode: multiply;
+}
+
+.home .btn:active {
+  color: #a07d00;
+}
+
+.home .btn--projects {
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+  background-color: transparent !important;
+  border: 1px solid #ffc907;
+  color: #168de2;
+  -webkit-animation: clear 0.5s 1.5s forwards;
+          animation: clear 0.5s 1.5s forwards;
+}
+
+.home .btn--projects:hover {
+  color: #168de2;
+  mix-blend-mode: multiply;
 }
 
 .home .social-icons {
@@ -245,6 +267,8 @@ html {
 .about__bio-image .about__bio {
   display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
   justify-items: center;
   max-inline-size: 100vmin;
   inline-size: 80%;
@@ -255,6 +279,7 @@ html {
   -ms-flex-item-align: end;
       align-self: flex-end;
   color: #ffc907;
+  font-family: "Indie Flower", cursive;
   font-size: 5vmin;
   font-weight: 900;
   opacity: 0;
@@ -265,6 +290,11 @@ html {
 }
 
 .about__bio-image .about__bio p, .about__bio-image .about__bio main .article__technical ul li, main .article__technical ul .about__bio-image .about__bio li {
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   font-size: 2vh;
   font-weight: 700;
   line-height: 2;
@@ -278,41 +308,41 @@ html {
 }
 
 .about__bio-image .about__bio .header-cue {
+  block-size: 120px;
   align-self: flex-end;
   display: -ms-grid;
   display: grid;
   grid-auto-flow: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 1rem;
-  -webkit-padding-before: 1rem;
-          padding-block-start: 1rem;
-  text-align: center;
+  justify-items: center;
 }
 
 .about__bio-image .about__bio .header-cue__icon {
+  -webkit-margin-before: 2rem;
+          margin-block-start: 2rem;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   font-size: 5vmin;
   color: #a07d00;
   opacity: 0;
   -webkit-transform: translateY(-2rem);
           transform: translateY(-2rem);
-  -webkit-animation: clear 0.5s 1.8s forwards, bounce 1.5s 2.5s infinite;
-          animation: clear 0.5s 1.8s forwards, bounce 1.5s 2.5s infinite;
+  -webkit-animation: clear 0.5s 2s forwards, bounce 1.5s 2.5s infinite;
+          animation: clear 0.5s 2s forwards, bounce 1.5s 2.5s infinite;
 }
 
 .about__bio-image .about__bio .header-cue__cap {
   opacity: 0;
-  font-size: 100%;
+  font-size: 80%;
   font-style: oblique;
   color: #272727;
   -webkit-transform: translateY(10rem);
           transform: translateY(10rem);
   -webkit-animation: clear 0.5s 2s forwards;
           animation: clear 0.5s 2s forwards;
+}
+
+.about__bio-image .about__bio .hiddenVisually {
+  opacity: 1;
 }
 
 .about .jobs {
@@ -486,7 +516,8 @@ html {
       -ms-flex: 0 0 calc(33% - 1rem);
           flex: 0 0 calc(33% - 1rem);
   font-size: 2rem;
-  color: white;
+  font-family: "Indie Flower", cursive;
+  color: #ffc907;
   opacity: 0;
   -webkit-transform: translateX(-7rem);
           transform: translateX(-7rem);
@@ -709,19 +740,14 @@ html {
   -webkit-transition: all 0.5s 0.3s ease-in-out;
   transition: all 0.5s 0.3s ease-in-out;
   block-size: 100%;
-  -webkit-padding-before: 35vh;
-          padding-block-start: 35vh;
   overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1.5fr 1fr 1fr;
+      grid-template-rows: 1.5fr 1fr 1fr;
+  justify-items: center;
+  gap: 2rem;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 141, 226, 0.8)), to(rgba(255, 201, 7, 0.8)));
   background: linear-gradient(180deg, rgba(22, 141, 226, 0.8), rgba(255, 201, 7, 0.8));
   background-size: 200% 200%;
@@ -730,66 +756,78 @@ html {
 }
 
 .contact h2 {
-  font-size: 2rem;
-  margin-bottom: 5%;
+  font-family: "Indie Flower", cursive;
+  color: #ffc907;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 7vmin;
+  margin: 0;
 }
 
 .contact__list {
-  -webkit-margin-start: 3rem;
-          margin-inline-start: 3rem;
+  margin: 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  grid-auto-flow: row;
   gap: 2rem;
-  font-size: 1.2rem;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
 }
 
-.contact__list address > div {
-  color: #ffd43a;
+.contact__list address {
+  font-style: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
-.contact__list a {
-  display: inline-block;
-  inline-size: 75%;
-  outline: none;
+.contact__list address div {
+  font-size: 3vmin;
+  -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-margin-start: 1rem;
+          margin-inline-start: 1rem;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0.3rem;
 }
 
-.contact__list a:link {
-  color: #56afef;
-  border-bottom: 1px solid;
+.contact__list address div span:first-child {
+  font-family: "Indie Flower", cursive;
+  color: white;
 }
 
-.contact__list a:visited {
+.contact__list address div span:last-child {
   color: #ffc907;
 }
 
-.contact__list a:focus {
-  border-bottom: 1px solid;
+.contact__list address i {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 2vmin;
+  border-radius: 50%;
+  border: 1px solid #168de2;
+  background: #272727;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-.contact__list a:hover {
-  color: #a07d00;
-  border-bottom: none;
-}
-
-.contact__list a:active {
-  color: #ffc907;
+.contact__list address i:hover {
+  background: transparent;
+  mix-blend-mode: multiply;
 }
 
 .contact .social-icons {
   position: initial;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 .contact footer {
-  position: absolute;
+  position: fixed;
   right: 50%;
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
@@ -1225,16 +1263,25 @@ main .article__footer a:hover {
         align-self: flex-end;
     inline-size: 50%;
     block-size: 0;
-    margin: 0px;
+    margin: 0;
+    -webkit-margin-after: 0.5rem;
+            margin-block-end: 0.5rem;
+    -webkit-margin-before: 0.5rem;
+            margin-block-start: 0.5rem;
     padding-top: 1rem;
     padding-bottom: 1.7rem;
     text-align: center;
+    color: #168de2;
   }
   .home__wrapper .left .btn:link {
     background: #d3a500;
   }
   .home__wrapper .left .btn:hover {
     background: #ffc907;
+  }
+  .home__wrapper .left .btn--projects {
+    color: #ffc907;
+    border: 1px solid #168de2;
   }
   .home__wrapper .right {
     position: relative;
@@ -1343,6 +1390,16 @@ main .article__footer a:hover {
 ----------------------------------------*/
   .about .about__bio p, .about .about__bio main .article__technical ul li, main .article__technical ul .about .about__bio li {
     font-size: 2.5vh;
+  }
+  /* CONTACT
+----------------------------------------*/
+  .contact footer {
+    position: fixed;
+    right: 1%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    bottom: 1%;
+    color: silver;
   }
 }
 

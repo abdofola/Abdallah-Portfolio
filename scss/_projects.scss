@@ -16,12 +16,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // gap: 2rem;
 
     .text-secondary {
       flex: 0 0 calc(33% - 1rem);
       font-size: 2rem;
-      color: $light-color;
+      font-family: $ff-contact;
+      color: $yellow;
       opacity: 0;
       transform: translateX(-7rem);
       margin-block-end: 1rem;

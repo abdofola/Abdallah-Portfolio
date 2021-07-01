@@ -4,6 +4,7 @@ import {
   hasClass,
   display,
   transform,
+  displayNone,
 } from "./utility.js";
 import {
   BLOG_PAGE,
@@ -11,7 +12,7 @@ import {
   BOOM_PAGE,
   APPSCRIPT_PAGE,
   INDEX_PAGE,
-  DRUM_PAGE
+  DRUM_PAGE,
 } from "./variable_enviroment.js";
 import Jobs from "./Job.js";
 import Project from "./Project.js";
@@ -22,7 +23,8 @@ const currentYear = new Date().getFullYear();
 const nav = document.querySelector(".nav");
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("li .menu-nav__link");
-const homeLink = document.querySelector(".btn");
+const homeLink = document.querySelector(".btn--contact");
+const projLink = document.querySelector(".btn--projects");
 const menuItems = document.querySelectorAll(".menu-nav__item");
 const menuIndecator = document.querySelector(".sc-nav-indicator");
 const currItem = document.querySelector(".sc-current");
@@ -72,9 +74,12 @@ function offsetX(elem) {
   // console.log("object type:", elem.constructor.name);
   // console.log("classes", elem.classList);
   // console.log("hasClass btn?", hasClass(elem, "btn"));
-  if (hasClass(elem, "btn")) {
+  if (hasClass(elem, "btn--contact")) {
     posIndicatorNavBg(menuItems[3]);
     addClass(menuItems[3], "sc-current", "active");
+  } else if (hasClass(elem, "btn--projects")) {
+    posIndicatorNavBg(menuItems[2]);
+    addClass(menuItems[2], "sc-current", "active");
   } else {
     posIndicatorNavBg(elem.parentElement);
     addClass(elem.parentElement, "sc-current", "active");
@@ -82,15 +87,16 @@ function offsetX(elem) {
 }
 
 function posIndicatorNavBg(element) {
-  console.log('element:',element)
+  console.log("element:", element);
   indicatorPosition = element.offsetLeft;
-  console.log('offsetleft:',indicatorPosition)
+  console.log("offsetleft:", indicatorPosition);
   menuIndecator.style.left = indicatorPosition - px + "px";
   nav.style.backgroundPosition = indicatorPosition + "px";
 }
 
 // Events to toggle sections
 homeLink.addEventListener("click", sectionToggle);
+projLink.addEventListener("click", sectionToggle);
 links.forEach((link) => {
   link.addEventListener("click", sectionToggle);
 });
@@ -132,7 +138,13 @@ footers.forEach((footer) => {
 function callback() {
   const cueRec = bioImg.getBoundingClientRect();
 
-  cueRec.top < -5 ? display(cue, "none") : display(cue, "grid");
+  if (cueRec.top < -5) {
+    display(cue?.children[0], "none");
+    display(cue?.children[1], "none");
+  } else {
+    display(cue?.children[0], "block");
+    display(cue?.children[1], "block");
+  }
 
   window.requestAnimationFrame(callback);
 }

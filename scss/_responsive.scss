@@ -83,8 +83,6 @@
   /* HOME
 ----------------------------------------*/
   .home {
-    // position: relative;
-    // padding-block-start: 25vh;
     text-align: left;
     background: $primary-color;
     overflow: hidden;
@@ -118,15 +116,22 @@
           align-self: flex-end;
           inline-size: 50%;
           block-size: 0;
-          margin: 0px;
+          margin: 0;
+          margin-block-end: 0.5rem;
+          margin-block-start: 0.5rem;
           padding-top: 1rem;
           padding-bottom: 1.7rem;
           text-align: center;
+          color: $secondary-color;
           &:link {
             background: darken($color: $yellow, $amount: 10%);
           }
           &:hover {
             background: $yellow;
+          }
+          &--projects {
+            color: $yellow;
+            border: 1px solid $secondary-color;
           }
         }
       }
@@ -137,7 +142,6 @@
         justify-content: center;
         .img {
           flex: 0 0 250px;
-          // position: relative;
           block-size: 250px;
           opacity: 0;
           transform: translateX(100%);
@@ -225,6 +229,18 @@
       p {
         font-size: 2.5vh;
       }
+    }
+  }
+
+  /* CONTACT
+----------------------------------------*/
+  .contact {
+    footer {
+      position: fixed;
+      right: 1%;
+      transform: translateX(0);
+      bottom: 1%;
+      color: lighten($primary-color, 60%);
     }
   }
 }
