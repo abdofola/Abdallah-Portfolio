@@ -22,6 +22,7 @@
 
     .about__bio {
       display: grid;
+      grid-template-rows: 1fr 1fr;
       justify-items: center;
       max-inline-size: 100vmin;
       inline-size: 80%;
@@ -29,6 +30,7 @@
       .text-secondary {
         align-self: flex-end;
         color: $yellow;
+        font-family: $ff-contact;
         font-size: 5vmin;
         font-weight: 900;
         opacity: 0;
@@ -36,6 +38,8 @@
         animation: clear 1s forwards;
       }
       p {
+        margin-block-start: 1rem;
+        align-self: center;
         font-size: 2vh;
         font-weight: 700;
         line-height: 2;
@@ -46,29 +50,31 @@
         animation: clear 1s 0.5s forwards;
       }
       .header-cue {
+        block-size: 120px;
         align-self: flex-end;
         display: grid;
         grid-auto-flow: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-        padding-block-start: 1rem;
-        text-align: center;
+        justify-items: center;
         &__icon {
+          margin-block-start: 2rem;
+          align-self: flex-end;
           font-size: 5vmin;
           color: darken($yellow, 20%);
           opacity: 0;
           transform: translateY(-2rem);
-          animation: clear 0.5s 1.8s forwards, bounce 1.5s 2.5s infinite;
+          animation: clear 0.5s 2s forwards, bounce 1.5s 2.5s infinite;
         }
         &__cap {
           opacity: 0;
-          font-size: 100%;
+          font-size: 80%;
           font-style: oblique;
           color: lighten($primary-color, 0%);
           transform: translateY(10rem);
           animation: clear 0.5s 2s forwards;
         }
+      }
+      .hiddenVisually {
+        opacity: 1;
       }
     }
   }

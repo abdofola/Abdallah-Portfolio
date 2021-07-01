@@ -3,67 +3,97 @@
 .contact {
   transition: all 0.5s 0.3s ease-in-out;
   block-size: 100%;
-  padding-block-start: 35vh;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 1.5fr 1fr 1fr;
+  justify-items: center;
+  gap: 2rem;
   background: linear-gradient(
-    180deg, rgba($secondary-color, 0.8),
+    180deg,
+    rgba($secondary-color, 0.8),
     rgba($yellow, 0.8)
-    );
-    background-size: 200% 200%;
-    animation: flow-vertical 5s ease-in-out infinite;
-  
+  );
+  background-size: 200% 200%;
+  animation: flow-vertical 5s ease-in-out infinite;
 
   h2 {
-    font-size: 2rem;
-    margin-bottom: 5%;
+    font-family: $ff-contact;
+    color: $yellow;
+    align-self: flex-end;
+    font-size: 7vmin;
+    margin: 0;
   }
 
   &__list {
-    margin-inline-start: 3rem;
+    margin: 0;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-auto-flow: row;
     gap: 2rem;
-    font-size: 1.2rem;
-    justify-content: flex-end;
-    align-items: flex-end;
 
-    address > div {
-      color: lighten($yellow, 10%);
+    address {
+      font-style: normal;
+      display: flex;
+      justify-content: flex-start;
+      div {
+        font-size: 3vmin;
+        align-self: center;
+        margin-inline-start: 1rem;
+        display: grid;
+        grid-auto-flow: row;
+        gap: 0.3rem;
+        span:first-child {
+          font-family: $ff-contact;
+          color: $light-color;
+        }
+        span:last-child {
+          color: $yellow;
+        }
+      }
+      i {
+        align-self: center;
+        padding: 2vmin;
+        border-radius: 50%;
+        border: 1px solid $secondary-color;
+        background: $primary-color;
+        cursor: pointer;
+        @include transition-ease;
+        &:hover {
+          background: transparent;
+          mix-blend-mode: multiply;
+        }
+      }
     }
-
     a {
-      display: inline-block;
-      inline-size: 75%;
-      outline: none;
-      &:link {
-        color: lighten($secondary-color, 15%);
-        border-bottom:  1px solid;
-      }
-      &:visited{
-        color: $yellow;
-      }
-      &:focus{
-        border-bottom: 1px solid;
-      }
-      &:hover {
-        color: darken($color: $yellow, $amount: 20%);
-        border-bottom: none;
-      }
-      &:active{
-        color: $yellow;
-      }
+    //   display: inline-block;
+    //   inline-size: 75%;
+    //   outline: none;
+    //   &:link {
+    //     color: lighten($secondary-color, 15%);
+    //     border-bottom: 1px solid;
+    //   }
+    //   &:visited {
+    //     color: $yellow;
+    //   }
+    //   &:focus {
+    //     border-bottom: 1px solid;
+    //   }
+    //   &:hover {
+    //     color: darken($color: $yellow, $amount: 20%);
+    //     border-bottom: none;
+    //   }
+    //   &:active {
+    //     color: $yellow;
+    //   }
     }
   }
 
   .social-icons {
     position: initial;
-    margin-top: 10%;
+    margin-top: 3%;
   }
   footer {
-    position: absolute;
+    position: fixed;
     right: 50%;
     transform: translateX(50%);
     bottom: 10%;

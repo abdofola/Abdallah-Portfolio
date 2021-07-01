@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kirang+Haerang&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Castoro&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 /* GENERAL STYLE
 ------------------------------ */
 $primary-color: #272727;
@@ -11,8 +12,8 @@ $green: #00ff00;
 $light-color: hsl(0, 0%, 100%);
 // $body-font: ;
 $project-font: "Kirang Haerang", cursive;
-$ff-details-1: 'Castoro', serif;
 $ff-detials-2: 'Oswald', sans-serif;
+$ff-contact: 'Indie Flower', cursive;
 @mixin vendor-prefix($name, $value...) {
   @each $vendor in ("-webkit-", "-moz-", "-ms-", "-o-", "") {
     #{$vendo}-#{$name}: #{$value};

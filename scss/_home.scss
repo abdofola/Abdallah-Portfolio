@@ -34,29 +34,39 @@
     }
   }
   .btn {
-    display: inline-block;
+    display: block;
+    margin: auto;
+    inline-size: 50%;
     font-family: $ff-detials-2;
     margin-block-start: 7rem;
     cursor: pointer;
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: $primary-color;
+    color: $yellow;
     text-transform: uppercase;
     opacity: 0;
     transform: translateY(-100%) scale(1.2);
     animation: clear 0.5s 1s forwards;
     &:link {
-      background: darken($color: $yellow, $amount: 10%);
-    }
-    &:visited {
-    }
-    &:focus {
+      background: $secondary-color;
     }
     &:hover {
-      background: $yellow;
+      mix-blend-mode: multiply;
     }
     &:active {
+      color: darken($yellow, 20%);
+    }
+    &--projects {
+      margin-block-start: 1rem;
+      background-color: transparent !important;
+      border: 1px solid $yellow;
+      color: $secondary-color;
+      animation: clear 0.5s 1.5s forwards;
+      &:hover {
+        color: $secondary-color;
+        mix-blend-mode: multiply;
+      }
     }
   }
   .social-icons {
