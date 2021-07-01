@@ -35,6 +35,8 @@ const cue = document.querySelector(".header-cue");
 const flipBox = document.querySelector(".flip-box__inner");
 const projectItems = document.querySelector(".projects__items");
 const prevPage = document.referrer;
+const href = document.location?.href;
+const link = href.split("#")[1];
 const PROJECT_PAGE =
   prevPage == BOOM_PAGE ||
   prevPage == APPSCRIPT_PAGE ||
@@ -48,22 +50,36 @@ indicatorPosition = currItem.offsetLeft;
 menuIndecator.style.left = indicatorPosition - px + "px";
 nav.style.backgroundPosition = indicatorPosition + "px";
 
+/********************************************************* */
+if (link == "contact") {
+  console.log("document.location.href:", href);
+  console.log("Link query 1:", link);
+  offsetX(links[3]);
+  sections.forEach(
+    (section) =>
+      section.getAttribute("id") != "contact" && addClass(section, "d-none")
+  );
+} else {
+  console.log("no link");
+}
+/********************************************************* */
+
 console.log("PREVIOUS PAGE:", prevPage);
 console.log("PROJECT_PAGE:", PROJECT_PAGE);
 
 // conditions to display sections by default
-if (prevPage == INDEX_PAGE) {
+if (prevPage == INDEX_PAGE && !link) {
   sections.forEach(
     (section) =>
       section.getAttribute("id") != "home" && addClass(section, "d-none")
   );
-} else if (PROJECT_PAGE) {
+} else if (PROJECT_PAGE && !link) {
   offsetX(links[2]);
   sections.forEach(
     (section) =>
       section.getAttribute("id") != "projects" && addClass(section, "d-none")
   );
-} else
+} else if (!(prevPage == INDEX_PAGE) && !link)
   sections.forEach(
     (section) =>
       section.getAttribute("id") != "home" && addClass(section, "d-none")
