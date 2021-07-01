@@ -67,6 +67,8 @@ html {
 }
 
 .home .btn {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   display: block;
   margin: auto;
   inline-size: 50%;
@@ -84,8 +86,6 @@ html {
           transform: translateY(-100%) scale(1.2);
   -webkit-animation: clear 0.5s 1s forwards;
           animation: clear 0.5s 1s forwards;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
 }
 
 .home .btn--contact:hover {
