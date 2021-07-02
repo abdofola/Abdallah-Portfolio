@@ -51,6 +51,8 @@ menuIndecator.style.left = indicatorPosition - px + "px";
 nav.style.backgroundPosition = indicatorPosition + "px";
 
 /********************************************************* */
+console.log("PREVIOUS PAGE:", prevPage);
+console.log("PROJECT_PAGE:", PROJECT_PAGE);
 if (link == "contact") {
   console.log("document.location.href:", href);
   console.log("Link query 1:", link);
@@ -59,8 +61,25 @@ if (link == "contact") {
     (section) =>
       section.getAttribute("id") != "contact" && addClass(section, "d-none")
   );
-} else {
+} else if (PROJECT_PAGE && !link) {
   console.log("no link");
+  if (prevPage == INDEX_PAGE && !link) {
+    sections.forEach(
+      (section) =>
+        section.getAttribute("id") != "home" && addClass(section, "d-none")
+    );
+  } else if (PROJECT_PAGE && !link) {
+    offsetX(links[2]);
+    sections.forEach(
+      (section) =>
+        section.getAttribute("id") != "projects" && addClass(section, "d-none")
+    );
+  } else if (!(prevPage == INDEX_PAGE) && !link)
+    sections.forEach(
+      (section) =>
+        section.getAttribute("id") != "home" && addClass(section, "d-none")
+    );
+} else {
   sections.forEach(
     (section) =>
       section.getAttribute("id") != "home" && addClass(section, "d-none")
@@ -68,26 +87,6 @@ if (link == "contact") {
 }
 /********************************************************* */
 
-console.log("PREVIOUS PAGE:", prevPage);
-console.log("PROJECT_PAGE:", PROJECT_PAGE);
-
-// conditions to display sections by default
-if (prevPage == INDEX_PAGE && !link) {
-  sections.forEach(
-    (section) =>
-      section.getAttribute("id") != "home" && addClass(section, "d-none")
-  );
-} else if (PROJECT_PAGE && !link) {
-  offsetX(links[2]);
-  sections.forEach(
-    (section) =>
-      section.getAttribute("id") != "projects" && addClass(section, "d-none")
-  );
-} else if (!(prevPage == INDEX_PAGE) && !link)
-  sections.forEach(
-    (section) =>
-      section.getAttribute("id") != "home" && addClass(section, "d-none")
-  );
 
 function offsetX(elem) {
   menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
