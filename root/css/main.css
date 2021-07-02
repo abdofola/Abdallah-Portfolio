@@ -298,11 +298,11 @@ html {
 }
 
 .about__bio-image .about__bio p, .about__bio-image .about__bio main .article__technical ul li, main .article__technical ul .about__bio-image .about__bio li {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
   font-size: 2vh;
   font-weight: 700;
   line-height: 2;
@@ -1406,8 +1406,16 @@ main .article__footer a:hover {
   }
   /* ABOUT
 ----------------------------------------*/
+  .about .about__bio {
+    -ms-grid-rows: (1fr)[3];
+        grid-template-rows: repeat(3, 1fr);
+  }
+  .about .about__bio .text-secondary {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
   .about .about__bio p, .about .about__bio main .article__technical ul li, main .article__technical ul .about .about__bio li {
-    font-size: 2.5vh;
+    font-size: 125%;
   }
   /* CONTACT
 ----------------------------------------*/

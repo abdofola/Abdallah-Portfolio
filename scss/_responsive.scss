@@ -200,7 +200,6 @@
     h2:last-of-type {
       font-size: 1.5rem;
       line-height: 1.5;
-      //   text-align: justify;
       opacity: 0;
       transform: translateX(-7rem);
       animation: clear 0.5s forwards;
@@ -215,8 +214,12 @@
 ----------------------------------------*/
   .about {
     .about__bio {
+      grid-template-rows: repeat(3, 1fr);
+      .text-secondary {
+        align-self: flex-end;
+      }
       p {
-        font-size: 2.5vh;
+        font-size: 125%;
       }
     }
   }
