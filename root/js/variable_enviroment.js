@@ -1,5 +1,3 @@
-
-
 const SERVER_IP = "https://abdofola.github.io/Abdallah-Portfolio/root";
 const SERVER_LOCAL = "http://127.0.0.1:5501/root";
 const APPSCRIPT_PAGE = `${SERVER_IP}/project-appscript.html`;
