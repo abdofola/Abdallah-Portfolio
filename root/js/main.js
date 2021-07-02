@@ -61,6 +61,10 @@ if (link == "contact") {
   );
 } else {
   console.log("no link");
+  sections.forEach(
+    (section) =>
+      section.getAttribute("id") != "home" && addClass(section, "d-none")
+  );
 }
 /********************************************************* */
 
