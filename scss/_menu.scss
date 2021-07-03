@@ -17,7 +17,7 @@
   left: 0;
   right: 0;
   background: radial-gradient(
-    circle at 13.5% 0,
+    circle at calc(min(13.7%, 55px)) 0,
     transparent 36px,
     #d3a500 37px
   );
