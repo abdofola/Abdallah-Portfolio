@@ -5,13 +5,14 @@ import {
   display,
   transform,
   displayNone,
+  displayBlock,
+  preLoader,
 } from "./utility.js";
 import {
   BLOG_PAGE,
   FACEBOOK_PAGE,
   BOOM_PAGE,
   APPSCRIPT_PAGE,
-  INDEX_PAGE,
   DRUM_PAGE,
 } from "./variable_enviroment.js";
 import Jobs from "./Job.js";
@@ -20,14 +21,17 @@ import Project from "./Project.js";
 const jobs = new Jobs();
 const project = new Project();
 const currentYear = new Date().getFullYear();
+const header = document.querySelector("header");
+const main = document.querySelector("main");
+const loader = document.querySelector(".loader");
 const nav = document.querySelector(".nav");
+const menu = document.querySelector(".menu-nav");
 const sections = document.querySelectorAll("section");
 const links = document.querySelectorAll("li .menu-nav__link");
 const homeLink = document.querySelector(".btn--contact");
 const projLink = document.querySelector(".btn--projects");
 const menuItems = document.querySelectorAll(".menu-nav__item");
 const menuIndecator = document.querySelector(".sc-nav-indicator");
-const currItem = document.querySelector(".sc-current");
 const bioImg = document.querySelector(".about__bio-image");
 const jobsWrapper = document.querySelector(".jobs");
 const footers = document.querySelectorAll("footer");
@@ -43,50 +47,55 @@ const PROJECT_PAGE =
   prevPage == FACEBOOK_PAGE ||
   prevPage == BLOG_PAGE ||
   prevPage == DRUM_PAGE;
-const px = 14.5;
-let indicatorPosition = 0;
+const menuRec = menu?.getBoundingClientRect();
+const indicatorConst = 14.6;
+const navConst = -1;
+let currItem = document.querySelector(".sc-current.active");
+let currItemRec = currItem?.getBoundingClientRect();
+let offset = currItemRec.left - menuRec.left;
+let indicatorPosition = offset;
 
-indicatorPosition = currItem.offsetLeft;
-menuIndecator.style.left = indicatorPosition - px + "px";
-nav.style.backgroundPosition = indicatorPosition + "px";
+menuIndecator.style.left = indicatorPosition - indicatorConst + "px";
+nav.style.backgroundPosition = indicatorPosition - navConst + "px";
 
-/********************************************************* */
-console.log("PREVIOUS PAGE:", prevPage);
-console.log("PROJECT_PAGE:", PROJECT_PAGE);
-if (link == "contact") {
-  console.log("document.location.href:", href);
-  console.log("Link query 1:", link);
-  offsetX(links[3]);
-  sections.forEach(
-    (section) =>
-      section.getAttribute("id") != "contact" && addClass(section, "d-none")
-  );
-} else if (PROJECT_PAGE && !link) {
-  console.log("no link");
-  if (prevPage == INDEX_PAGE && !link) {
-    sections.forEach(
-      (section) =>
-        section.getAttribute("id") != "home" && addClass(section, "d-none")
-    );
-  } else if (PROJECT_PAGE && !link) {
-    offsetX(links[2]);
-    sections.forEach(
-      (section) =>
-        section.getAttribute("id") != "projects" && addClass(section, "d-none")
-    );
-  } else if (!(prevPage == INDEX_PAGE) && !link)
-    sections.forEach(
-      (section) =>
-        section.getAttribute("id") != "home" && addClass(section, "d-none")
-    );
-} else {
-  sections.forEach(
-    (section) =>
-      section.getAttribute("id") != "home" && addClass(section, "d-none")
-  );
+// console.log(href);
+// console.log("PREVIOUS PAGE:", prevPage);
+// console.log("PROJECT_PAGE:", PROJECT_PAGE);
+// console.log('menuRec.left',menuRec.left)
+
+preLoader(window, function () {
+  displayNone(loader);
+  displayBlock(header);
+  displayBlock(main);
+  displaySection();
+});
+
+// function to display a particular section when page load
+function displaySection() {
+  switch (link) {
+    case "contact":
+      offsetX(links[3]);
+      sections.forEach(
+        (section) =>
+          section.getAttribute("id") != "contact" && addClass(section, "d-none")
+      );
+      break;
+    case "projects":
+      offsetX(links[2]);
+      sections.forEach(
+        (section) =>
+          section.getAttribute("id") != "projects" &&
+          addClass(section, "d-none")
+      );
+      break;
+    default:
+      sections.forEach(
+        (section) =>
+          section.getAttribute("id") != "home" && addClass(section, "d-none")
+      );
+      break;
+  }
 }
-/********************************************************* */
-
 
 function offsetX(elem) {
   menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
@@ -94,23 +103,29 @@ function offsetX(elem) {
   // console.log("classes", elem.classList);
   // console.log("hasClass btn?", hasClass(elem, "btn"));
   if (hasClass(elem, "btn--contact")) {
-    posIndicatorNavBg(menuItems[3]);
     addClass(menuItems[3], "sc-current", "active");
+    posIndicatorNavBg(menuItems[3]);
   } else if (hasClass(elem, "btn--projects")) {
-    posIndicatorNavBg(menuItems[2]);
     addClass(menuItems[2], "sc-current", "active");
+    posIndicatorNavBg(menuItems[2]);
   } else {
-    posIndicatorNavBg(elem.parentElement);
     addClass(elem.parentElement, "sc-current", "active");
+    posIndicatorNavBg(elem.parentElement);
   }
 }
 
 function posIndicatorNavBg(element) {
-  console.log("element:", element);
-  indicatorPosition = element.offsetLeft;
-  console.log("offsetleft:", indicatorPosition);
-  menuIndecator.style.left = indicatorPosition - px + "px";
-  nav.style.backgroundPosition = indicatorPosition + "px";
+  currItem = element;
+  // currItemRec = currItem.getBoundingClientRect();
+  offset = currItem.offsetLeft;
+  indicatorPosition = offset;
+  console.log("currItem", currItem);
+  console.log("menuRec.left", menuRec.left);
+  console.log("currItemRec.left", currItemRec.left);
+  console.log("offset:", offset);
+  console.log("indicator pos:", indicatorPosition);
+  menuIndecator.style.left = indicatorPosition - indicatorConst + "px";
+  nav.style.backgroundPosition = indicatorPosition - navConst + "px";
 }
 
 // Events to toggle sections
@@ -139,13 +154,6 @@ function sectionToggle(event) {
   });
 
   offsetX(event.currentTarget);
-}
-
-// pause animation until all assets on a page have loaded.
-addClass(document.body, "js-loading");
-window.addEventListener("load", animate);
-function animate() {
-  removeClass(document.body, "js-loading");
 }
 
 // Footer date

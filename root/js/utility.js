@@ -23,7 +23,23 @@ function display(element, string) {
 }
 
 function transform(element, string) {
-    element.style.transform = string;
+  element.style.transform = string;
 }
 
-export { hasClass, addClass, removeClass, displayBlock, displayNone, display, transform };
+// Attach event listener (load) to the element to play pre-loader for a certian period of time.
+function preLoader(elemToAttach, showPage) {
+  elemToAttach.addEventListener("load", function () {
+    setTimeout(showPage, 2500);
+  });
+}
+
+export {
+  hasClass,
+  addClass,
+  removeClass,
+  displayBlock,
+  displayNone,
+  display,
+  transform,
+  preLoader,
+};

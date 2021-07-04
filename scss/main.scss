@@ -28,6 +28,44 @@ a {
   color: $secondary-color;
 }
 
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  inline-size: 80px;
+  block-size: 80px;
+  animation: animate 1s linear infinite;
+  &__item {
+    position: absolute;
+    inline-size: 40px;
+    block-size: 40px;
+    background: #f00;
+    box-shadow: 2px 2px 5px 1px #000;
+    animation: rotate 1s linear infinite;
+    &--1 {
+      top: 0;
+      left: 0;
+      background: $red;
+    }
+    &--2 {
+      top: 0;
+      right: 0;
+      background: $blue;
+    }
+    &--3 {
+      bottom: 0;
+      left: 0;
+      background: $cian;
+    }
+    &--4 {
+      bottom: 0;
+      right: 0;
+      background: $green;
+    }
+  }
+}
+
 header {
   position: fixed;
   width: 100%;
@@ -92,3 +130,7 @@ footer {
 .d-none {
   display: none;
 }
+
+@include animate;
+@include rotate;
+

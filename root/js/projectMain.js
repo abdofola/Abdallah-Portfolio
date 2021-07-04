@@ -5,6 +5,7 @@ import {
   blogDetials,
   drumDetials,
 } from "./detialsIntances.js";
+
 import {
   BLOG_PAGE,
   BOOM_PAGE,
@@ -13,10 +14,16 @@ import {
   DRUM_PAGE,
 } from "./variable_enviroment.js";
 
+import {
+  hasClass,
+  addClass,
+  removeClass,
+  displayBlock,
+  displayNone,
+  preLoader,
+} from "./utility.js";
+
 let detials;
-
-// console.log("CURRENT PAGE:", window.location.href);
-
 // Conditions to display project detials based on the current url
 switch (window.location.href) {
   case APPSCRIPT_PAGE:
@@ -40,14 +47,6 @@ switch (window.location.href) {
 }
 displayDetial(detials);
 
-import {
-  hasClass,
-  addClass,
-  removeClass,
-  displayBlock,
-  displayNone,
-} from "./utility.js";
-
 const arrows = document.querySelectorAll(".slideshow a");
 const sliders = document.querySelectorAll(".slideshow__slide");
 const dots = document.querySelectorAll(".dot");
@@ -57,12 +56,11 @@ const next = document.querySelector(".next");
 let count = 1;
 let currentIdx = 0;
 
-// function to redirect to the main projects menu
-projMenu.addEventListener("click", displayProjectsMenu);
-function displayProjectsMenu() {
-  console.log("clicked from the other side");
-  window.location.href = "index.html";
-}
+preLoader(window, function () {
+  displayNone(document.querySelector(".loader"));
+  displayBlock(document.querySelector("header"));
+  displayBlock(document.querySelector("main"));
+});
 
 showSlide(currentIdx);
 displayNone(prev);
@@ -138,6 +136,7 @@ function displayDetial(detialObj) {
   const sliders = [],
     imgs = [],
     items = [];
+    console.log(scArr)
   h1.textContent = title;
   document
     .querySelector(".article__header")

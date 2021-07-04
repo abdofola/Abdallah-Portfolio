@@ -19,12 +19,19 @@
 </head>
 
 <body>
-    <header class="menu">
-        <a data-id="projects" class="menu__crumbs">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <div class="loader">
+        <div class="loader__item loader__item--1"></div>
+        <div class="loader__item loader__item--2"></div>
+        <div class="loader__item loader__item--3"></div>
+        <div class="loader__item loader__item--4"></div>
+    </div>
+
+    <header class="menu" style="display: none;">
+        <a href="index.html#projects" data-id="projects" class="menu__back">
+            <i class="fas fa-long-arrow-alt-left"></i>
         </a>
     </header>
-    <main>
+    <main style="display: none;">
         <article class="article">
             <div class="article__header">
                 <!-- code injected by js -->
@@ -62,6 +69,10 @@
         </article><!-- .article -->
     </main>
 
+<!-- ************ FONTAWSOME ************** -->
+<script src="https://kit.fontawesome.com/9fa0bb35ad.js" crossorigin="anonymous"></script>
+
 </body>
+
 
 </html>
