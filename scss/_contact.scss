@@ -37,20 +37,22 @@
       justify-content: flex-start;
       &:first-of-type {
         a {
+          color: $yellow;
           &:link {
-            mix-blend-mode: difference;
+            mix-blend-mode: overlay;
             text-decoration: underline;
           }
           &:visited {
             color: lighten($color: $primary-color, $amount: 30%);
           }
           &:hover {
-            color: $secondary-color;
+            text-decoration: none;
+
           }
         }
       }
       div {
-        font-size: 3vmin;
+        font-size: clamp(2vw, 1.3rem, 5vw);
         align-self: center;
         margin-inline-start: 1rem;
         display: grid;
@@ -84,9 +86,11 @@
     position: initial;
     margin-top: 3%;
     i {
-      mix-blend-mode: difference;
+      @include transition-ease;
+      color: $light-color;
+      mix-blend-mode: overlay;
       &:hover {
-        color: $secondary-color;
+        color: $primary-color;
       }
     }
   }

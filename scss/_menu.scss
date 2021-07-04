@@ -17,13 +17,14 @@
   left: 0;
   right: 0;
   background: radial-gradient(
-    circle at calc(min(13.7%, 55px)) 0,
+    circle at 13.5% 0,
     transparent 36px,
     #d3a500 37px
   );
   transition: cubic-bezier(0.57, 0.23, 0.08, 0.96) 0.45s;
 
   .menu-nav {
+    position: relative;
     display: flex;
     inline-size: 80%;
     height: 50px;
