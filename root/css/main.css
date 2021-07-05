@@ -45,6 +45,7 @@ html {
 }
 
 .home h2:first-of-type {
+  color: silver;
   font-family: "Indie Flower", cursive;
   font-size: 1em;
   -webkit-margin-after: 1rem;
@@ -52,19 +53,19 @@ html {
 }
 
 .home h2:last-of-type {
-  font-size: 1.2em;
+  font-size: clamp(2vw, 1.2em, 5vw);
 }
 
 .home__name {
   font-family: "Indie Flower", cursive;
-  font-size: 3.5rem;
+  font-size: clamp(5vw, 3.5rem, 12vw);
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: 2px solid white;
 }
 
 .home__name--last {
-  color: #168de2;
+  color: #1170b4;
   font-weight: 700;
 }
 
@@ -75,8 +76,8 @@ html {
   margin: auto;
   inline-size: 50%;
   font-family: "Oswald", sans-serif;
-  -webkit-margin-before: 7rem;
-          margin-block-start: 7rem;
+  -webkit-margin-before: clamp(5vh, 7rem, 10vh);
+          margin-block-start: clamp(5vh, 7rem, 10vh);
   cursor: pointer;
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
