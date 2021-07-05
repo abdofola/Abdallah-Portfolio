@@ -1,6 +1,7 @@
 import {
   addClass,
   removeClass,
+  toggleClass,
   hasClass,
   display,
   transform,
@@ -41,6 +42,7 @@ const projectItems = document.querySelector(".projects__items");
 const prevPage = document.referrer;
 const href = document?.location?.href;
 const link = href.split("#")[1];
+const projectItemList = [];
 const PROJECT_PAGE =
   prevPage == BOOM_PAGE ||
   prevPage == APPSCRIPT_PAGE ||
@@ -99,9 +101,6 @@ function displaySection() {
 
 function offsetX(elem) {
   menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
-  // console.log("object type:", elem.constructor.name);
-  // console.log("classes", elem.classList);
-  // console.log("hasClass btn?", hasClass(elem, "btn"));
   if (hasClass(elem, "btn--contact")) {
     addClass(menuItems[3], "sc-current", "active");
     posIndicatorNavBg(menuItems[3]);
@@ -116,14 +115,8 @@ function offsetX(elem) {
 
 function posIndicatorNavBg(element) {
   currItem = element;
-  // currItemRec = currItem.getBoundingClientRect();
   offset = currItem.offsetLeft;
   indicatorPosition = offset;
-  console.log("currItem", currItem);
-  console.log("menuRec.left", menuRec.left);
-  console.log("currItemRec.left", currItemRec.left);
-  console.log("offset:", offset);
-  console.log("indicator pos:", indicatorPosition);
   menuIndecator.style.left = indicatorPosition - indicatorConst + "px";
   nav.style.backgroundPosition = indicatorPosition - navConst + "px";
 }
@@ -166,11 +159,11 @@ function callback() {
   const cueRec = bioImg.getBoundingClientRect();
 
   if (cueRec.top < -5) {
-    display(cue?.children[0], "none");
-    display(cue?.children[1], "none");
+    displayNone(cue?.children[0]);
+    displayNone(cue?.children[1]);
   } else {
-    display(cue?.children[0], "block");
-    display(cue?.children[1], "block");
+    displayBlock(cue?.children[0]);
+    displayBlock(cue?.children[1]);
   }
 
   window.requestAnimationFrame(callback);
@@ -234,4 +227,12 @@ project.addProject().forEach((project) => {
   proBtn.append(anchor);
   projectItem.append(itemHeader, img, proBtn);
   projectItems.append(projectItem);
+  projectItemList.push(projectItem);
+});
+
+projectItemList.forEach((item) => {
+  item.addEventListener("click", function () {
+    projectItemList.forEach((item) => removeClass(item, "click"));
+    addClass(this, "click");
+  });
 });

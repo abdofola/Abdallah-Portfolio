@@ -10,6 +10,10 @@ function removeClass(element, ...classList) {
   element.classList.remove(...classList);
 }
 
+function toggleClass(element, ...classList) {
+  element.classList.toggle(...classList);
+}
+
 function displayBlock(element, string = "block") {
   element.style.display = string;
 }
@@ -37,6 +41,7 @@ export {
   hasClass,
   addClass,
   removeClass,
+  toggleClass,
   displayBlock,
   displayNone,
   display,
