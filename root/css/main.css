@@ -572,6 +572,39 @@ html {
   cursor: pointer;
 }
 
+.projects__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(39, 39, 39, 0.9)));
+  background: linear-gradient(to bottom rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.9));
+  background-size: cover;
+  background-position: 100% 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.projects__item:hover::before {
+  bottom: 0;
+}
+
+.projects__item:hover .projects__btn {
+  -webkit-transform: translate(-50%, 50%) scaleY(1);
+          transform: translate(-50%, 50%) scaleY(1);
+}
+
+.projects__item .click::before {
+  bottom: 0;
+}
+
+.projects__item .click .projects__btn {
+  -webkit-transform: translate(-50%, 50%) scaleY(1);
+          transform: translate(-50%, 50%) scaleY(1);
+}
+
 .projects__item__header {
   position: relative;
   z-index: 1;
@@ -626,30 +659,6 @@ html {
   block-size: 100%;
   position: relative;
   z-index: -1;
-}
-
-.projects__item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 100%;
-  left: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(39, 39, 39, 0.9)));
-  background: linear-gradient(to bottom rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.9));
-  background-size: cover;
-  background-position: 100% 100%;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.projects__item:hover::before {
-  bottom: 0;
-}
-
-.projects__item:hover .projects__btn {
-  -webkit-transform: translate(-50%, 50%) scaleY(1);
-          transform: translate(-50%, 50%) scaleY(1);
 }
 
 .projects__btn {
