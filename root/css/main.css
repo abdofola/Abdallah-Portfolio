@@ -1318,8 +1318,8 @@ main .article__footer a:hover {
         -ms-flex-align: center;
             align-items: center;
     text-align: left;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.79))), url(../img/projects-6.jpg) no-repeat center center/cover;
-    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.79)), url(../img/projects-6.jpg) no-repeat center center/cover;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.79))), url(../img/projects-6.webp) no-repeat center center/cover;
+    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.79)), url(../img/projects-6.webp) no-repeat center center/cover;
     -webkit-animation: none;
             animation: none;
     overflow: hidden;
@@ -1454,8 +1454,8 @@ main .article__footer a:hover {
   /* ABOUT
 ----------------------------------------*/
   .about__bio-image {
-    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.8))), url(../img/bio-9.jpg) no-repeat top 15% center/cover;
-    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.8)), url(../img/bio-9.jpg) no-repeat top 15% center/cover;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.8))), url(../img/bio-9.webp) no-repeat top 15% center/cover;
+    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.8)), url(../img/bio-9.webp) no-repeat top 15% center/cover;
     background-attachment: fixed;
   }
   .about__bio-image .about__bio {
@@ -1477,8 +1477,8 @@ main .article__footer a:hover {
   .projects {
     position: relative;
     z-index: 0;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.8))), url(../img/projects-8.jpg) no-repeat bottom 20% center/cover;
-    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.8)), url(../img/projects-8.jpg) no-repeat bottom 20% center/cover;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.8))), url(../img/projects-8.webp) no-repeat bottom 20% center/cover;
+    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.8)), url(../img/projects-8.webp) no-repeat bottom 20% center/cover;
     background-attachment: fixed;
   }
   /* CONTACT
