@@ -4,8 +4,14 @@
   top: 4vmin;
   left: 1rem;
   inline-size: 3.5vw;
+  cursor: pointer;
+  z-index: 1;
   img {
     inline-size: 100%;
+    @include transition-ease;
+    &:hover {
+      transform: scale(0.8);
+    }
   }
 }
 

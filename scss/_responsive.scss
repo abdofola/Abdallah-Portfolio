@@ -83,34 +83,75 @@
   /* HOME
 ----------------------------------------*/
   .home {
+    position: relative;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: left;
-    background: $primary-color;
+    background: linear-gradient(
+        to right rgba($primary-color, 0),
+        rgba($primary-color, 0.79)
+      ),
+      url(../img/projects-6.jpg) no-repeat center center/cover;
+    animation: none;
     overflow: hidden;
+
     &__wrapper {
-      width: 90%;
-      margin: 0 auto;
+      inline-size: 85%;
+      margin: 0;
       display: grid;
+      place-self: center;
       grid-template-columns: repeat(
         auto-fit,
         minmax(calc(min(10rem, 100%)), 1fr)
       );
-      justify-content: center;
       align-items: center;
-      gap: 1rem;
+      gap: clamp(2vw, 5rem, 3.8vw);
       .left {
         display: grid;
         grid-auto-flow: row;
         height: 100%;
         h2:first-of-type {
           align-self: flex-end;
-          font-size: 0.8rem;
+          font-size: clamp(1.3vw, 1rem, 3vw);
+          margin: 0;
+          opacity: 0;
+          font-style: italic;
+          color: darken($color: $light-color, $amount: 10%);
+          transform: translateX(-7rem);
+          animation: clear 0.5s forwards;
         }
         .home__name {
-          font-size: 2.5rem;
-          line-height: 1;
+          font-size: clamp(3.5vw, 2.5rem, 5vw);
+          font-weight: 600;
+          line-height: 1.5;
+          border: none;
+          margin: 0;
+          padding: 0;
+          opacity: 0;
+          transform: translateX(-7rem);
+          animation: clear 0.5s forwards;
+          &::before,
+          &::after {
+            font-size: 2.7rem;
+            font-family: sans-serif;
+            content: open-quote;
+          }
+          &::after {
+            content: close-quote;
+          }
         }
         h2:last-of-type {
-          font-size: 1.3rem;
+          font-size: clamp(1vw, 1.8rem, 2vw);
+          line-height: 1.5;
+          opacity: 0;
+          transform: translateX(-7rem);
+          animation: clear 0.5s forwards;
+          color: $light-color;
+          &::after {
+            content: " based in Sudan. I create fascinitaing websites to help people go online.";
+          }
         }
         .btn {
           align-self: flex-end;
@@ -127,7 +168,6 @@
       .right {
         position: relative;
         display: flex;
-        order: 1;
         justify-content: center;
         .img {
           flex: 0 0 250px;
@@ -140,12 +180,13 @@
           z-index: 2;
           animation: clear 0.8s 0.5s forwards;
         }
-        .border-front {
+        .border-front,
+        .border-back {
+          inline-size: 250px;
+          block-size: 250px;
           position: absolute;
           top: 50%;
           left: 50%;
-          inline-size: 250px;
-          block-size: 250px;
           border-top: 10px solid $secondary-color;
           border-bottom: 10px solid $secondary-color;
           border-radius: 30px;
@@ -155,57 +196,10 @@
           animation: frame 0.8s 0.5s forwards;
         }
         .border-back {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          inline-size: 250px;
-          block-size: 250px;
           border-left: 10px solid $yellow;
           border-right: 10px solid $yellow;
-          border-radius: 30px;
-          box-shadow: 0 0 10px darken($color: $primary-color, $amount: 100%);
           z-index: 1;
-          opacity: 0;
-          animation: frame 0.8s 0.5s forwards;
         }
-      }
-    }
-
-    h2:first-of-type {
-      margin: 0;
-      opacity: 0;
-      font-style: italic;
-      color: darken($color: $light-color, $amount: 30%);
-      transform: translateX(-7rem);
-      animation: clear 0.5s forwards;
-    }
-    &__name {
-      line-height: 1.5;
-      font-size: 4rem;
-      border: none;
-      margin: 0;
-      padding: 0;
-      opacity: 0;
-      transform: translateX(-7rem);
-      animation: clear 0.5s forwards;
-      &::before {
-        font-family: sans-serif;
-        content: open-quote;
-      }
-      &::after {
-        content: close-quote;
-        font-family: sans-serif;
-      }
-    }
-    h2:last-of-type {
-      font-size: 1.5rem;
-      line-height: 1.5;
-      opacity: 0;
-      transform: translateX(-7rem);
-      animation: clear 0.5s forwards;
-      color: darken($color: $light-color, $amount: 30%);
-      &::after {
-        content: " based in Sudan. I create fascinitaing websites to help people go online.";
       }
     }
   }
@@ -213,15 +207,40 @@
   /* ABOUT
 ----------------------------------------*/
   .about {
-    .about__bio {
-      grid-template-rows: repeat(3, 1fr);
-      .text-secondary {
-        align-self: flex-end;
-      }
-      p {
-        font-size: 125%;
+    &__bio-image {
+      background: linear-gradient(
+          to right rgba($primary-color, 0),
+          rgba($primary-color, 0.8)
+        ),
+        url(../img/bio-9.jpg) no-repeat top 15% center/cover;
+      background-attachment: fixed;
+
+      .about__bio {
+        grid-template-rows: repeat(3, 1fr);
+        .text-secondary {
+          align-self: flex-end;
+        }
+        p {
+          font-size: 125%;
+        }
+        .header-cue__cap {
+          color: lighten($color: $primary-color, $amount: 25%);
+        }
       }
     }
+  }
+
+  /* PROJECTS
+----------------------------------------*/
+  .projects {
+    position: relative;
+    z-index: 0;
+    background: linear-gradient(
+        to right rgba($primary-color, 0),
+        rgba($primary-color, 0.8)
+      ),
+      url(../img/projects-8.jpg) no-repeat bottom 20% center/cover;
+    background-attachment: fixed;
   }
 
   /* CONTACT

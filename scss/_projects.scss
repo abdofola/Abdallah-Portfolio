@@ -19,8 +19,9 @@
 
     .text-secondary {
       flex: 0 0 calc(33% - 1rem);
-      font-size: 2rem;
+      font-size: clamp(2vw, 2rem, 6vw);
       font-family: $ff-contact;
+      font-weight: 700;
       color: $yellow;
       opacity: 0;
       transform: translateX(-7rem);
@@ -32,9 +33,10 @@
       flex: 0 0 calc(33% - 1rem);
       text-align: justify;
       line-height: 1.5;
+      font-size: clamp(1.5vw, 1.3rem , 4vw);
+      color: darken($color: $light-color, $amount: 30%);
       opacity: 0;
       transform: translateY(-1rem) scale(1.2);
-      color: lighten($color: $primary-color, $amount: 40%);
       animation: clear 0.5s 1s forwards;
     }
   }

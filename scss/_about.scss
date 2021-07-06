@@ -68,7 +68,7 @@
           opacity: 0;
           font-size: 80%;
           font-style: oblique;
-          color: lighten($primary-color, 0%);
+          color: $primary-color;
           transform: translateY(10rem);
           animation: clear 0.5s 2s forwards;
         }
