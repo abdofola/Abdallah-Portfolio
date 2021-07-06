@@ -31,10 +31,14 @@ function transform(element, string) {
 }
 
 // Attach event listener (load) to the element to play pre-loader for a certian period of time.
-function preLoader(elemToAttach, showPage) {
-  elemToAttach.addEventListener("load", function () {
-    setTimeout(showPage, 2500);
+function preLoader(showPage) {
+  let timeoutID;
+  window.addEventListener("load", function () {
+    this.setTimeout(showPage, 2000);
   });
+  // hopefully this would work for safari
+  timeoutID = window.setInterval(showPage);
+  clearInterval(timeoutID);
 }
 
 export {

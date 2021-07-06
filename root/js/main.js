@@ -23,6 +23,7 @@ const jobs = new Jobs();
 const project = new Project();
 const currentYear = new Date().getFullYear();
 const header = document.querySelector("header");
+const logo = document.querySelector(".logo");
 const main = document.querySelector("main");
 const loader = document.querySelector(".loader");
 const nav = document.querySelector(".nav");
@@ -65,7 +66,7 @@ nav.style.backgroundPosition = indicatorPosition - navConst + "px";
 // console.log("PROJECT_PAGE:", PROJECT_PAGE);
 // console.log('menuRec.left',menuRec.left)
 
-preLoader(window, function () {
+preLoader(function () {
   displayNone(loader);
   displayBlock(header);
   displayBlock(main);
@@ -101,15 +102,24 @@ function displaySection() {
 
 function offsetX(elem) {
   menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
-  if (hasClass(elem, "btn--contact")) {
-    addClass(menuItems[3], "sc-current", "active");
-    posIndicatorNavBg(menuItems[3]);
-  } else if (hasClass(elem, "btn--projects")) {
-    addClass(menuItems[2], "sc-current", "active");
-    posIndicatorNavBg(menuItems[2]);
-  } else {
-    addClass(elem.parentElement, "sc-current", "active");
-    posIndicatorNavBg(elem.parentElement);
+  
+  switch (elem.className) {
+    case "btn btn--contact":
+      addClass(menuItems[3], "sc-current", "active");
+      posIndicatorNavBg(menuItems[3]);
+      break;
+    case "btn btn--projects":
+      addClass(menuItems[2], "sc-current", "active");
+      posIndicatorNavBg(menuItems[2]);
+      break;
+    case "logo":
+      addClass(menuItems[0], "sc-current", "active");
+      posIndicatorNavBg(menuItems[0]);
+      break;
+    default:
+      addClass(elem.parentElement, "sc-current", "active");
+      posIndicatorNavBg(elem.parentElement);
+      break;
   }
 }
 
@@ -122,8 +132,11 @@ function posIndicatorNavBg(element) {
 }
 
 // Events to toggle sections
-homeLink.addEventListener("click", sectionToggle);
-projLink.addEventListener("click", sectionToggle);
+[logo, homeLink, projLink].forEach((link) =>
+  link.addEventListener("click", sectionToggle)
+);
+// homeLink.addEventListener("click", sectionToggle);
+// projLink.addEventListener("click", sectionToggle);
 links.forEach((link) => {
   link.addEventListener("click", sectionToggle);
 });

@@ -56,7 +56,7 @@ const next = document.querySelector(".next");
 let count = 1;
 let currentIdx = 0;
 
-preLoader(window, function () {
+preLoader( function () {
   displayNone(document.querySelector(".loader"));
   displayBlock(document.querySelector("header"));
   displayBlock(document.querySelector("main"));

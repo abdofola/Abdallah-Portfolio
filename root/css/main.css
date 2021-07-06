@@ -66,7 +66,6 @@ html {
 
 .home__name--last {
   color: #1170b4;
-  font-weight: 700;
 }
 
 .home .btn {
@@ -158,10 +157,19 @@ html {
   top: 4vmin;
   left: 1rem;
   inline-size: 3.5vw;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .logo img {
   inline-size: 100%;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.logo img:hover {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 
 /* THE NAVIGATION MENU
@@ -527,8 +535,9 @@ html {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33% - 1rem);
           flex: 0 0 calc(33% - 1rem);
-  font-size: 2rem;
+  font-size: clamp(2vw, 2rem, 6vw);
   font-family: "Indie Flower", cursive;
+  font-weight: 700;
   color: #ffc907;
   opacity: 0;
   -webkit-transform: translateX(-7rem);
@@ -545,10 +554,11 @@ html {
           flex: 0 0 calc(33% - 1rem);
   text-align: justify;
   line-height: 1.5;
+  font-size: clamp(1.5vw, 1.3rem, 4vw);
+  color: #b3b3b3;
   opacity: 0;
   -webkit-transform: translateY(-1rem) scale(1.2);
           transform: translateY(-1rem) scale(1.2);
-  color: #8d8d8d;
   -webkit-animation: clear 0.5s 1s forwards;
           animation: clear 0.5s 1s forwards;
 }
@@ -937,7 +947,7 @@ html {
 }
 
 .menu__back:after {
-  content: 'Go back';
+  content: "Go back";
   position: absolute;
   left: 0;
   bottom: -2vw;
@@ -953,6 +963,8 @@ html {
   color: white;
   background: #5a5a5a;
   border-radius: 50%;
+  -webkit-transform: translate(-20%, -50%);
+          transform: translate(-20%, -50%);
 }
 
 .menu__back:hover::after {
@@ -962,6 +974,8 @@ html {
 
 .menu__back:hover i {
   color: #272727;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .menu__back i {
@@ -1292,24 +1306,36 @@ main .article__footer a:hover {
   /* HOME
 ----------------------------------------*/
   .home {
-    text-align: left;
-    background: #272727;
-    overflow: hidden;
-  }
-  .home__wrapper {
-    width: 90%;
-    margin: 0 auto;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(calc(min(10rem, 100%)), 1fr))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
+    position: relative;
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    gap: 1rem;
+    text-align: left;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.79))), url(../img/projects-6.webp) no-repeat center center/cover;
+    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.79)), url(../img/projects-6.webp) no-repeat center center/cover;
+    -webkit-animation: none;
+            animation: none;
+    overflow: hidden;
+  }
+  .home__wrapper {
+    inline-size: 85%;
+    margin: 0;
+    display: -ms-grid;
+    display: grid;
+    place-self: center;
+    -ms-grid-columns: (minmax(calc(min(10rem, 100%)), 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(calc(min(10rem, 100%)), 1fr));
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: clamp(2vw, 5rem, 3.8vw);
   }
   .home__wrapper .left {
     display: -ms-grid;
@@ -1320,14 +1346,49 @@ main .article__footer a:hover {
   .home__wrapper .left h2:first-of-type {
     -ms-flex-item-align: end;
         align-self: flex-end;
-    font-size: 0.8rem;
+    font-size: clamp(1.3vw, 1rem, 3vw);
+    margin: 0;
+    opacity: 0;
+    font-style: italic;
+    color: #e6e6e6;
+    -webkit-transform: translateX(-7rem);
+            transform: translateX(-7rem);
+    -webkit-animation: clear 0.5s forwards;
+            animation: clear 0.5s forwards;
   }
   .home__wrapper .left .home__name {
-    font-size: 2.5rem;
-    line-height: 1;
+    font-size: clamp(3.5vw, 2.5rem, 5vw);
+    font-weight: 600;
+    line-height: 1.5;
+    border: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -webkit-transform: translateX(-7rem);
+            transform: translateX(-7rem);
+    -webkit-animation: clear 0.5s forwards;
+            animation: clear 0.5s forwards;
+  }
+  .home__wrapper .left .home__name::before, .home__wrapper .left .home__name::after {
+    font-size: 2.7rem;
+    font-family: sans-serif;
+    content: open-quote;
+  }
+  .home__wrapper .left .home__name::after {
+    content: close-quote;
   }
   .home__wrapper .left h2:last-of-type {
-    font-size: 1.3rem;
+    font-size: clamp(1vw, 1.8rem, 2vw);
+    line-height: 1.5;
+    opacity: 0;
+    -webkit-transform: translateX(-7rem);
+            transform: translateX(-7rem);
+    -webkit-animation: clear 0.5s forwards;
+            animation: clear 0.5s forwards;
+    color: white;
+  }
+  .home__wrapper .left h2:last-of-type::after {
+    content: " based in Sudan. I create fascinitaing websites to help people go online.";
   }
   .home__wrapper .left .btn {
     -ms-flex-item-align: end;
@@ -1348,9 +1409,6 @@ main .article__footer a:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -1371,12 +1429,13 @@ main .article__footer a:hover {
     -webkit-animation: clear 0.8s 0.5s forwards;
             animation: clear 0.8s 0.5s forwards;
   }
-  .home__wrapper .right .border-front {
+  .home__wrapper .right .border-front,
+  .home__wrapper .right .border-back {
+    inline-size: 250px;
+    block-size: 250px;
     position: absolute;
     top: 50%;
     left: 50%;
-    inline-size: 250px;
-    block-size: 250px;
     border-top: 10px solid #168de2;
     border-bottom: 10px solid #168de2;
     border-radius: 30px;
@@ -1388,76 +1447,39 @@ main .article__footer a:hover {
             animation: frame 0.8s 0.5s forwards;
   }
   .home__wrapper .right .border-back {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    inline-size: 250px;
-    block-size: 250px;
     border-left: 10px solid #ffc907;
     border-right: 10px solid #ffc907;
-    border-radius: 30px;
-    -webkit-box-shadow: 0 0 10px black;
-            box-shadow: 0 0 10px black;
     z-index: 1;
-    opacity: 0;
-    -webkit-animation: frame 0.8s 0.5s forwards;
-            animation: frame 0.8s 0.5s forwards;
-  }
-  .home h2:first-of-type {
-    margin: 0;
-    opacity: 0;
-    font-style: italic;
-    color: #b3b3b3;
-    -webkit-transform: translateX(-7rem);
-            transform: translateX(-7rem);
-    -webkit-animation: clear 0.5s forwards;
-            animation: clear 0.5s forwards;
-  }
-  .home__name {
-    line-height: 1.5;
-    font-size: 4rem;
-    border: none;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    -webkit-transform: translateX(-7rem);
-            transform: translateX(-7rem);
-    -webkit-animation: clear 0.5s forwards;
-            animation: clear 0.5s forwards;
-  }
-  .home__name::before {
-    font-family: sans-serif;
-    content: open-quote;
-  }
-  .home__name::after {
-    content: close-quote;
-    font-family: sans-serif;
-  }
-  .home h2:last-of-type {
-    font-size: 1.5rem;
-    line-height: 1.5;
-    opacity: 0;
-    -webkit-transform: translateX(-7rem);
-            transform: translateX(-7rem);
-    -webkit-animation: clear 0.5s forwards;
-            animation: clear 0.5s forwards;
-    color: #b3b3b3;
-  }
-  .home h2:last-of-type::after {
-    content: " based in Sudan. I create fascinitaing websites to help people go online.";
   }
   /* ABOUT
 ----------------------------------------*/
-  .about .about__bio {
+  .about__bio-image {
+    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.8))), url(../img/bio-9.webp) no-repeat top 15% center/cover;
+    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.8)), url(../img/bio-9.webp) no-repeat top 15% center/cover;
+    background-attachment: fixed;
+  }
+  .about__bio-image .about__bio {
     -ms-grid-rows: (1fr)[3];
         grid-template-rows: repeat(3, 1fr);
   }
-  .about .about__bio .text-secondary {
+  .about__bio-image .about__bio .text-secondary {
     -ms-flex-item-align: end;
         align-self: flex-end;
   }
-  .about .about__bio p, .about .about__bio main .article__technical ul li, main .article__technical ul .about .about__bio li {
+  .about__bio-image .about__bio p, .about__bio-image .about__bio main .article__technical ul li, main .article__technical ul .about__bio-image .about__bio li {
     font-size: 125%;
+  }
+  .about__bio-image .about__bio .header-cue__cap {
+    color: #676767;
+  }
+  /* PROJECTS
+----------------------------------------*/
+  .projects {
+    position: relative;
+    z-index: 0;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.8))), url(../img/projects-8.webp) no-repeat bottom 20% center/cover;
+    background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.8)), url(../img/projects-8.webp) no-repeat bottom 20% center/cover;
+    background-attachment: fixed;
   }
   /* CONTACT
 ----------------------------------------*/
