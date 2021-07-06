@@ -36,9 +36,6 @@ function preLoader(showPage) {
   window.addEventListener("load", function () {
     this.setTimeout(showPage, 2000);
   });
-  // hopefully this would work for safari
-  timeoutID = window.setInterval(showPage);
-  clearInterval(timeoutID);
 }
 
 export {
