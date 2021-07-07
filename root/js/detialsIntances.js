@@ -31,5 +31,11 @@ const drumDetials = new DetialModel(
   projDetials[4].about,
   projDetials[4].techs
 );
+const odooModuleDetials = new DetialModel(
+  projDetials[5].title,
+  projDetials[5].screenShots,
+  projDetials[5].about,
+  projDetials[5].techs
+);
 
-export { appDetials, boomDetials, facebookDetials, blogDetials, drumDetials };
+export { appDetials, boomDetials, facebookDetials, blogDetials, drumDetials, odooModuleDetials };

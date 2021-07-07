@@ -503,17 +503,23 @@ html {
 .projects {
   -webkit-transition: all 0.5s 0.3s ease-in-out;
   transition: all 0.5s 0.3s ease-in-out;
-  -webkit-padding-after: 15vh;
-          padding-block-end: 15vh;
+  inline-size: 80%;
+  margin: auto;
+  -webkit-padding-after: 25vh;
+          padding-block-end: 25vh;
   display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 20%;
+      grid-template-rows: 20%;
 }
 
 .projects__header {
+  justify-self: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   position: relative;
   max-inline-size: 100%;
   inline-size: 80%;
-  margin: 15vw auto 0;
   block-size: 20vh;
   overflow: hidden;
   display: -webkit-box;
@@ -549,9 +555,6 @@ html {
 }
 
 .projects__header p, .projects__header main .article__technical ul li, main .article__technical ul .projects__header li {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(33% - 1rem);
-          flex: 0 0 calc(33% - 1rem);
   text-align: justify;
   line-height: 1.5;
   font-size: clamp(1.5vw, 1.3rem, 4vw);
@@ -564,21 +567,17 @@ html {
 }
 
 .projects__items {
-  inline-size: 60vw;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(calc(min(12rem, 100%)), 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(calc(min(12rem, 100%)), 1fr));
   gap: 2rem;
-  margin: 2rem auto 0;
 }
 
 .projects__item {
   position: relative;
   background: -webkit-gradient(linear, left top, right top, color-stop(5%, rgba(39, 39, 39, 0.5)), color-stop(25%, rgba(39, 39, 39, 0))), -webkit-gradient(linear, right top, left top, color-stop(5%, rgba(39, 39, 39, 0.5)), color-stop(20%, rgba(39, 39, 39, 0)));
   background: linear-gradient(90deg, rgba(39, 39, 39, 0.5) 5%, rgba(39, 39, 39, 0) 25%), linear-gradient(270deg, rgba(39, 39, 39, 0.5) 5%, rgba(39, 39, 39, 0) 20%);
-  -webkit-box-shadow: 10px 5px #2f2f2f;
-          box-shadow: 10px 5px #2f2f2f;
+  -webkit-box-shadow: 7px 7px #2f2f2f;
+          box-shadow: 7px 7px #2f2f2f;
   overflow: hidden;
   cursor: pointer;
 }
@@ -654,15 +653,15 @@ html {
 }
 
 .projects__item__header--red {
-  background: rgba(247, 159, 31, 0.7);
+  background: rgba(255, 0, 0, 0.6);
 }
 
 .projects__item__header--yellow {
-  background: rgba(255, 201, 7, 0.8);
+  background: #ffc907;
 }
 
 .projects__item__header--green {
-  background: rgba(163, 203, 56, 0.8);
+  background: rgba(0, 255, 0, 0.7);
 }
 
 .projects__item img {
@@ -1465,9 +1464,53 @@ main .article__footer a:hover {
   .projects {
     position: relative;
     z-index: 0;
+    padding: 0;
+    block-size: 100%;
+    inline-size: 100%;
+    -ms-grid-rows: 40%;
+        grid-template-rows: 40%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
     background: -webkit-gradient(linear, left top, right top, from(rgba(39, 39, 39, 0.8))), url(../img/projects-8.webp) no-repeat bottom 20% center/cover;
     background: linear-gradient(to right rgba(39, 39, 39, 0), rgba(39, 39, 39, 0.8)), url(../img/projects-8.webp) no-repeat bottom 20% center/cover;
     background-attachment: fixed;
+  }
+  .projects__header {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .projects__items {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    inline-size: 60vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 0;
+  }
+  .projects__items .projects__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(min(250px, calc(30% + 80px)));
+            flex: 0 0 calc(min(250px, calc(30% + 80px)));
+    -webkit-margin-end: 7.5px;
+            margin-inline-end: 7.5px;
+    padding: 0 5px 5px 0;
+  }
+  .projects__items .projects__item:nth-child(3) {
+    -ms-flex-item-align: stretch;
+        -ms-grid-row-align: stretch;
+        align-self: stretch;
+    height: 100%;
   }
   /* CONTACT
 ----------------------------------------*/

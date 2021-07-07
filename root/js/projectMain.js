@@ -4,6 +4,7 @@ import {
   facebookDetials,
   blogDetials,
   drumDetials,
+  odooModuleDetials,
 } from "./detialsIntances.js";
 
 import {
@@ -12,6 +13,7 @@ import {
   FACEBOOK_PAGE,
   APPSCRIPT_PAGE,
   DRUM_PAGE,
+  ODOO_PAGE,
 } from "./variable_enviroment.js";
 
 import {
@@ -31,6 +33,9 @@ switch (window.location.href) {
     break;
   case BOOM_PAGE:
     detials = boomDetials;
+    break;
+  case ODOO_PAGE:
+    detials = odooModuleDetials;
     break;
   case FACEBOOK_PAGE:
     detials = facebookDetials;
@@ -56,7 +61,7 @@ const next = document.querySelector(".next");
 let count = 1;
 let currentIdx = 0;
 
-preLoader( function () {
+preLoader(function () {
   displayNone(document.querySelector(".loader"));
   displayBlock(document.querySelector("header"));
   displayBlock(document.querySelector("main"));
@@ -136,7 +141,7 @@ function displayDetial(detialObj) {
   const sliders = [],
     imgs = [],
     items = [];
-    console.log(scArr)
+  console.log(scArr);
   h1.textContent = title;
   document
     .querySelector(".article__header")
