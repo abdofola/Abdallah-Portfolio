@@ -34,6 +34,11 @@ const projectArr = [
     linkDetails: "project-boom.html",
   },
   {
+    title: "Human Resources",
+    screenShot: "img/odoo-3.jpeg",
+    linkDetails: "project-odoo.html",
+  },
+  {
     title: "facebook-clone",
     screenShot: "img/project-1.png",
     linkDetails: "project-facebook.html",
@@ -43,16 +48,11 @@ const projectArr = [
     screenShot: "img/project-2.png",
     linkDetails: "project-blog.html",
   },
-  {
-    title: "drum-kit",
-    screenShot: "img/project-4.png",
-    linkDetails: "project-drumkit.html",
-  },
-  {
-    title: "node-upload-files",
-    screenShot: "img/project-3.png",
-    linkDetails: "project-nodeUploadFile.html",
-  },
+  // {
+  //   title: "drum-kit",
+  //   screenShot: "img/project-4.png",
+  //   linkDetails: "project-drumkit.html",
+  // },
 ];
 
 const projDetials = [
@@ -82,6 +82,7 @@ const projDetials = [
 
     techs: ["html", "css", "materialize", "javascript"],
   },
+
   {
     title: "Facebook front-end Clone",
     screenShots: [
@@ -128,7 +129,22 @@ const projDetials = [
       "This is a cool web app that let you play music on the fly.\
        Evey button renders different kind of sound which belongs to certian sound instrument, give it ago and try it",
 
-    techs: ["html", "css", "javascript",],
+    techs: ["html", "css", "javascript"],
+  },
+  {
+    title: "Human Resources Module",
+    screenShots: [
+      "./img/odoo-2.jpeg",
+      "./img/odoo-4.jpeg",
+      "./img/odoo-3.jpeg",
+    ],
+    about:
+      "This custom Odoo Module was built by app-script development team.\
+       In essence this module handles the process of claculating employees' loans monthly and anually\
+        and the incentives awarded to each employee. All of this represented in a concise and clear (PDF or Excel sheet) reports.\
+         and my main role in this project was to rest assure these reports satisfy the client's need.",
+
+    techs: ["xml", "html", "css", "odoo orm", "postgresql", "python"],
   },
 ];
 

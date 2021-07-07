@@ -2,14 +2,18 @@
 --------------------------------*/
 .projects {
   transition: all 0.5s 0.3s ease-in-out;
-  padding-block-end: 15vh;
+  inline-size: 80%;
+  margin: auto;
+  padding-block-end: 25vh;
   display: grid;
+  grid-template-rows: 20%;
 
   &__header {
+    justify-self: center;
+    align-self: flex-end;
     position: relative;
     max-inline-size: 100%;
     inline-size: 80%;
-    margin: 15vw auto 0;
     block-size: 20vh;
     overflow: hidden;
     display: flex;
@@ -30,10 +34,9 @@
       animation: clear 2s forwards;
     }
     p {
-      flex: 0 0 calc(33% - 1rem);
       text-align: justify;
       line-height: 1.5;
-      font-size: clamp(1.5vw, 1.3rem , 4vw);
+      font-size: clamp(1.5vw, 1.3rem, 4vw);
       color: darken($color: $light-color, $amount: 30%);
       opacity: 0;
       transform: translateY(-1rem) scale(1.2);
@@ -42,16 +45,9 @@
   }
 
   &__items {
-    inline-size: 60vw;
     display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(calc(min(12rem, 100%)), 1fr)
-    );
     gap: 2rem;
-    margin: 2rem auto 0;
   }
-
   &__item {
     position: relative;
     background: linear-gradient(
@@ -64,7 +60,7 @@
         rgba($primary-color, 0.5) 5%,
         rgba($primary-color, 0) 20%
       );
-    box-shadow: 10px 5px lighten($color: $primary-color, $amount: 3%);
+    box-shadow: 7px 7px lighten($color: $primary-color, $amount: 3%);
     overflow: hidden;
     cursor: pointer;
 
@@ -127,13 +123,13 @@
         color: lighten($primary-color, 30%);
       }
       &--red {
-        background: rgba($red, 0.7);
+        background: rgba($red-thick, 0.6);
       }
       &--yellow {
-        background: rgba($yellow, 0.8);
+        background: rgba($yellow, 1);
       }
       &--green {
-        background: rgba($green, 0.8);
+        background: rgba($green-thick, 0.7);
       }
     }
 
