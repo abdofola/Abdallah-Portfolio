@@ -1,6 +1,6 @@
 const GLOBAL = "https://abdofola.github.io/Abdallah-Portfolio/root";
 const LOCAL = "http://localhost:5501/root";
-const SERVER_STRING = LOCAL;
+const SERVER_STRING = GLOBAL;
 const APPSCRIPT_PAGE = `${SERVER_STRING}/project-appscript.html`;
 const BOOM_PAGE = `${SERVER_STRING}/project-boom.html`;
 const ODOO_PAGE = `${SERVER_STRING}/project-odoo.html`;
