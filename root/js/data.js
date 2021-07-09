@@ -59,9 +59,9 @@ const projDetials = [
   {
     title: "Appscript website",
     screenShots: [
+      "./img/project-appscript.jpeg",
       "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
       "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
-      "./img/project-appscript.jpeg",
     ],
     about:
       "This web application is built for a company that specializes in software solutions and ERP systems,\
@@ -71,9 +71,9 @@ const projDetials = [
   {
     title: "Boom Media Consultancy",
     screenShots: [
+      "./img/project-boom.jpeg",
       "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
       "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
-      "./img/project-boom.jpeg",
     ],
     about:
       "Boom Media Consultancy it's a company specialized in more than one major,\
@@ -86,9 +86,9 @@ const projDetials = [
   {
     title: "Facebook front-end Clone",
     screenShots: [
+      "./img/project-1.png",
       "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
       "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
-      "./img/project-1.png",
     ],
     about:
       "This is my very first static website,\
@@ -102,9 +102,9 @@ const projDetials = [
   {
     title: "Secret Blogs",
     screenShots: [
+      "./img/project-2.png",
       "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
       "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
-      "./img/project-2.png",
     ],
     about:
       "After finishing my journey with learing the front-end technologies,\
@@ -121,9 +121,9 @@ const projDetials = [
   {
     title: "Drum kit",
     screenShots: [
+      "./img/project-4.png",
       "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
       "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
-      "./img/project-4.png",
     ],
     about:
       "This is a cool web app that let you play music on the fly.\
@@ -134,9 +134,9 @@ const projDetials = [
   {
     title: "Human Resources Module",
     screenShots: [
+      "./img/odoo-3.jpeg",
       "./img/odoo-2.jpeg",
       "./img/odoo-4.jpeg",
-      "./img/odoo-3.jpeg",
     ],
     about:
       "This custom Odoo Module was built by app-script development team.\

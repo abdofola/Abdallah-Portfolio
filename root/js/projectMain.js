@@ -25,7 +25,14 @@ import {
   preLoader,
 } from "./utility.js";
 
+const arrows = document.querySelectorAll(".slideshow a");
+const dots = document.querySelectorAll(".dot");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+let count = 1;
+let currentIdx = 0;
 let detials;
+
 // Conditions to display project detials based on the current url
 switch (window.location.href) {
   case APPSCRIPT_PAGE:
@@ -47,19 +54,11 @@ switch (window.location.href) {
     detials = drumDetials;
     break;
   default:
-    detials = boomDetials;
+    detials = appDetials;
     break;
 }
-displayDetial(detials);
 
-const arrows = document.querySelectorAll(".slideshow a");
-const sliders = document.querySelectorAll(".slideshow__slide");
-const dots = document.querySelectorAll(".dot");
-const projMenu = document.querySelector(".menu__crumbs");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
-let count = 1;
-let currentIdx = 0;
+const sliders = displayDetial(detials);
 
 preLoader(function () {
   displayNone(document.querySelector(".loader"));
@@ -141,7 +140,7 @@ function displayDetial(detialObj) {
   const sliders = [],
     imgs = [],
     items = [];
-  console.log(scArr);
+  // console.log(scArr);
   h1.textContent = title;
   document
     .querySelector(".article__header")
@@ -169,4 +168,5 @@ function displayDetial(detialObj) {
       .querySelector(".article__technical ul")
       .insertAdjacentElement("afterbegin", items[i]);
   }
+  return sliders;
 }

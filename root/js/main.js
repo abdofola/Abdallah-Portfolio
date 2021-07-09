@@ -102,7 +102,7 @@ function displaySection() {
 
 function offsetX(elem) {
   menuItems.forEach((item) => removeClass(item, "sc-current", "active"));
-  
+
   switch (elem.className) {
     case "btn btn--contact":
       addClass(menuItems[3], "sc-current", "active");
