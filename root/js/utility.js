@@ -30,12 +30,18 @@ function transform(element, string) {
   element.style.transform = string;
 }
 
-// Attach event listener (load) to the element to play pre-loader for a certian period of time.
-function preLoader(showPage) {
-  let timeoutID;
-  window.addEventListener("load", function () {
-    this.setTimeout(showPage, 2000);
-  });
+// Async/await function to display page conent after fixed time.
+async function preLoader(showPage) {
+  try {
+    let promise = new Promise((resovle, reject) => {
+      window.addEventListener("load", function () {
+        setTimeout(() => resovle(showPage()), 2000);
+      });
+    });
+    return await promise;
+  } catch (err) {
+    return err;
+  }
 }
 
 export {

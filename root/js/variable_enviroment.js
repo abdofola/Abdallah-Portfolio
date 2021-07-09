@@ -1,16 +1,15 @@
-const SERVER_IP = "https://abdofola.github.io/Abdallah-Portfolio/root";
-const SERVER_LOCAL = "http://127.0.0.1:5501/root";
-const APPSCRIPT_PAGE = `${SERVER_IP}/project-appscript.html`;
-const BOOM_PAGE = `${SERVER_IP}/project-boom.html`;
-const ODOO_PAGE = `${SERVER_IP}/project-odoo.html`;
-const FACEBOOK_PAGE = `${SERVER_IP}/project-facebook.html`;
-const BLOG_PAGE = `${SERVER_IP}/project-blog.html`;
-const DRUM_PAGE = `${SERVER_IP}/project-drumkit.html`;
-const INDEX_PAGE = `${SERVER_IP}/`;
+const GLOBAL = "https://abdofola.github.io/Abdallah-Portfolio/root";
+const LOCAL = "http://localhost:5501/root";
+const SERVER_STRING = LOCAL;
+const APPSCRIPT_PAGE = `${SERVER_STRING}/project-appscript.html`;
+const BOOM_PAGE = `${SERVER_STRING}/project-boom.html`;
+const ODOO_PAGE = `${SERVER_STRING}/project-odoo.html`;
+const FACEBOOK_PAGE = `${SERVER_STRING}/project-facebook.html`;
+const BLOG_PAGE = `${SERVER_STRING}/project-blog.html`;
+const DRUM_PAGE = `${SERVER_STRING}/project-drumkit.html`;
+const INDEX_PAGE = `${SERVER_STRING}/`;
 
 export {
-  SERVER_IP,
-  SERVER_LOCAL,
   BOOM_PAGE,
   FACEBOOK_PAGE,
   BLOG_PAGE,
