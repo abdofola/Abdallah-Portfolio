@@ -1202,11 +1202,6 @@ main .article__footer a:hover {
 }
 
 @media screen and (min-width: 45em) {
-  header {
-    position: absolute !important;
-    overflow-x: hidden;
-    padding: 0 !important;
-  }
   .menu-btn {
     display: none;
   }
@@ -1630,7 +1625,6 @@ header {
   position: fixed;
   width: 100%;
   z-index: 2;
-  padding: 1rem;
 }
 
 .flip-box {

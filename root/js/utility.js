@@ -40,8 +40,16 @@ async function preLoader(showPage) {
     });
     return await promise;
   } catch (err) {
-    return err;
+    console.log(err);
   }
+}
+// custom function to round down
+function round(value) {
+  const rounded = Math.floor(value * 10) / 10;
+  const fixed = rounded.toFixed(1);
+  return parseFloat(fixed);
+  // const multiplier = Math.pow(10, precision || 0);
+  // return Math.round(value * multiplier) / multiplier;
 }
 
 export {
@@ -54,4 +62,5 @@ export {
   display,
   transform,
   preLoader,
+  round,
 };
