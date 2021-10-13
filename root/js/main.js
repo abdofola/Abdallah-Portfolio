@@ -8,6 +8,7 @@ import {
   displayNone,
   displayBlock,
   preLoader,
+  round,
 } from "./utility.js";
 import {
   BLOG_PAGE,
@@ -29,6 +30,9 @@ const loader = document.querySelector(".loader");
 const nav = document.querySelector(".nav");
 const menu = document.querySelector(".menu-nav");
 const sections = document.querySelectorAll("section");
+const home = document.querySelector('#home');
+const proj = document.querySelector('#projects');
+const contact = document.querySelector('#contact');
 const links = document.querySelectorAll("li .menu-nav__link");
 const homeLink = document.querySelector(".btn--contact");
 const projLink = document.querySelector(".btn--projects");
@@ -51,12 +55,14 @@ const PROJECT_PAGE =
   prevPage == BLOG_PAGE ||
   prevPage == DRUM_PAGE;
 const menuRec = menu?.getBoundingClientRect();
+const bioRec = document.querySelector(".about__bio").getBoundingClientRect();
 const indicatorConst = 14.6;
 const navConst = -1;
 let currItem = document.querySelector(".sc-current.active");
 let currItemRec = currItem?.getBoundingClientRect();
 let offset = currItemRec.left - menuRec.left;
 let indicatorPosition = offset;
+let lastScroll = 0;
 
 menuIndecator.style.left = indicatorPosition - indicatorConst + "px";
 nav.style.backgroundPosition = indicatorPosition - navConst + "px";
@@ -135,8 +141,7 @@ function posIndicatorNavBg(element) {
 [logo, homeLink, projLink].forEach((link) =>
   link.addEventListener("click", sectionToggle)
 );
-// homeLink.addEventListener("click", sectionToggle);
-// projLink.addEventListener("click", sectionToggle);
+
 links.forEach((link) => {
   link.addEventListener("click", sectionToggle);
 });
@@ -169,16 +174,15 @@ footers.forEach((footer) => {
 
 // function to toggle the down-finger icon appearence
 function callback() {
-  const cueRec = bioImg.getBoundingClientRect();
+  const bioRec = bioImg.getBoundingClientRect();
 
-  if (cueRec.top < -5) {
+  if (bioRec.top < -5) {
     displayNone(cue?.children[0]);
     displayNone(cue?.children[1]);
   } else {
     displayBlock(cue?.children[0]);
     displayBlock(cue?.children[1]);
   }
-
   window.requestAnimationFrame(callback);
 }
 window.requestAnimationFrame(callback);

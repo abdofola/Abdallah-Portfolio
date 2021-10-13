@@ -1,8 +1,8 @@
 @include break-point-min(45em) {
   header {
-    position: absolute !important;
-    overflow-x: hidden;
-    padding: 0 !important;
+    // // position: absolute !important;
+    // overflow-x: hidden;
+    // padding: 0 !important;
   }
   .menu-btn {
     display: none;
@@ -235,38 +235,18 @@
   .projects {
     position: relative;
     z-index: 0;
-    padding: 0;
-    block-size: 100%;
     inline-size: 100%;
-    grid-template-rows: 40%;
-    align-items: center;
-    justify-items: center;
+    justify-content: center;
     background: linear-gradient(
         to right rgba($primary-color, 0),
         rgba($primary-color, 0.8)
       ),
-      url(../img/projects-8.webp) no-repeat bottom 20% center/cover;
-    background-attachment: fixed;
-    &__header {
-      align-self: flex-end;
-    }
+      url(../img/projects-8.webp) no-repeat bottom 15% center/cover;
+    
     &__items {
-      align-self: flex-start;
-      inline-size: 60vw;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 0;
-      .projects__item {
-        flex: 0 0 calc(min(250px, calc(30% + 80px)));
-        margin-inline-end: 7.5px;
-        padding: 0 5px 5px 0;
-        &:nth-child(3) {
-          align-self: stretch;
-          height: 100%;
-        }
-      }
+      width: calc(min(60rem, 85%));
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(auto, 250px));
     }
   }
 
