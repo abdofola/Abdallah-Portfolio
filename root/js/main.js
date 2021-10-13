@@ -1,22 +1,12 @@
 import {
   addClass,
   removeClass,
-  toggleClass,
   hasClass,
-  display,
   transform,
   displayNone,
   displayBlock,
   preLoader,
-  round,
 } from "./utility.js";
-import {
-  BLOG_PAGE,
-  FACEBOOK_PAGE,
-  BOOM_PAGE,
-  APPSCRIPT_PAGE,
-  DRUM_PAGE,
-} from "./variable_enviroment.js";
 import Jobs from "./Job.js";
 import Project from "./Project.js";
 
@@ -30,9 +20,6 @@ const loader = document.querySelector(".loader");
 const nav = document.querySelector(".nav");
 const menu = document.querySelector(".menu-nav");
 const sections = document.querySelectorAll("section");
-const home = document.querySelector('#home');
-const proj = document.querySelector('#projects');
-const contact = document.querySelector('#contact');
 const links = document.querySelectorAll("li .menu-nav__link");
 const homeLink = document.querySelector(".btn--contact");
 const projLink = document.querySelector(".btn--projects");
@@ -44,18 +31,10 @@ const footers = document.querySelectorAll("footer");
 const cue = document.querySelector(".header-cue");
 const flipBox = document.querySelector(".flip-box__inner");
 const projectItems = document.querySelector(".projects__items");
-const prevPage = document.referrer;
 const href = document?.location?.href;
 const link = href.split("#")[1];
 const projectItemList = [];
-const PROJECT_PAGE =
-  prevPage == BOOM_PAGE ||
-  prevPage == APPSCRIPT_PAGE ||
-  prevPage == FACEBOOK_PAGE ||
-  prevPage == BLOG_PAGE ||
-  prevPage == DRUM_PAGE;
 const menuRec = menu?.getBoundingClientRect();
-const bioRec = document.querySelector(".about__bio").getBoundingClientRect();
 const indicatorConst = 14.6;
 const navConst = -1;
 let currItem = document.querySelector(".sc-current.active");
@@ -67,10 +46,6 @@ let lastScroll = 0;
 menuIndecator.style.left = indicatorPosition - indicatorConst + "px";
 nav.style.backgroundPosition = indicatorPosition - navConst + "px";
 
-// console.log(href);
-// console.log("PREVIOUS PAGE:", prevPage);
-// console.log("PROJECT_PAGE:", PROJECT_PAGE);
-// console.log('menuRec.left',menuRec.left)
 
 preLoader(function () {
   displayNone(loader);

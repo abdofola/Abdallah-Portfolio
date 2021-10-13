@@ -6,7 +6,7 @@ const BOOM_PAGE = `${SERVER_STRING}/project-boom.html`;
 const ODOO_PAGE = `${SERVER_STRING}/project-odoo.html`;
 const FACEBOOK_PAGE = `${SERVER_STRING}/project-facebook.html`;
 const BLOG_PAGE = `${SERVER_STRING}/project-blog.html`;
-const DRUM_PAGE = `${SERVER_STRING}/project-drumkit.html`;
+const MOMOSTORE_PAGE = `${SERVER_STRING}/project-momostore.html`;
 const INDEX_PAGE = `${SERVER_STRING}/`;
 
 export {
@@ -15,6 +15,6 @@ export {
   BLOG_PAGE,
   APPSCRIPT_PAGE,
   INDEX_PAGE,
-  DRUM_PAGE,
+  MOMOSTORE_PAGE,
   ODOO_PAGE,
 };

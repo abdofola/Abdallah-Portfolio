@@ -55,12 +55,11 @@
     &--contact {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
       &:hover {
-        color: $secondary-color;
+        opacity: 0.5;
       }
     }
     &--projects {
       margin-block-start: clamp(5vh, 7rem, 10vh);
-
       color: #fff;
       animation: clear 0.5s 1.5s forwards;
       clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);     
@@ -68,7 +67,7 @@
         background-color: rgba($yellow, 0.5)!important;
       }
       &:hover {
-        color: $yellow;
+        opacity: 0.5;
       }
     }
     &:link {
