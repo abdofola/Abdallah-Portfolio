@@ -1,4 +1,4 @@
-const GLOBAL = "https://abdallah-alkaser.netlify.app/";
+const GLOBAL = "https://abdallah-alkaser.netlify.app";
 const LOCAL = "http://localhost:5502/root";
 const SERVER_STRING = GLOBAL;
 const APPSCRIPT_PAGE = `${SERVER_STRING}/project-appscript.html`;
