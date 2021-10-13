@@ -41,35 +41,38 @@
     margin: auto;
     inline-size: 50%;
     font-family: $ff-detials-2;
-    margin-block-start: clamp(5vh, 7rem, 10vh);
+    margin-block-start: 1rem;
+
     cursor: pointer;
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
-    border-radius: 20px;
+    border-radius: 5px;
     text-transform: uppercase;
-    color: $yellow;
+    // color: $yellow;
     opacity: 0;
     transform: translateY(-100%) scale(1.2);
     animation: clear 0.5s 1s forwards;
     &--contact {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%);
       &:hover {
         color: $secondary-color;
       }
     }
     &--projects {
-      margin-block-start: 1rem;
-      border: 1px solid $yellow;
+      margin-block-start: clamp(5vh, 7rem, 10vh);
+
+      color: #fff;
       animation: clear 0.5s 1.5s forwards;
-      color: darken($secondary-color, 10%);
+      clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);     
       &:link {
-        background-color: transparent !important;
+        background-color: rgba($yellow, 0.5)!important;
       }
       &:hover {
         color: $yellow;
       }
     }
     &:link {
-      background: darken($secondary-color, 20%);
+      background: rgba($secondary-color, 0.5);
     }
     &:hover {
       mix-blend-mode: overlay;

@@ -1,16 +1,22 @@
 const jobsArr = [
   {
     rangeOfYear: "2021 - current",
+    company: "freelancer",
+    role: "Full-stack Developer",
+    text: "Presently I work as a Full-stack developer after I sharpened my skills in the front & back end technologies to deliver software that serves as a value which's maintainable, scalable and meets the customer needs.",
+  },
+  {
+    rangeOfYear: "jan - june, 2021",
     company: "App-script Company",
     role: "Front-end Developer, odoo Developer",
-    text: "In this period of time I work as an ERP developer mainly with odoo framework in regards to functional & technical sides, and collaberate with the team.",
+    text: "In this period of time I work as an ERP developer mainly with odoo framework in regards to functional & technical sids, as well as front-end developer and collaberate with the team.",
   },
   {
     rangeOfYear: "2020 - 2021",
     company: "Khatwa intiative",
     role: "Full-stack developer",
-    text: "In this period of time I've worked as a full-stack developer using html, css, javascript \
-     and some frameworks such as: bootstrap and React lib for the front-end. In addition to that I've worked with Nodejs and Express as its framework to develop the back-end.\
+    text: "In this period of time I've worked as an intern full-stack developer using html, css, javascript \
+     and some frameworks such as: bootstrap and Reactjs for the front-end. In addition to that I've worked with Nodejs and Express as its framework to develop the back-end.\
       And I've done tons of projects using Nodejs & mongoDB.",
   },
   {
@@ -23,6 +29,11 @@ const jobsArr = [
 ];
 
 const projectArr = [
+  {
+    title: "momo store",
+    screenShot: "img/project-momostore.png",
+    linkDetails: "project-momostore.html",
+  },
   {
     title: "app-script",
     screenShot: "img/project-appscript.jpeg",
@@ -56,6 +67,18 @@ const projectArr = [
 ];
 
 const projDetials = [
+  {
+    title: "Momo Store",
+    screenShots: [
+      "./img/project-momostore.png",
+      "./img/Momo1.png",
+      "./img/Momo2.png",
+    ],
+    about:
+      "This project built for a privately held company (Sole proprietorship) that trades in products and provide \
+       shippment service from Asia all the way to africa. Hit the button above to check it up.",
+    techs: ["php", "mysqlDB", "Reactjs"],
+  },
   {
     title: "Appscript website",
     screenShots: [
