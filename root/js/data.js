@@ -59,11 +59,7 @@ const projectArr = [
     screenShot: "img/project-2.png",
     linkDetails: "project-blog.html",
   },
-  // {
-  //   title: "drum-kit",
-  //   screenShot: "img/project-4.png",
-  //   linkDetails: "project-drumkit.html",
-  // },
+  
 ];
 
 const projDetials = [
@@ -141,19 +137,7 @@ const projDetials = [
 
     techs: ["html", "css", "javascript", "nodejs", "mongoDB"],
   },
-  {
-    title: "Drum kit",
-    screenShots: [
-      "./img/project-4.png",
-      "https://via.placeholder.com/500/0000ff?text=no+more+shots+😋️",
-      "https://via.placeholder.com/500/000000?text=no+more+shots+😋️",
-    ],
-    about:
-      "This is a cool web app that let you play music on the fly.\
-       Evey button renders different kind of sound which belongs to certian sound instrument, give it ago and try it",
-
-    techs: ["html", "css", "javascript"],
-  },
+  
   {
     title: "Human Resources Module",
     screenShots: [

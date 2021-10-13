@@ -3,7 +3,7 @@ import {
   boomDetials,
   facebookDetials,
   blogDetials,
-  drumDetials,
+  momoDetials,
   odooModuleDetials,
 } from "./detialsIntances.js";
 
@@ -12,8 +12,8 @@ import {
   BOOM_PAGE,
   FACEBOOK_PAGE,
   APPSCRIPT_PAGE,
-  DRUM_PAGE,
-  ODOO_PAGE,
+  MOMOSTORE_PAGE,
+  ODOO_PAGE,  
 } from "./variable_enviroment.js";
 
 import {
@@ -50,8 +50,8 @@ switch (window.location.href) {
   case BLOG_PAGE:
     detials = blogDetials;
     break;
-  case DRUM_PAGE:
-    detials = drumDetials;
+  case MOMOSTORE_PAGE:
+    detials = momoDetials;
     break;
   default:
     detials = appDetials;

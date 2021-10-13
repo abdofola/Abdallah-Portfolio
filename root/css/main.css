@@ -95,7 +95,7 @@ html {
 }
 
 .home .btn--contact:hover {
-  color: #168de2;
+  opacity: 0.5;
 }
 
 .home .btn--projects {
@@ -113,7 +113,7 @@ html {
 }
 
 .home .btn--projects:hover {
-  color: #ffc907;
+  opacity: 0.5;
 }
 
 .home .btn:link {
