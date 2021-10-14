@@ -1,6 +1,12 @@
 import DetialModel from "./Detial.js";
 import { projDetials } from "./data.js";
 
+const momoDetials = new DetialModel(
+  projDetials[0].title,
+  projDetials[0].screenShots,
+  projDetials[0].about,
+  projDetials[0].techs
+);
 const appDetials = new DetialModel(
   projDetials[1].title,
   projDetials[1].screenShots,
@@ -25,12 +31,6 @@ const blogDetials = new DetialModel(
   projDetials[4].about,
   projDetials[4].techs
 );
-const momoDetials = new DetialModel(
-  projDetials[0].title,
-  projDetials[0].screenShots,
-  projDetials[0].about,
-  projDetials[0].techs
-);
 const odooModuleDetials = new DetialModel(
   projDetials[5].title,
   projDetials[5].screenShots,
@@ -38,4 +38,11 @@ const odooModuleDetials = new DetialModel(
   projDetials[5].techs
 );
 
-export { appDetials, boomDetials, facebookDetials, blogDetials, momoDetials, odooModuleDetials };
+export {
+  appDetials,
+  boomDetials,
+  facebookDetials,
+  blogDetials,
+  momoDetials,
+  odooModuleDetials,
+};
