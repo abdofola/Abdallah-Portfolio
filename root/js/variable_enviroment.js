@@ -1,9 +1,10 @@
-// const netlify = "https://abdallah-alkaser.netlify.app/";
+const netlify = "https://abdallah-alkaser.netlify.app/";
 const github = "https://abdofola.github.io/Abdallah-Portfolio";
-const domain =
-  origin === github || window.location.hostname === "localhost"
-    ? `${origin}/root`
-    : origin;
+const domain = Object.is(origin, github)
+  ? `${origin}/Abdallah-Portfolio/root`
+  : Object.is(origin, netlify)
+  ? origin
+  : `${origin}/root`;
 const APPSCRIPT_PAGE = `${domain}/project-appscript.html`;
 const BOOM_PAGE = `${domain}/project-boom.html`;
 const ODOO_PAGE = `${domain}/project-odoo.html`;
