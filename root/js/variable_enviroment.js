@@ -1,13 +1,16 @@
-const GLOBAL = "https://abdallah-alkaser.netlify.app";
-const LOCAL = "http://localhost:5502/root";
-const SERVER_STRING = GLOBAL;
-const APPSCRIPT_PAGE = `${SERVER_STRING}/project-appscript.html`;
-const BOOM_PAGE = `${SERVER_STRING}/project-boom.html`;
-const ODOO_PAGE = `${SERVER_STRING}/project-odoo.html`;
-const FACEBOOK_PAGE = `${SERVER_STRING}/project-facebook.html`;
-const BLOG_PAGE = `${SERVER_STRING}/project-blog.html`;
-const MOMOSTORE_PAGE = `${SERVER_STRING}/project-momostore.html`;
-const INDEX_PAGE = `${SERVER_STRING}/`;
+// const netlify = "https://abdallah-alkaser.netlify.app/";
+const github = "https://abdofola.github.io/Abdallah-Portfolio";
+const domain =
+  origin === github || window.location.hostname === "localhost"
+    ? `${origin}/root`
+    : origin;
+const APPSCRIPT_PAGE = `${domain}/project-appscript.html`;
+const BOOM_PAGE = `${domain}/project-boom.html`;
+const ODOO_PAGE = `${domain}/project-odoo.html`;
+const FACEBOOK_PAGE = `${domain}/project-facebook.html`;
+const BLOG_PAGE = `${domain}/project-blog.html`;
+const MOMOSTORE_PAGE = `${domain}/project-momostore.html`;
+const INDEX_PAGE = `${domain}/`;
 
 export {
   BOOM_PAGE,
