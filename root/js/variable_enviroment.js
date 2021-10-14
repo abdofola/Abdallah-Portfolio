@@ -1,5 +1,5 @@
-const netlify = "https://abdallah-alkaser.netlify.app/";
-const github = "https://abdofola.github.io/Abdallah-Portfolio";
+const netlify = "https://abdallah-alkaser.netlify.app";
+const github = "https://abdofola.github.io";
 const domain = Object.is(origin, github)
   ? `${origin}/Abdallah-Portfolio/root`
   : Object.is(origin, netlify)
